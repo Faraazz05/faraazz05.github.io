@@ -1,73 +1,140 @@
-# Welcome to your Lovable project
+# Faraaz Portfolio Website
 
-## Project info
+A cinematic dark glassmorphism portfolio showcasing AI research, writing, and creative projects.
 
-**URL**: https://lovable.dev/projects/49b40a13-f31f-420a-9bbe-48f4ac72e93c
+## 🎨 Design Features
 
-## How can I edit this code?
+- **Dark Glassmorphism Theme**: Semi-transparent panels with blur effects and cyan accent glow
+- **Smooth Animations**: Fade-in, slide, and parallax effects throughout
+- **Space Grotesk Font**: Modern, technical aesthetic
+- **Custom Cursor**: Subtle glow effect
+- **Responsive Design**: Mobile-first approach
 
-There are several ways of editing your application.
+## 📋 TODO: Content Updates
 
-**Use Lovable**
+Before deploying, update these files with your personal information:
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/49b40a13-f31f-420a-9bbe-48f4ac72e93c) and start prompting.
+### 1. **Update Social Links & Email**
+- [ ] `src/components/Footer.tsx` - Update GitHub, LinkedIn, and email links
+- [ ] `src/pages/Contact.tsx` - Update all social media handles and email address
 
-Changes made via Lovable will be committed automatically to this repo.
+### 2. **Resume Page** (`src/pages/Resume.tsx`)
+- [ ] Replace placeholder experience with your actual work history
+- [ ] Add your education details
+- [ ] Update programming languages and skill levels
+- [ ] Add research papers if applicable
+- [ ] Update "Currently Learning" section
 
-**Use your preferred IDE**
+### 3. **Projects Page** (`src/pages/Projects.tsx`)
+- [ ] Replace the 3 placeholder projects with your real projects
+- [ ] Add accurate descriptions, tech stacks, and GitHub links
+- [ ] Add live demo links if available
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+### 4. **Blogs Page** (`src/pages/Blogs.tsx`)
+- [ ] Update `MEDIUM_RSS_URL` with your actual Medium profile feed
+  - Format: `https://medium.com/feed/@your-username`
+- [ ] Test that the RSS feed is loading correctly
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+### 5. **Writings Page** (`src/pages/Writings.tsx`)
+- [ ] Replace placeholder writings with your actual creative work
+- [ ] Add real excerpts from your prose, poetry, or novel
+- [ ] Update the "About Forsaken Ká" section (or replace with your project)
 
-Follow these steps:
+### 6. **About Page** (`src/pages/About.tsx`)
+- [ ] Customize your bio and story
+- [ ] Update current focus and research interests
+- [ ] Modify skills if needed
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+### 7. **Home Page** (`src/pages/Home.tsx`)
+- [ ] Verify tagline and one-liner match your brand
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+### 8. **Images** (Optional)
+- [ ] Add a profile photo to `/public/` or `src/assets/`
+- [ ] Update any hero images or background graphics
 
-# Step 3: Install the necessary dependencies.
-npm i
+## 🚀 Form Integration
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+The contact form currently shows a toast notification. To enable actual email sending:
+
+**Option 1: Formspree** (Easiest)
+```typescript
+// In src/pages/Contact.tsx, update the form action:
+<form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
 ```
 
-**Edit a file directly in GitHub**
+**Option 2: EmailJS**
+1. Install: `npm install @emailjs/browser`
+2. Set up EmailJS account and get credentials
+3. Implement in Contact.tsx
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+**Option 3: Custom Backend**
+- Use Lovable Cloud to create an email sending endpoint
+- Update the form submission handler
 
-**Use GitHub Codespaces**
+## 🔧 Local Development
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+```bash
+# Install dependencies
+npm install
 
-## What technologies are used for this project?
+# Run development server
+npm run dev
 
-This project is built with:
+# Build for production
+npm run build
+```
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+## 📦 Deployment
 
-## How can I deploy this project?
+### GitHub Pages
+1. Update repository name to `your-username.github.io`
+2. Push code to GitHub
+3. Enable GitHub Pages in repository settings
+4. Set source to `main` branch
 
-Simply open [Lovable](https://lovable.dev/projects/49b40a13-f31f-420a-9bbe-48f4ac72e93c) and click on Share -> Publish.
+### Other Platforms
+- **Vercel**: Connect GitHub repo, auto-deploy
+- **Netlify**: Connect GitHub repo, auto-deploy
+- **Lovable**: Use the built-in "Publish" feature
 
-## Can I connect a custom domain to my Lovable project?
+## 🎨 Customization
 
-Yes, you can!
+### Colors
+Edit `src/index.css` to change the color scheme:
+- `--accent`: Main accent color (currently cyan #00FFFF)
+- `--background`: Page background colors
+- `--glass-glow`: Glow effect color
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+### Fonts
+Update `index.html` and `src/index.css` to change fonts.
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+### Animations
+Modify `tailwind.config.ts` keyframes and animation timing.
+
+## 📝 Project Structure
+
+```
+src/
+├── components/
+│   ├── Navbar.tsx       # Navigation bar with glass effect
+│   ├── Footer.tsx       # Footer with social links
+│   ├── GlassCard.tsx    # Reusable glass card component
+│   └── Layout.tsx       # Page layout wrapper
+├── pages/
+│   ├── Home.tsx         # Landing page
+│   ├── About.tsx        # About & bio
+│   ├── Resume.tsx       # Experience & education
+│   ├── Projects.tsx     # Project showcase
+│   ├── Blogs.tsx        # Medium integration
+│   ├── Writings.tsx     # Creative writing
+│   └── Contact.tsx      # Contact form
+└── index.css            # Design system & styles
+```
+
+## 🤝 Contributing
+
+This is a personal portfolio. Feel free to fork and adapt for your own use!
+
+## 📄 License
+
+MIT License - feel free to use this template for your own portfolio.
