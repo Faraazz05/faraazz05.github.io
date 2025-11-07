@@ -16,7 +16,8 @@ const Blogs = () => {
   const [error, setError] = useState(false);
 
   useEffect(() => {
-    // TODO: Replace with actual Medium RSS feed URL
+    // TODO: CRITICAL - Replace with YOUR actual Medium RSS feed URL
+    // Format: https://medium.com/feed/@your-username
     const MEDIUM_RSS_URL = "https://medium.com/feed/@faraaz";
     
     // Using a CORS proxy to fetch Medium RSS

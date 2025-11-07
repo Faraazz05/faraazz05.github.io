@@ -1,8 +1,10 @@
 import GlassCard from "@/components/GlassCard";
+import AnimatedSection from "@/components/AnimatedSection";
 import { BookOpen, FileText } from "lucide-react";
 
 const Writings = () => {
-  // TODO: Replace with actual writings
+  // TODO: Replace ALL these placeholder writings with your actual creative work
+  // Update: title, category, excerpt, date
   const writings = [
     {
       title: "Fragment I: The Weight of Silence",
@@ -74,9 +76,10 @@ const Writings = () => {
             ))}
           </div>
 
-          {/* About Forsaken Ká */}
-          <div className="mt-16 animate-fade-in-up">
+          {/* About Your Creative Work */}
+          <AnimatedSection delay={400}>
             <GlassCard hoverable={false} className="border-accent/20">
+              {/* TODO: Update this section with info about your novel/creative project */}
               <h2 className="text-2xl font-bold mb-4 text-accent">About Forsaken Ká</h2>
               <p className="text-muted-foreground leading-relaxed mb-4">
                 <em>Forsaken Ká</em> is a novel exploring consciousness, memory, and what it means 
@@ -88,7 +91,7 @@ const Writings = () => {
                 Currently in development. Selected excerpts available above.
               </p>
             </GlassCard>
-          </div>
+          </AnimatedSection>
 
           {/* Note about TODO items */}
           <div className="mt-12 p-4 rounded-lg bg-accent/5 border border-accent/20">

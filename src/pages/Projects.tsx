@@ -1,9 +1,11 @@
 import GlassCard from "@/components/GlassCard";
+import AnimatedSection from "@/components/AnimatedSection";
+import RippleButton from "@/components/RippleButton";
 import { ExternalLink, Github } from "lucide-react";
-import { Button } from "@/components/ui/button";
 
 const Projects = () => {
-  // TODO: Replace with actual projects
+  // TODO: Replace ALL these placeholder projects with your real projects
+  // Update: title, description, techStack, githubLink, liveLink
   const projects = [
     {
       title: "AI Research Project",
@@ -32,63 +34,63 @@ const Projects = () => {
     <div className="min-h-screen pt-24 pb-20 gradient-bg">
       <div className="container mx-auto px-6">
         <div className="max-w-6xl mx-auto">
-          <h1 className="text-5xl md:text-6xl font-bold mb-6 glow-text animate-fade-in">
-            Projects
-          </h1>
-          <p className="text-xl text-muted-foreground mb-16 animate-fade-in-up">
-            Building systems that matter
-          </p>
+          <AnimatedSection>
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 glow-text">
+              Projects
+            </h1>
+            <p className="text-lg sm:text-xl text-muted-foreground mb-16">
+              Building systems that matter
+            </p>
+          </AnimatedSection>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {projects.map((project, index) => (
-              <GlassCard
-                key={index}
-                className="flex flex-col animate-fade-in-up"
-                style={{ animationDelay: `${index * 100}ms` }}
-              >
-                <h3 className="text-xl font-semibold mb-3 text-accent">{project.title}</h3>
-                <p className="text-muted-foreground leading-relaxed mb-4 flex-1">
-                  {project.description}
-                </p>
-                
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {project.techStack.map((tech) => (
-                    <span
-                      key={tech}
-                      className="px-3 py-1 text-xs rounded-full bg-accent/10 text-accent border border-accent/30"
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
+              <AnimatedSection key={index} delay={index * 100}>
+                <GlassCard className="flex flex-col h-full">
+                  <h3 className="text-xl font-semibold mb-3 text-accent">{project.title}</h3>
+                  <p className="text-muted-foreground leading-relaxed mb-4 flex-1">
+                    {project.description}
+                  </p>
+                  
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    {project.techStack.map((tech) => (
+                      <span
+                        key={tech}
+                        className="px-3 py-1 text-xs rounded-full bg-accent/10 text-accent border border-accent/30 transition-transform hover:scale-105"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
 
-                <div className="flex gap-2">
-                  <Button
-                    variant="outline"
-                    size="sm"
-                    className="flex-1 border-accent/30 hover:bg-accent/10 hover:border-accent"
-                    asChild
-                  >
-                    <a href={project.githubLink} target="_blank" rel="noopener noreferrer">
-                      <Github className="w-4 h-4 mr-2" />
-                      Code
-                    </a>
-                  </Button>
-                  {project.liveLink && (
-                    <Button
+                  <div className="flex gap-2">
+                    <RippleButton
                       variant="outline"
                       size="sm"
                       className="flex-1 border-accent/30 hover:bg-accent/10 hover:border-accent"
                       asChild
                     >
-                      <a href={project.liveLink} target="_blank" rel="noopener noreferrer">
-                        <ExternalLink className="w-4 h-4 mr-2" />
-                        Live
+                      <a href={project.githubLink} target="_blank" rel="noopener noreferrer">
+                        <Github className="w-4 h-4 mr-2" />
+                        Code
                       </a>
-                    </Button>
-                  )}
-                </div>
-              </GlassCard>
+                    </RippleButton>
+                    {project.liveLink && (
+                      <RippleButton
+                        variant="outline"
+                        size="sm"
+                        className="flex-1 border-accent/30 hover:bg-accent/10 hover:border-accent"
+                        asChild
+                      >
+                        <a href={project.liveLink} target="_blank" rel="noopener noreferrer">
+                          <ExternalLink className="w-4 h-4 mr-2" />
+                          Live
+                        </a>
+                      </RippleButton>
+                    )}
+                  </div>
+                </GlassCard>
+              </AnimatedSection>
             ))}
           </div>
 

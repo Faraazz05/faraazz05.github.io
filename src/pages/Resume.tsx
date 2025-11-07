@@ -1,7 +1,9 @@
 import GlassCard from "@/components/GlassCard";
+import AnimatedSection from "@/components/AnimatedSection";
 import { Briefcase, GraduationCap, Code2, BookOpen } from "lucide-react";
 
 const Resume = () => {
+  // TODO: Replace with your actual work experience
   const experience = [
     {
       role: "AI Researcher / Developer",
@@ -11,6 +13,7 @@ const Resume = () => {
     },
   ];
 
+  // TODO: Add your actual education background
   const education = [
     {
       degree: "Computer Science & AI Research",
@@ -20,6 +23,7 @@ const Resume = () => {
     },
   ];
 
+  // TODO: Update with your actual programming languages and skill levels
   const languages = [
     { name: "Python", level: "Expert" },
     { name: "JavaScript/TypeScript", level: "Advanced" },
@@ -27,6 +31,7 @@ const Resume = () => {
     { name: "SQL", level: "Proficient" },
   ];
 
+  // TODO: Update with what you're currently learning
   const learning = [
     "Machine learning from first principles",
     "Neural architecture design and optimization",

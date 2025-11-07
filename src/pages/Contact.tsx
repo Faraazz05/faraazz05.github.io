@@ -14,32 +14,36 @@ const Contact = () => {
     message: "",
   });
 
+  // TODO: Update ALL these social links and email address
   const socialLinks = [
     {
       icon: Github,
       label: "GitHub",
-      href: "https://github.com/faraazz05",
-      handle: "@faraazz05",
+      href: "https://github.com/faraazz05", // Update this
+      handle: "@faraazz05", // Update this
     },
     {
       icon: Linkedin,
       label: "LinkedIn",
-      href: "https://linkedin.com/in/faraazz05",
-      handle: "/faraazz05",
+      href: "https://linkedin.com/in/faraazz05", // Update this
+      handle: "/faraazz05", // Update this
     },
     {
       icon: Mail,
       label: "Email",
-      href: "mailto:faraaz@example.com",
-      handle: "faraaz@example.com",
+      href: "mailto:faraaz@example.com", // Update this
+      handle: "faraaz@example.com", // Update this
     },
   ];
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     
-    // TODO: Implement actual form submission (Formspree, EmailJS, or backend API)
-    // For now, just show a toast
+    // TODO: CRITICAL - Implement actual form submission
+    // Option 1: Formspree - Add action="https://formspree.io/f/YOUR_FORM_ID"
+    // Option 2: EmailJS - Install package and implement
+    // Option 3: Lovable Cloud - Create edge function
+    // For now, this just shows a toast notification
     toast({
       title: "Message sent!",
       description: "Thank you for reaching out. I'll get back to you soon.",
