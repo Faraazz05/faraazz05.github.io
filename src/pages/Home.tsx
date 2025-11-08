@@ -1,20 +1,19 @@
 import { ArrowDown } from "lucide-react";
 import RippleButton from "@/components/RippleButton";
-
 const Home = () => {
   const scrollToAbout = () => {
     const aboutSection = document.getElementById("about-preview");
-    aboutSection?.scrollIntoView({ behavior: "smooth" });
+    aboutSection?.scrollIntoView({
+      behavior: "smooth"
+    });
   };
-
-  return (
-    <div className="min-h-screen flex flex-col">
+  return <div className="min-h-screen flex flex-col">
       {/* Hero Section */}
       <section className="flex-1 flex items-center justify-center gradient-bg relative overflow-hidden">
         <div className="container mx-auto px-6 text-center z-10">
           <div className="animate-fade-in">
             {/* TODO: Replace "FARAAZ" with your name if needed */}
-            <h1 className="text-5xl sm:text-7xl md:text-9xl font-bold mb-6 glow-text tracking-tight">
+            <h1 className="text-5xl sm:text-7xl md:text-9xl font-bold mb-6 glow-text tracking-tight mx-[15px]">
               FARAAZ
             </h1>
             {/* TODO: Update your tagline/roles */}
@@ -25,10 +24,7 @@ const Home = () => {
             <p className="text-xl sm:text-2xl md:text-3xl text-foreground mb-12 font-medium animate-fade-in-up max-w-3xl mx-auto">
               I build systems that think, write, and feel.
             </p>
-            <RippleButton
-              onClick={scrollToAbout}
-              className="glass-hover bg-accent/10 hover:bg-accent/20 text-accent border border-accent/30 px-8 py-6 text-lg rounded-xl group"
-            >
+            <RippleButton onClick={scrollToAbout} className="glass-hover bg-accent/10 hover:bg-accent/20 text-accent border border-accent/30 px-8 py-6 text-lg rounded-xl group">
               Explore
               <ArrowDown className="ml-2 w-5 h-5 group-hover:translate-y-1 transition-transform" />
             </RippleButton>
@@ -37,18 +33,12 @@ const Home = () => {
 
         {/* Floating particles effect */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          {[...Array(20)].map((_, i) => (
-            <div
-              key={i}
-              className="absolute w-1 h-1 bg-accent/30 rounded-full animate-float"
-              style={{
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-                animationDelay: `${Math.random() * 6}s`,
-                animationDuration: `${6 + Math.random() * 4}s`,
-              }}
-            />
-          ))}
+          {[...Array(20)].map((_, i) => <div key={i} className="absolute w-1 h-1 bg-accent/30 rounded-full animate-float" style={{
+          left: `${Math.random() * 100}%`,
+          top: `${Math.random() * 100}%`,
+          animationDelay: `${Math.random() * 6}s`,
+          animationDuration: `${6 + Math.random() * 4}s`
+        }} />)}
         </div>
       </section>
 
@@ -66,8 +56,6 @@ const Home = () => {
           </div>
         </div>
       </section>
-    </div>
-  );
+    </div>;
 };
-
 export default Home;
