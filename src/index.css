@@ -8,51 +8,63 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Cinematic Dark Glassmorphism Theme */
-    --background: 0 0% 4%;
-    --background-secondary: 0 0% 7%;
-    --background-tertiary: 0 0% 11%;
+    /* Cinematic Dark Glassmorphism Theme - Mindspace v2.5 */
+    --background: 0 0% 2%;
+    --background-secondary: 0 0% 4%;
+    --background-tertiary: 0 0% 7%;
     --foreground: 0 0% 98%;
 
-    --card: 0 0% 8%;
+    --card: 0 0% 4%;
     --card-foreground: 0 0% 98%;
 
-    --popover: 0 0% 6%;
+    --popover: 0 0% 3%;
     --popover-foreground: 0 0% 98%;
 
     --primary: 180 100% 50%;
-    --primary-foreground: 0 0% 4%;
+    --primary-foreground: 0 0% 2%;
 
-    --secondary: 0 0% 15%;
+    --secondary: 0 0% 12%;
     --secondary-foreground: 0 0% 98%;
 
-    --muted: 0 0% 20%;
+    --muted: 0 0% 18%;
     --muted-foreground: 0 0% 55%;
 
     --accent: 180 100% 50%;
-    --accent-foreground: 0 0% 4%;
+    --accent-foreground: 0 0% 2%;
+
+    /* Golden accent for creative warmth */
+    --accent-gold: 45 100% 36%;
+    --accent-gold-foreground: 0 0% 2%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 0 0% 15%;
-    --input: 0 0% 15%;
+    --border: 0 0% 12%;
+    --input: 0 0% 12%;
     --ring: 180 100% 50%;
 
     --radius: 0.75rem;
 
     /* Glass effect colors */
-    --glass-bg: 0 0% 10%;
-    --glass-border: 0 0% 25%;
+    --glass-bg: 0 0% 6%;
+    --glass-border: 0 0% 20%;
     --glass-glow: 180 100% 50%;
+    --glass-gold-glow: 45 100% 36%;
 
     /* Gradient stops */
-    --gradient-start: 0 0% 4%;
-    --gradient-end: 0 0% 8%;
+    --gradient-start: 0 0% 2%;
+    --gradient-end: 0 0% 5%;
+    --gradient-mid: 0 0% 4%;
 
-    /* Shadows */
-    --shadow-glow: 0 0 40px hsla(180, 100%, 50%, 0.3);
-    --shadow-soft: 0 10px 50px rgba(0, 0, 0, 0.5);
+    /* Advanced shadows */
+    --shadow-glow-cyan: 0 0 40px hsla(180, 100%, 50%, 0.3);
+    --shadow-glow-gold: 0 0 40px hsla(45, 100%, 36%, 0.25);
+    --shadow-soft: 0 10px 50px rgba(0, 0, 0, 0.7);
+    --shadow-depth: 0 20px 60px rgba(0, 0, 0, 0.6);
+    
+    /* Cinematic lighting */
+    --rim-light: hsla(45, 100%, 50%, 0.15);
+    --ambient-glow: hsla(180, 100%, 50%, 0.08);
   }
 }
 
@@ -152,5 +164,89 @@ All colors MUST be HSL.
 
   .animate-ripple {
     animation: ripple 0.6s ease-out;
+  }
+
+  /* Preloader animations */
+  @keyframes pulse-glow-expand {
+    0% {
+      transform: scale(0.8);
+      opacity: 0;
+      text-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+    }
+    50% {
+      transform: scale(1.05);
+      opacity: 1;
+      text-shadow: 0 0 40px rgba(0, 255, 255, 0.8), 0 0 80px rgba(0, 255, 255, 0.4);
+    }
+    100% {
+      transform: scale(1);
+      opacity: 1;
+      text-shadow: 0 0 20px rgba(0, 255, 255, 0.6);
+    }
+  }
+
+  @keyframes fade-out-preloader {
+    to {
+      opacity: 0;
+      visibility: hidden;
+    }
+  }
+
+  /* Floating particles animation */
+  @keyframes float {
+    0%, 100% {
+      transform: translate(0, 0);
+      opacity: 0.3;
+    }
+    25% {
+      transform: translate(10px, -10px);
+      opacity: 0.6;
+    }
+    50% {
+      transform: translate(-5px, -20px);
+      opacity: 0.4;
+    }
+    75% {
+      transform: translate(-15px, -10px);
+      opacity: 0.7;
+    }
+  }
+
+  .animate-float {
+    animation: float linear infinite;
+  }
+
+  /* Fade in up animation */
+  @keyframes fade-in-up {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fade-in-up {
+    animation: fade-in-up 0.8s ease-out;
+  }
+
+  /* Gold glow effect */
+  .glow-gold {
+    box-shadow: 0 0 20px hsla(45, 100%, 50%, 0.3);
+  }
+
+  .glass-hover:hover {
+    background: rgba(15, 15, 15, 0.5);
+    border-color: rgba(0, 255, 255, 0.3);
+    box-shadow: 0 0 30px rgba(0, 255, 255, 0.2), 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+    transform: translateY(-4px);
+  }
+
+  /* Gold variant for glass hover */
+  .glass-hover-gold:hover {
+    border-color: hsla(45, 100%, 50%, 0.4);
+    box-shadow: 0 0 30px hsla(45, 100%, 50%, 0.25), 0 8px 32px 0 rgba(0, 0, 0, 0.5);
   }
 }

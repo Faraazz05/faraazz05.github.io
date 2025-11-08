@@ -13,13 +13,13 @@ const Home = () => {
       <section className="flex-1 flex items-center justify-center gradient-bg relative overflow-hidden">
         <div className="container mx-auto px-6 text-center z-10">
           <div className="animate-fade-in">
-            {/* TODO: Replace "Faraaz" with your name */}
+            {/* TODO: Replace "FARAAZ" with your name if needed */}
             <h1 className="text-5xl sm:text-7xl md:text-9xl font-bold mb-6 glow-text tracking-tight">
-              Faraaz
+              FARAAZ
             </h1>
             {/* TODO: Update your tagline/roles */}
             <p className="text-lg sm:text-xl md:text-2xl text-muted-foreground mb-4 font-light tracking-wide">
-              AI Researcher · Writer · Builder · Marketing
+              AI Researcher · Writer · Builder · Entrepreneur
             </p>
             {/* TODO: Update your one-liner */}
             <p className="text-xl sm:text-2xl md:text-3xl text-foreground mb-12 font-medium animate-fade-in-up max-w-3xl mx-auto">

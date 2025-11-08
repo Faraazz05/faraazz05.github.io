@@ -1,9 +1,9 @@
 import GlassCard from "@/components/GlassCard";
 import AnimatedSection from "@/components/AnimatedSection";
-import { Briefcase, GraduationCap, Code2, BookOpen } from "lucide-react";
+import { Briefcase, GraduationCap, Code2, BookOpen, Languages, TrendingUp } from "lucide-react";
 
 const Resume = () => {
-  // TODO: Replace with your actual work experience
+  // TODO: Replace with 6-7 real work experiences
   const experience = [
     {
       role: "AI Researcher / Developer",
@@ -11,55 +11,79 @@ const Resume = () => {
       duration: "2024 - Present",
       description: "Building intelligent systems that reason and adapt. Focused on neural architecture design and machine learning from first principles.",
     },
+    // TODO: Add more experience entries here (6-7 total)
   ];
 
-  // TODO: Add your actual education background
+  // TODO: Add all 4 education entries
   const education = [
     {
-      degree: "Computer Science & AI Research",
-      institution: "Self-Directed Learning",
-      duration: "Ongoing",
-      description: "Deep dive into ML fundamentals, neural networks, and AI systems design.",
+      degree: "10th Grade",
+      institution: "#todo: Add your school name",
+      duration: "#todo: Add year",
+    },
+    {
+      degree: "12th Grade",
+      institution: "#todo: Add your school name",
+      duration: "#todo: Add year",
+    },
+    {
+      degree: "College (Dropped)",
+      institution: "#todo: Add college name",
+      duration: "#todo: Add year",
+    },
+    {
+      degree: "Current College",
+      institution: "#todo: Add current college name",
+      duration: "#todo: Add year",
     },
   ];
 
-  // TODO: Update with your actual programming languages and skill levels
-  const languages = [
-    { name: "Python", level: "Expert" },
-    { name: "JavaScript/TypeScript", level: "Advanced" },
-    { name: "C", level: "Proficient" },
-    { name: "SQL", level: "Proficient" },
+  // TODO: Verify spoken languages
+  const spokenLanguages = [
+    "Hindi (Fluent)",
+    "English (Fluent)",
+    "Japanese (Learning)",
   ];
 
-  // TODO: Update with what you're currently learning
+  // TODO: Update with 30+ skills across all categories
+  const skills = {
+    "Programming": ["Python", "C", "JavaScript", "SQL", "TypeScript"],
+    "AI & ML": ["PyTorch", "TensorFlow", "LangChain", "LLM fine-tuning", "Prompt engineering"],
+    "MLOps": ["Docker", "Kubernetes", "CI/CD", "MLflow"],
+    "Soft Skills": ["Systems thinking", "Leadership", "Creative communication"],
+    "Marketing": ["Brand Strategy", "Digital funnels", "Content design"],
+    "Tools": ["VSCode", "Figma", "Notion", "Git", "Postman"],
+  };
+
+  // TODO: Update with 3-4 current learning topics
   const learning = [
-    "Machine learning from first principles",
-    "Neural architecture design and optimization",
-    "Philosophy of intelligence and consciousness",
-    "Distributed systems and scalability",
-    "Creative writing and narrative structure",
+    "Neural architecture design",
+    "Philosophy of intelligence",
+    "Human-AI co-creativity",
   ];
 
   return (
     <div className="min-h-screen pt-24 pb-20 gradient-bg">
       <div className="container mx-auto px-6">
         <div className="max-w-4xl mx-auto">
-          <h1 className="text-5xl md:text-6xl font-bold mb-6 glow-text animate-fade-in">
-            Resume
-          </h1>
-          <p className="text-xl text-muted-foreground mb-16 animate-fade-in-up">
-            Experience, education, and continuous learning
-          </p>
+          <AnimatedSection>
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 glow-text">
+              Resume
+            </h1>
+            <p className="text-lg sm:text-xl text-muted-foreground mb-16">
+              Experience, education, and continuous learning
+            </p>
+          </AnimatedSection>
 
           {/* Experience Section */}
-          <div className="mb-16 animate-fade-in-up">
+          <AnimatedSection delay={100}>
             <div className="flex items-center gap-3 mb-6">
               <Briefcase className="w-6 h-6 text-accent" />
               <h2 className="text-3xl font-bold">Experience</h2>
             </div>
             <div className="space-y-6">
               {experience.map((exp, index) => (
-                <GlassCard key={index} hoverable={false}>
+                <GlassCard key={index}>
                   <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-3">
                     <div>
                       <h3 className="text-xl font-semibold text-accent">{exp.role}</h3>
@@ -71,55 +95,83 @@ const Resume = () => {
                 </GlassCard>
               ))}
             </div>
-          </div>
+          </AnimatedSection>
 
           {/* Education Section */}
-          <div className="mb-16 animate-fade-in-up delay-100">
-            <div className="flex items-center gap-3 mb-6">
+          <AnimatedSection delay={200}>
+            <div className="flex items-center gap-3 mb-6 mt-16">
               <GraduationCap className="w-6 h-6 text-accent" />
               <h2 className="text-3xl font-bold">Education</h2>
             </div>
-            <div className="space-y-6">
+            <div className="grid gap-4">
               {education.map((edu, index) => (
-                <GlassCard key={index} hoverable={false}>
-                  <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-3">
+                <GlassCard key={index}>
+                  <div className="flex flex-col md:flex-row md:items-start md:justify-between">
                     <div>
-                      <h3 className="text-xl font-semibold text-accent">{edu.degree}</h3>
-                      <p className="text-lg text-foreground">{edu.institution}</p>
+                      <h3 className="text-lg font-semibold text-accent">{edu.degree}</h3>
+                      <p className="text-foreground">{edu.institution}</p>
                     </div>
-                    <span className="text-sm text-muted-foreground mt-2 md:mt-0">{edu.duration}</span>
+                    {edu.duration && (
+                      <span className="text-sm text-muted-foreground mt-2 md:mt-0">{edu.duration}</span>
+                    )}
                   </div>
-                  <p className="text-muted-foreground leading-relaxed">{edu.description}</p>
                 </GlassCard>
               ))}
             </div>
-          </div>
+          </AnimatedSection>
 
-          {/* Languages & Technologies */}
-          <div className="mb-16 animate-fade-in-up delay-200">
-            <div className="flex items-center gap-3 mb-6">
-              <Code2 className="w-6 h-6 text-accent" />
-              <h2 className="text-3xl font-bold">Languages & Technologies</h2>
+          {/* Spoken Languages */}
+          <AnimatedSection delay={300}>
+            <div className="flex items-center gap-3 mb-6 mt-16">
+              <Languages className="w-6 h-6 text-accent" />
+              <h2 className="text-3xl font-bold">Spoken Languages</h2>
             </div>
-            <GlassCard hoverable={false}>
-              <div className="grid md:grid-cols-2 gap-4">
-                {languages.map((lang) => (
-                  <div key={lang.name} className="flex justify-between items-center p-3 rounded-lg bg-background/30">
-                    <span className="font-medium">{lang.name}</span>
-                    <span className="text-sm text-accent">{lang.level}</span>
-                  </div>
+            <GlassCard>
+              <div className="flex flex-wrap gap-3">
+                {spokenLanguages.map((lang, index) => (
+                  <span
+                    key={index}
+                    className="px-4 py-2 rounded-lg bg-accent/10 text-accent border border-accent/30"
+                  >
+                    {lang}
+                  </span>
                 ))}
               </div>
             </GlassCard>
-          </div>
+          </AnimatedSection>
+
+          {/* Skills - Expanded to 30+ */}
+          <AnimatedSection delay={400}>
+            <div className="flex items-center gap-3 mb-6 mt-16">
+              <Code2 className="w-6 h-6 text-accent" />
+              <h2 className="text-3xl font-bold">Skills</h2>
+            </div>
+            <div className="space-y-6">
+              {Object.entries(skills).map(([category, items]) => (
+                <GlassCard key={category}>
+                  <h3 className="text-lg font-semibold text-accent-gold mb-4">{category}</h3>
+                  <div className="flex flex-wrap gap-2">
+                    {items.map((skill, index) => (
+                      <span
+                        key={index}
+                        className="px-3 py-1 text-sm rounded-full bg-background/50 text-foreground border border-border hover:border-accent/50 transition-colors"
+                      >
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
+                </GlassCard>
+              ))}
+            </div>
+          </AnimatedSection>
 
           {/* Currently Learning */}
-          <div className="animate-fade-in-up delay-300">
-            <div className="flex items-center gap-3 mb-6">
-              <BookOpen className="w-6 h-6 text-accent" />
+          <AnimatedSection delay={500}>
+            <div className="flex items-center gap-3 mb-6 mt-16">
+              <TrendingUp className="w-6 h-6 text-accent" />
               <h2 className="text-3xl font-bold">Currently Learning</h2>
             </div>
-            <GlassCard hoverable={false}>
+            <GlassCard>
               <ul className="space-y-3">
                 {learning.map((item, index) => (
                   <li key={index} className="flex items-start gap-3">
@@ -129,13 +181,14 @@ const Resume = () => {
                 ))}
               </ul>
             </GlassCard>
-          </div>
+          </AnimatedSection>
 
-          {/* Note about TODO items */}
+          {/* Note */}
           <div className="mt-12 p-4 rounded-lg bg-accent/5 border border-accent/20">
             <p className="text-sm text-muted-foreground">
-              <strong className="text-accent">Note:</strong> This resume is a template. 
-              Update the experience, education, and project details in the Resume.tsx file to reflect your actual background.
+              <strong className="text-accent">Note:</strong> Update resume with 6-7 experiences, 
+              all 4 education entries, 30+ skills across 6 categories, and current learning topics.
+              See todo.md for details.
             </p>
           </div>
         </div>
