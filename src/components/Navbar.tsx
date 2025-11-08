@@ -10,6 +10,15 @@ const Navbar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [lastScrollY, setLastScrollY] = useState(0);
   const [idleTimer, setIdleTimer] = useState<NodeJS.Timeout | null>(null);
+  const [initialLoad, setInitialLoad] = useState(true);
+
+  // Delayed fade-in on initial load (after preloader)
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setInitialLoad(false);
+    }, 3500); // Fade in after preloader completes
+    return () => clearTimeout(timer);
+  }, []);
 
   const navLinks = [
     { name: "Home", path: "/" },
@@ -74,9 +83,11 @@ const Navbar = () => {
   return (
     <nav
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
+        "fixed top-0 left-0 right-0 z-50 transition-all duration-700",
         scrolled ? "glass py-3" : "bg-transparent py-6",
-        !visible && "transform -translate-y-full"
+        !visible && "transform -translate-y-full",
+        initialLoad && "opacity-0 transform -translate-y-8",
+        !initialLoad && "opacity-100 translate-y-0"
       )}
     >
       <div className="container mx-auto px-6">
