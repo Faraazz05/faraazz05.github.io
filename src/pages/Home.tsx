@@ -13,7 +13,7 @@ const Home = () => {
         <div className="container mx-auto px-6 text-center z-10">
           <div className="animate-fade-in">
             {/* TODO: Replace "FARAAZ" with your name if needed */}
-            <h1 className="text-5xl sm:text-7xl md:text-9xl font-bold mb-6 glow-text tracking-tight mx-[15px]">
+            <h1 className="text-5xl sm:text-7xl md:text-9xl font-bold mb-6 glow-text tracking-tight mx-0 my-[15px]">
               FARAAZ
             </h1>
             {/* TODO: Update your tagline/roles */}
