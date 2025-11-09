@@ -5,9 +5,10 @@ interface GlassCardProps {
   className?: string;
   hoverable?: boolean;
   style?: React.CSSProperties;
+  onClick?: () => void;
 }
 
-const GlassCard = ({ children, className, hoverable = true, style }: GlassCardProps) => {
+const GlassCard = ({ children, className, hoverable = true, style, onClick }: GlassCardProps) => {
   return (
     <div
       className={cn(
@@ -16,6 +17,7 @@ const GlassCard = ({ children, className, hoverable = true, style }: GlassCardPr
         className
       )}
       style={style}
+      onClick={onClick}
     >
       {children}
     </div>
