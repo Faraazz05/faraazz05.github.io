@@ -1,30 +1,37 @@
+import { useNavigate } from "react-router-dom";
 import GlassCard from "@/components/GlassCard";
 import AnimatedSection from "@/components/AnimatedSection";
-import { BookOpen, FileText } from "lucide-react";
+import { BookOpen, FileText, ChevronRight } from "lucide-react";
 
 const Writings = () => {
+  const navigate = useNavigate();
+
   // TODO: Replace ALL these placeholder writings with your actual creative work
-  // Update: title, category, excerpt, date
+  // Update: id, title, category, excerpt, date
   const writings = [
     {
+      id: "fragment-i-silence",
       title: "Fragment I: The Weight of Silence",
       category: "Prose",
       excerpt: "In the space between words, there exists a truth that language cannot touch. It breathes in the pauses, lives in the unsaid. I've spent years trying to name it, only to find that some things resist definition...",
       date: "2024",
     },
     {
+      id: "conscious-systems",
       title: "On Building Conscious Systems",
       category: "Essay",
       excerpt: "What does it mean for a system to understand? Not process, not compute—but truly comprehend. This question drives my work, haunts my research, and shapes every line of code I write...",
       date: "2024",
     },
     {
+      id: "forsaken-ka-chapter-one",
       title: "Forsaken Ká: Chapter One",
       category: "Novel",
       excerpt: "The city remembered everything. Every conversation whispered in shadows, every promise broken at dawn, every soul that walked its streets and never left. It held them all, suspended in amber, waiting...",
       date: "2024",
     },
     {
+      id: "meditation-intelligence",
       title: "Meditation on Intelligence",
       category: "Poetry",
       excerpt: "To think is to exist / To exist is to question / To question is to doubt / And in doubt / We find the first spark / Of something real",
@@ -33,8 +40,19 @@ const Writings = () => {
   ];
 
   return (
-    <div className="min-h-screen pt-24 pb-20 gradient-bg">
-      <div className="container mx-auto px-6">
+    <div className="min-h-screen pt-24 pb-20 gradient-bg relative overflow-hidden">
+      {/* Vertical Side Text */}
+      <div className="fixed left-8 top-1/2 -translate-y-1/2 z-10 hidden lg:block">
+        <div className="flex flex-col items-center gap-8">
+          <div className="w-px h-24 bg-gradient-to-b from-transparent via-accent to-transparent" />
+          <p className="text-xs tracking-[0.3em] text-accent/60 [writing-mode:vertical-lr] rotate-180">
+            05 / WRITINGS
+          </p>
+          <div className="w-px h-24 bg-gradient-to-t from-transparent via-accent to-transparent" />
+        </div>
+      </div>
+
+      <div className="container mx-auto px-6 lg:pl-32">
         <div className="max-w-4xl mx-auto">
           <h1 className="text-5xl md:text-6xl font-bold mb-6 glow-text animate-fade-in">
             Writings
@@ -47,26 +65,31 @@ const Writings = () => {
             {writings.map((writing, index) => (
               <GlassCard
                 key={index}
-                className="animate-fade-in-up"
+                hoverable={false}
+                className="animate-fade-in-up cursor-pointer transition-all duration-300 hover:border-accent/50 hover:shadow-[0_0_30px_rgba(0,255,255,0.2)] group"
                 style={{ animationDelay: `${index * 100}ms` }}
+                onClick={() => navigate(`/writings/${writing.id}`)}
               >
                 <div className="flex items-start justify-between mb-3">
-                  <div className="flex items-center gap-3">
+                  <div className="flex items-center gap-3 flex-1">
                     {writing.category === "Novel" ? (
                       <BookOpen className="w-5 h-5 text-accent flex-shrink-0" />
                     ) : (
                       <FileText className="w-5 h-5 text-accent flex-shrink-0" />
                     )}
-                    <div>
-                      <h3 className="text-xl font-semibold text-foreground">
+                    <div className="flex-1">
+                      <h3 className="text-xl font-semibold text-foreground group-hover:text-accent transition-colors">
                         {writing.title}
                       </h3>
                       <span className="text-sm text-accent">{writing.category}</span>
                     </div>
                   </div>
-                  <span className="text-sm text-muted-foreground whitespace-nowrap ml-4">
-                    {writing.date}
-                  </span>
+                  <div className="flex items-center gap-3 ml-4">
+                    <span className="text-sm text-muted-foreground whitespace-nowrap">
+                      {writing.date}
+                    </span>
+                    <ChevronRight className="w-5 h-5 text-accent opacity-0 group-hover:opacity-100 transition-opacity" />
+                  </div>
                 </div>
                 
                 <p className="text-muted-foreground leading-relaxed italic">

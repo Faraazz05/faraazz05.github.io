@@ -60,8 +60,19 @@ const Blogs = () => {
   };
 
   return (
-    <div className="min-h-screen pt-24 pb-20 gradient-bg">
-      <div className="container mx-auto px-6">
+    <div className="min-h-screen pt-24 pb-20 gradient-bg relative overflow-hidden">
+      {/* Vertical Side Text */}
+      <div className="fixed left-8 top-1/2 -translate-y-1/2 z-10 hidden lg:block">
+        <div className="flex flex-col items-center gap-8">
+          <div className="w-px h-24 bg-gradient-to-b from-transparent via-accent to-transparent" />
+          <p className="text-xs tracking-[0.3em] text-accent/60 [writing-mode:vertical-lr] rotate-180">
+            04 / BLOGS
+          </p>
+          <div className="w-px h-24 bg-gradient-to-t from-transparent via-accent to-transparent" />
+        </div>
+      </div>
+
+      <div className="container mx-auto px-6 lg:pl-32">
         <div className="max-w-6xl mx-auto">
           <h1 className="text-5xl md:text-6xl font-bold mb-6 glow-text animate-fade-in">
             Blogs
@@ -119,16 +130,22 @@ const Blogs = () => {
 
           {!loading && !error && posts.length === 0 && (
             <div className="text-center py-20">
-              <p className="text-muted-foreground">No articles published yet.</p>
+              <GlassCard hoverable={false} className="max-w-md mx-auto">
+                <p className="text-muted-foreground">
+                  No articles published yet. Check back soon for thoughts on AI, systems, and creativity.
+                </p>
+              </GlassCard>
             </div>
           )}
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 smooth-scroll">
             {posts.map((post, index) => (
               <GlassCard
                 key={index}
-                className="flex flex-col animate-fade-in-up"
+                hoverable={false}
+                className="flex flex-col animate-fade-in-up transition-all duration-300 hover:border-accent/50 hover:shadow-[0_0_30px_rgba(0,255,255,0.3)] cursor-pointer"
                 style={{ animationDelay: `${index * 50}ms` }}
+                onClick={() => window.open(post.link, '_blank')}
               >
                 <h3 className="text-lg font-semibold mb-3 text-foreground line-clamp-2">
                   {post.title}
@@ -149,7 +166,7 @@ const Blogs = () => {
                   className="w-full border-accent/30 hover:bg-accent/10 hover:border-accent"
                   asChild
                 >
-                  <a href={post.link} target="_blank" rel="noopener noreferrer">
+                  <a href={post.link} target="_blank" rel="noopener noreferrer" onClick={(e) => e.stopPropagation()}>
                     Read on Medium
                     <ExternalLink className="ml-2 w-4 h-4" />
                   </a>
