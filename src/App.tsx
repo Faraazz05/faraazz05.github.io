@@ -12,6 +12,7 @@ import Projects from "./pages/Projects";
 import Blogs from "./pages/Blogs";
 import Writings from "./pages/Writings";
 import WritingDetail from "./pages/WritingDetail";
+import ForsakenKa from "./pages/ForsakenKa";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 
@@ -33,6 +34,7 @@ const App = () => (
             <Route path="/blogs" element={<Blogs />} />
             <Route path="/writings" element={<Writings />} />
             <Route path="/writings/:id" element={<WritingDetail />} />
+            <Route path="/forsaken-ka" element={<ForsakenKa />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="*" element={<NotFound />} />
           </Routes>

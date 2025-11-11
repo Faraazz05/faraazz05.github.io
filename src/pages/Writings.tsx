@@ -24,13 +24,6 @@ const Writings = () => {
       date: "2024",
     },
     {
-      id: "forsaken-ka-chapter-one",
-      title: "Forsaken Ká: Chapter One",
-      category: "Novel",
-      excerpt: "The city remembered everything. Every conversation whispered in shadows, every promise broken at dawn, every soul that walked its streets and never left. It held them all, suspended in amber, waiting...",
-      date: "2024",
-    },
-    {
       id: "meditation-intelligence",
       title: "Meditation on Intelligence",
       category: "Poetry",
@@ -61,6 +54,36 @@ const Writings = () => {
             Prose, poetry, and pieces from <em>Forsaken Ká</em>
           </p>
 
+          {/* Forsaken Ká Featured Card */}
+          <AnimatedSection delay={0}>
+            <GlassCard
+              hoverable={false}
+              className="mb-12 border-accent/30 cursor-pointer transition-all duration-300 hover:border-accent/50 hover:shadow-[0_0_40px_rgba(0,255,255,0.3)] group"
+              onClick={() => navigate("/forsaken-ka")}
+            >
+              <div className="flex items-start gap-4">
+                <BookOpen className="w-8 h-8 text-accent flex-shrink-0" />
+                <div className="flex-1">
+                  <h2 className="text-3xl font-bold mb-3 text-accent group-hover:glow-text transition-all">
+                    Forsaken Ká
+                  </h2>
+                  <p className="text-lg text-muted-foreground leading-relaxed mb-4 italic">
+                    A novel exploring consciousness, memory, and what it means to be human 
+                    in a world where the boundaries between mind and machine blur. 
+                    Set in a city that never forgets, it follows characters searching for truth 
+                    in a reality built on lies.
+                  </p>
+                  <div className="flex items-center gap-2 text-accent">
+                    <span className="text-sm font-medium">Explore Chapters & Preface</span>
+                    <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                  </div>
+                </div>
+              </div>
+            </GlassCard>
+          </AnimatedSection>
+
+          {/* Other Writings */}
+          <h2 className="text-2xl font-bold mb-6 text-foreground">Other Writings</h2>
           <div className="space-y-6">
             {writings.map((writing, index) => (
               <GlassCard
@@ -72,11 +95,7 @@ const Writings = () => {
               >
                 <div className="flex items-start justify-between mb-3">
                   <div className="flex items-center gap-3 flex-1">
-                    {writing.category === "Novel" ? (
-                      <BookOpen className="w-5 h-5 text-accent flex-shrink-0" />
-                    ) : (
-                      <FileText className="w-5 h-5 text-accent flex-shrink-0" />
-                    )}
+                    <FileText className="w-5 h-5 text-accent flex-shrink-0" />
                     <div className="flex-1">
                       <h3 className="text-xl font-semibold text-foreground group-hover:text-accent transition-colors">
                         {writing.title}
@@ -99,22 +118,6 @@ const Writings = () => {
             ))}
           </div>
 
-          {/* About Your Creative Work */}
-          <AnimatedSection delay={400}>
-            <GlassCard hoverable={false} className="border-accent/20">
-              {/* TODO: Update this section with info about your novel/creative project */}
-              <h2 className="text-2xl font-bold mb-4 text-accent">About Forsaken Ká</h2>
-              <p className="text-muted-foreground leading-relaxed mb-4">
-                <em>Forsaken Ká</em> is a novel exploring consciousness, memory, and what it means 
-                to be human in a world where the boundaries between mind and machine blur. 
-                Set in a city that never forgets, it follows characters searching for truth 
-                in a reality built on lies.
-              </p>
-              <p className="text-sm text-muted-foreground">
-                Currently in development. Selected excerpts available above.
-              </p>
-            </GlassCard>
-          </AnimatedSection>
 
           {/* Note about TODO items */}
           <div className="mt-12 p-4 rounded-lg bg-accent/5 border border-accent/20">

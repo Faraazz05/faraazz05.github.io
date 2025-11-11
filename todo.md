@@ -11,7 +11,8 @@
   - Update name "FARAAZ" if needed
   - Update tagline: "AI Researcher · Writer · Builder · Entrepreneur"
   - Update one-liner: "I build systems that think, write, and feel."
-  - Optional: Replace particle background or add video background
+  - Replace ambient sound file: `/public/assets/sounds/ambient.mp3`
+  - Replace particle background file if needed: `/public/assets/bg/particles.json`
 
 ### 2. Social Links & Contact
 - [ ] **Footer** (`src/components/Footer.tsx`)
@@ -67,12 +68,12 @@
     - Format: `https://medium.com/feed/@your-username`
   - Test that RSS feed loads correctly after updating
 
-### 7. Creative Writings (WITH READING PAGES)
+### 7. Creative Writings (WITH READING PAGES & FORSAKEN KÁ SECTION)
 - [ ] **Writings Page** (`src/pages/Writings.tsx`)
-  - Add multiple entries: Prose, Monologues, Poems, Novel Excerpts
+  - Add multiple entries: Prose, Monologues, Poems, Essays
   - For each entry:
     - Title
-    - Category (Prose/Poetry/Novel/Essay/Monologue)
+    - Category (Prose/Poetry/Essay/Monologue)
     - Excerpt (first 2-3 sentences)
     - Date
     - Full text content
@@ -82,18 +83,38 @@
     - Full text in glowing bordered container
     - "← Back" button (top-left floating)
     - Cinematic zoom-in transition
-  - Update "About Forsaken Ká" section with real novel info
+    - **SCROLLING ENABLED** for long-form content
+  
+- [ ] **Forsaken Ká Section** (`src/pages/ForsakenKa.tsx`)
+  - Separate dedicated page accessible from Writings
+  - Add Preface content with full text
+  - Add all chapters (currently 6 chapters planned):
+    - Chapter One: Silence & Echoes (Available)
+    - Chapter Two: The Weight of Truth (Available)
+    - Chapter Three: Fractured Light (Coming Soon)
+    - Chapter Four: The Amber Archive (Coming Soon)
+    - Chapter Five: Breaking Dawn (Coming Soon)
+    - Chapter Six: The Final Memory (Coming Soon)
+  - Each chapter needs: Title, Excerpt, Status (Available/Coming Soon), Full Text
+  - Update "About the Project" section with real novel info
+  - Chapters displayed in grid layout with preface featured at top
 
 ## 🟡 Important - Recommended Before Deploy
 
-### 8. Contact Form Integration
+### 8. Contact Form Integration & Layout
 - [ ] **Contact Page** (`src/pages/Contact.tsx`)
-  - Line 23: Implement actual form submission
-  - **Options:**
-    - **Formspree** (Easiest): Add action attribute to form
-    - **EmailJS**: Install package and implement
-    - **Lovable Cloud**: Create edge function for email sending
-  - See README.md for detailed instructions
+  - **Layout**: Split-screen design (Left: contact details + social, Right: form)
+  - **Form Submission**: Implement actual form backend
+    - **Options:**
+      - **Formspree** (Easiest): Add action attribute to form
+      - **EmailJS**: Install package and implement
+      - **Lovable Cloud**: Create edge function for email sending
+    - See README.md for detailed instructions
+  - **Additional Integrations**:
+    - Add email webhook (e.g., Slack notifications)
+    - Add Skype or other communication method links
+  - **Animations**: Motion icons for each contact method
+  - **Verify**: Ripple effect on submit button works
 
 ### 9. SEO & Metadata
 - [ ] **index.html** (Already updated but verify)
@@ -112,12 +133,17 @@
 
 ## 🟢 Optional - Nice to Have
 
-### 11. Advanced Features
+### 11. Advanced Features & Bonus Enhancements
 - [ ] **Preloader**: Already added - verify FARAAZ glow animation works
 - [ ] **Auto-hiding Navbar**: Already added - fades after 5s idle, test functionality
-- [ ] **Ambient Sound**: Toggle in footer - replace with custom sound file
+- [ ] **Ambient Sound**: 
+  - Toggle in footer - replace with custom sound file
+  - File location: `/public/assets/sounds/ambient.mp3`
 - [ ] **Mobile Hamburger Menu**: Already added - test on mobile devices
 - [ ] **Particle Effects**: Verify floating particles on home page
+- [ ] **Global Sound Toggle**: Minimal icon at footer, tied to ambient background sound
+- [ ] **Smooth Section Navigation**: Consider full-page scroll effects (zoom/pan transitions)
+- [ ] **3D Lighting Layer**: Subtle reflection effect (CSS light gradient moving with cursor)
 
 ### 12. Analytics & Performance
 - [ ] Add Google Analytics or Plausible

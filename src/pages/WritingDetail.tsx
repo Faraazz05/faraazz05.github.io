@@ -34,23 +34,6 @@ I'm building toward that architecture. Not because I know it's possible, but bec
 #todo: Replace with your actual essay content.`,
   },
   {
-    id: "forsaken-ka-chapter-one",
-    title: "Forsaken Ká: Chapter One",
-    category: "Novel",
-    date: "2024",
-    fullText: `The city remembered everything. Every conversation whispered in shadows, every promise broken at dawn, every soul that walked its streets and never left. It held them all, suspended in amber, waiting.
-
-Maya knew this because the city told her. Not in words—the city had forgotten language long ago—but in the way the streets bent toward certain memories, the way light fractured around moments of significance, the way time itself seemed to pool in places where something important had happened.
-
-She stood at the corner of Seventh and Silence, where the air shimmered with the ghost of a conversation that had taken place three decades before she was born. Two voices, urgent and afraid, discussing something that would change everything. She couldn't hear the words, but she could feel their weight.
-
-"You're doing it again," Kael said, materializing beside her with the casual disregard for physical laws that had become his trademark. "Getting lost in other people's memories."
-
-"They're not other people's anymore," Maya replied. "The city gives them to anyone who knows how to listen."
-
-#todo: Replace with actual novel excerpt or chapter.`,
-  },
-  {
     id: "meditation-intelligence",
     title: "Meditation on Intelligence",
     category: "Poetry",
@@ -82,6 +65,68 @@ To understand
 
 #todo: Replace with your actual poetry.`,
   },
+  // Forsaken Ká content
+  {
+    id: "forsaken-ka-preface",
+    title: "Preface: The City Remembers",
+    category: "Novel - Forsaken Ká",
+    date: "2024",
+    fullText: `An introduction to the world of Forsaken Ká, where memory becomes reality and the boundaries between past and present dissolve.
+
+The city is alive. Not in the metaphorical sense that cities are often described—vibrant, pulsing with energy, breathing with the rhythm of millions of lives. No, this city is literally, impossibly alive. It thinks. It remembers. It feels.
+
+And it never, ever forgets.
+
+Every moment that has ever occurred within its boundaries exists somewhere in the fabric of its being. Every word spoken, every emotion felt, every decision made—all of it preserved, catalogued, waiting to be accessed by those who know how to listen.
+
+This is the story of what happens when a city's memory becomes too perfect, when the past refuses to stay buried, and when the line between remembering and reliving begins to blur.
+
+This is the story of Forsaken Ká.
+
+#todo: Replace with actual preface content.`,
+  },
+  {
+    id: "forsaken-ka-chapter-one",
+    title: "Chapter One: Silence & Echoes",
+    category: "Novel - Forsaken Ká",
+    date: "2024",
+    fullText: `The city remembered everything. Every conversation whispered in shadows, every promise broken at dawn, every soul that walked its streets and never left. It held them all, suspended in amber, waiting.
+
+Maya knew this because the city told her. Not in words—the city had forgotten language long ago—but in the way the streets bent toward certain memories, the way light fractured around moments of significance, the way time itself seemed to pool in places where something important had happened.
+
+She stood at the corner of Seventh and Silence, where the air shimmered with the ghost of a conversation that had taken place three decades before she was born. Two voices, urgent and afraid, discussing something that would change everything. She couldn't hear the words, but she could feel their weight.
+
+"You're doing it again," Kael said, materializing beside her with the casual disregard for physical laws that had become his trademark. "Getting lost in other people's memories."
+
+"They're not other people's anymore," Maya replied. "The city gives them to anyone who knows how to listen."
+
+Kael sighed, a sound that seemed to echo with memories of its own. "That's what worries me. Some memories were never meant to be shared."
+
+But Maya wasn't listening anymore. The conversation at Seventh and Silence was pulling her in, demanding to be understood. She closed her eyes and let the city's memory wash over her.
+
+And in that moment, she learned the truth that would change everything.
+
+#todo: Replace with actual chapter one content.`,
+  },
+  {
+    id: "forsaken-ka-chapter-two",
+    title: "Chapter Two: The Weight of Truth",
+    category: "Novel - Forsaken Ká",
+    date: "2024",
+    fullText: `Maya discovers that some memories were never meant to be found, and certain truths can reshape reality itself.
+
+The revelation hit Maya like a physical force, sending her stumbling back from the memory pool at Seventh and Silence. Kael caught her, his form solidifying just enough to provide support.
+
+"What did you see?" he asked, though from the concern in his voice, Maya suspected he already knew.
+
+"The city..." she gasped, struggling to process what she'd witnessed. "It's not just remembering. It's... changing. Rewriting."
+
+"That's impossible," Kael said, but his tone suggested he knew it wasn't.
+
+Maya shook her head, still reeling. "The memory I just accessed—it's different from the last time someone viewed it. The conversation, the outcome, even the emotions attached to it. They've all shifted, evolved. The city isn't just storing memories anymore. It's editing them."
+
+#todo: Replace with actual chapter two content.`,
+  },
 ];
 
 const WritingDetail = () => {
@@ -89,13 +134,7 @@ const WritingDetail = () => {
   const navigate = useNavigate();
   const writing = writings.find(w => w.id === id);
 
-  useEffect(() => {
-    // Trigger blur background animation
-    document.body.style.overflow = "hidden";
-    return () => {
-      document.body.style.overflow = "auto";
-    };
-  }, []);
+  // Removed overflow hidden to allow scrolling
 
   if (!writing) {
     return (
