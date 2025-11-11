@@ -14,7 +14,11 @@ import Writings from "./pages/Writings";
 import WritingDetail from "./pages/WritingDetail";
 import ForsakenKa from "./pages/ForsakenKa";
 import Contact from "./pages/Contact";
+import Legal from "./pages/Legal";
 import NotFound from "./pages/NotFound";
+import CustomCursor from "./components/CustomCursor";
+import BackgroundEffects from "./components/BackgroundEffects";
+import CopyProtection from "./components/CopyProtection";
 
 const queryClient = new QueryClient();
 
@@ -24,6 +28,9 @@ const App = () => (
       <Preloader />
       <Toaster />
       <Sonner />
+      <CustomCursor />
+      <BackgroundEffects />
+      <CopyProtection />
       <BrowserRouter>
         <Layout>
           <Routes>
@@ -36,6 +43,7 @@ const App = () => (
             <Route path="/writings/:id" element={<WritingDetail />} />
             <Route path="/forsaken-ka" element={<ForsakenKa />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/legal" element={<Legal />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Layout>

@@ -29,11 +29,32 @@ const Projects = () => {
       githubLink: "https://github.com/faraazz05",
       liveLink: null,
     },
-    // TODO: Add 12-17 more projects here
-    ...Array.from({ length: 12 }, (_, i) => ({
-      title: `#todo: Project ${i + 4} Title`,
-      description: "#todo: Add project description highlighting key features and impact",
-      techStack: ["#todo", "Add", "Tech"],
+    {
+      title: "ML Model Optimizer",
+      description: "Advanced tools for neural network optimization, pruning, and quantization to reduce model size.",
+      techStack: ["Python", "TensorFlow", "NumPy"],
+      githubLink: "https://github.com/faraazz05",
+      liveLink: null,
+    },
+    {
+      title: "API Gateway Service",
+      description: "High-performance API gateway with rate limiting, authentication, and request routing capabilities.",
+      techStack: ["Node.js", "Express", "Redis", "JWT"],
+      githubLink: "https://github.com/faraazz05",
+      liveLink: null,
+    },
+    {
+      title: "Data Visualization Dashboard",
+      description: "Interactive analytics dashboard with real-time data streaming and customizable visualizations.",
+      techStack: ["React", "D3.js", "WebSocket"],
+      githubLink: "https://github.com/faraazz05",
+      liveLink: null,
+    },
+    // TODO: Add 9-14 more real projects
+    ...Array.from({ length: 14 }, (_, i) => ({
+      title: `#todo: Project ${i + 7} Title`,
+      description: "#todo: Add project description highlighting the problem solved, tech used, and philosophy behind it",
+      techStack: ["#todo", "Add", "Real", "Tech"],
       githubLink: "https://github.com/faraazz05",
       liveLink: null,
     })),
@@ -101,7 +122,7 @@ const Projects = () => {
                 >
                   <GlassCard 
                     hoverable={false}
-                    className="transition-all duration-300 hover:border-accent/50 hover:shadow-[0_0_30px_rgba(0,255,255,0.2)]"
+                    className="transition-all duration-500 hover:border-accent/50 hover:shadow-[0_0_30px_rgba(0,255,255,0.2)] hover:scale-[1.02]"
                   >
                     <h3 className="text-xl font-semibold mb-3 text-accent">{project.title}</h3>
                     <p className="text-muted-foreground leading-relaxed mb-4">
