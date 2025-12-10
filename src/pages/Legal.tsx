@@ -15,7 +15,7 @@ const Legal = () => {
                 Copyright Notice
               </h2>
               <p className="text-muted-foreground leading-relaxed mb-4">
-                © 2025 Faraaz. All rights reserved.
+                © 2025 Faraz. All rights reserved.
               </p>
               <p className="text-muted-foreground leading-relaxed">
                 All content, including writings, research, code, and design displayed on this website, 
@@ -90,7 +90,7 @@ const Legal = () => {
               </h2>
               <p className="text-muted-foreground leading-relaxed">
                 For permissions, licensing inquiries, or to report copyright violations, please 
-                contact: <a href="mailto:faraaz@example.com" className="text-accent hover:underline">faraaz@example.com</a>
+                contact: <a href="mailto:sp_mohdfaraz@outlook.com" className="text-accent hover:underline">email</a>
               </p>
             </section>
           </div>
