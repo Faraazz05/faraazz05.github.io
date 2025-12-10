@@ -278,14 +278,6 @@ const Resume = () => {
             </GlassCard>
           </AnimatedSection>
 
-          {/* Note */}
-          <div className="mt-12 p-4 rounded-lg bg-accent/5 border border-accent/20">
-            <p className="text-sm text-muted-foreground">
-              <strong className="text-accent">Note:</strong> Update resume with 6-7 experiences, 
-              all 4 education entries, 30+ skills across 6 categories, and current learning topics.
-              See todo.md for details.
-            </p>
-          </div>
         </div>
       </div>
     </div>

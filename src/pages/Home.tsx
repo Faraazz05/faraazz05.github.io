@@ -33,7 +33,7 @@ const Home = () => {
           <div className="animate-fade-in">
             {/* TODO: Replace "FARAAZ" with your name if needed */}
             <h1 className="text-6xl sm:text-8xl md:text-[10rem] font-bold mb-8 glow-text tracking-tight animate-pulse-glow-expand">
-              FARAAZ
+              FARAZ
             </h1>
             
             {/* TODO: Update your tagline/roles */}

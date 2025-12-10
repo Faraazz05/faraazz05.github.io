@@ -9,13 +9,13 @@ const AmbientSound = () => {
 
   // Using a free ambient space sound from a reliable source
   // TODO: Replace with your own ambient audio file if desired
-  const ambientSoundUrl = "https://assets.mixkit.co/active_storage/sfx/2568/2568-preview.mp3";
+  const ambientSoundUrl = "/assets/sounds/Antent.mp3";
 
   useEffect(() => {
     // Create audio element
     const audio = new Audio();
     audio.loop = true;
-    audio.volume = 0.15; // Low volume for ambient effect
+    audio.volume = 0.50; // Low volume for ambient effect
     audioRef.current = audio;
 
     return () => {

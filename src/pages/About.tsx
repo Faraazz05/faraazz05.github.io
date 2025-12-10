@@ -45,17 +45,22 @@ const About = () => {
                 {/* TODO: Replace with your actual bio and story */}
                 <div className="space-y-4 text-muted-foreground leading-relaxed">
                   <p>
-                    I'm driven by a simple question: What does it mean for a system to truly understand?
+                    It started when I was in eighth grade, a question that never really left me: what if a machine could feel? Not just copy emotion, but actually understand it. I didn’t have the words for it back then, but I knew it meant something. By the time I reached ninth, that curiosity had turned into an obsession. I remember watching The Age of AI documentary on YouTube, getting lost in movies like Tron and Chappie, and reading books like Superintelligence and Life 3.0. Those stories and ideas opened a door I haven’t been able to close since.
                   </p>
                   <p>
-                    My work exists at the convergence of artificial intelligence, systems design, 
-                    and creative expression. I build intelligent architectures that reason, adapt, 
-                    and evolve—not just process information, but comprehend it.
+                    Before coming back fully to AI, I spent almost three years in Web3 and marketing, where I learned how systems, people, and narratives interact. That time shaped me into how I think about design, communication, and human behavior. It taught me that building something meaningful or innovative isn’t just about technology, but it is also about Vision-Purpose, Understanding Human behaviour-empathy, Sustainability, and the Human story and emotions behind it.
                   </p>
                   <p>
-                    Beyond code, I write. Stories, poetry, essays—explorations of consciousness, 
-                    humanity, and the spaces between certainty and mystery. My novel, <em>Forsaken Ká</em>, 
-                    is one such exploration.
+                    Now my work revolves around learning and exploring explainability(XAI), emotional intelligence in computational systems, and human–machine collaboration. I’m interested in how understanding, empathy, and reasoning can coexist inside artificial systems, and how those same principles reflect our own minds. I’m not chasing the idea of building machines that can feel yet, but I’m drawn to the path that leads there.
+                  </p>
+                  <p>
+                    At the core of everything I do is what I call Tragic Realist Existentialism—a way of seeing life as both a burden and a gift. I don’t believe in chasing perfection or meaning; I believe in living through it all, the beauty and the ruin, the clarity and the confusion. My work, my writing, and the way I live all circle around one truth: “Live life to its fullest so there will be no regret in the end.” Because in the end, birth feels like a curse we never asked for, and death—both a gift and a foe that waits patiently for us to understand it.
+                  </p>
+                  <p>
+                    Forsaken Ká grew from that same space. It follows an unnamed man who endures suffering so constant that he begins to wish for death, but death never comes. There is love in his story, but it isn’t a love story. The girl he meets leaves an imprint on him, yet the narrative doesn’t revolve around her; it revolves around his despair, his torment, and the regret that grows from the choices he made and the things that happened to him.
+                  </p>
+                  <p>
+                    The story unfolds through his blurred memories but moments that surface when he’s on the edge of death, half-conscious, half-lost in reflection. It’s all from his point of view, fractured and unreliable, because that’s how memory behaves when pain becomes the only thing left that feels real. It isn’t written to comfort but to confront. It asks what remains when the mind can no longer forget, and whether remembering is a gift or a curse.
                   </p>
                 </div>
               </div>
@@ -83,24 +88,25 @@ const About = () => {
             {/* Right: Portrait Image */}
             <AnimatedSection delay={200} className="flex justify-center lg:justify-end">
               <div className="relative group">
-                {/* Glass Frame with Cyan Glow */}
+              {/* Glass Frame with Cyan Glow */}
                 <div className="relative glass rounded-2xl p-2 border-2 border-accent/30 shadow-[0_0_30px_rgba(0,255,255,0.3)] hover:shadow-[0_0_50px_rgba(0,255,255,0.5)] transition-all duration-500">
-                  {/* TODO: Replace /assets/profile.jpg with your image */}
+                {/* TODO: Replace /assets/profile.jpg with your image */}
                   <div className="aspect-square w-full max-w-md bg-gradient-to-br from-accent/20 to-accent-gold/20 rounded-xl overflow-hidden">
-                    {/* Placeholder - will be replaced with actual image */}
-                    <div className="w-full h-full flex items-center justify-center text-accent/40">
-                      <div className="text-center">
-                        <Brain className="w-20 h-20 mx-auto mb-4 animate-pulse" />
-                        <p className="text-sm">Replace with /assets/profile.jpg</p>
-                      </div>
-                    </div>
+                  {/* Actual Image */}
+                    <img
+                      src="/assets/Profile.jpg"
+                      alt="Faraz portrait"
+                      className="w-full h-full object-cover rounded-xl group-hover:scale-105 transition-transform duration-700 ease-out"
+                      loading="lazy"
+                    />
                   </div>
-                </div>
-                
-                {/* Ambient Glow Effect */}
-                <div className="absolute inset-0 bg-accent/5 blur-3xl rounded-full scale-110 -z-10 animate-pulse-slow" />
+
+                  {/* Optional Glow Overlay */}
+                <div className="absolute inset-0 rounded-xl pointer-events-none bg-gradient-to-t from-black/30 to-transparent opacity-40 group-hover:opacity-60 transition-opacity duration-700" />
               </div>
-            </AnimatedSection>
+            </div>
+          </AnimatedSection>
+
           </div>
 
           {/* Capabilities Grid */}

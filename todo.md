@@ -7,14 +7,16 @@
 ## 🔴 CRITICAL - Must Complete Before Deploy
 
 ### 1. Personal Information & Branding
+
 - [ ] **Home Page** (`src/pages/Home.tsx`)
-  - Update name "FARAAZ" if needed
+  - Update name "FARAZ"  needed
   - Update tagline: "AI Researcher · Writer · Builder · Entrepreneur"
   - Update one-liner: "I build systems that think, write, and feel."
   - Replace ambient sound file: `/public/assets/sounds/ambient.mp3`
   - Replace particle background file if needed: `/public/assets/bg/particles.json`
 
 ### 2. Social Links & Contact
+
 - [ ] **Footer** (`src/components/Footer.tsx`)
   - Line 6: GitHub URL `https://github.com/faraazz05`
   - Line 7: LinkedIn URL `https://linkedin.com/in/faraazz05`
@@ -27,6 +29,7 @@
   - Line 46: Email address (appears twice)
 
 ### 3. About Page Content
+
 - [ ] **About Page** (`src/pages/About.tsx`)
   - Update bio and personal narrative
   - Replace `/assets/profile.jpg` with your actual profile image
@@ -35,6 +38,7 @@
   - Add your personal story and philosophy
 
 ### 4. Resume/Experience (EXPANDED)
+
 - [ ] **Resume Page** (`src/pages/Resume.tsx`)
   - **Experience**: Add 6-7 real work entries with roles, companies, durations, descriptions
   - **Education**: Add all 4 education entries (10th, 12th, College Dropped, Current College)
@@ -50,6 +54,7 @@
   - Optional: Add certifications or achievements
 
 ### 5. Projects & Research (MASSIVELY EXPANDED)
+
 - [ ] **Projects Page** (`src/pages/Projects.tsx`)
   - **Projects Gallery**: Add 15-20 real projects
     - Each needs: Title, Description, Tech Stack, GitHub Link, Optional Live Link
@@ -63,12 +68,14 @@
   - Add project categories/tags if needed
 
 ### 6. Blog Integration
+
 - [ ] **Blogs Page** (`src/pages/Blogs.tsx`)
   - Line 19: Update `MEDIUM_RSS_URL` with your actual Medium feed
     - Format: `https://medium.com/feed/@your-username`
   - Test that RSS feed loads correctly after updating
 
 ### 7. Creative Writings (WITH READING PAGES & FORSAKEN KÁ SECTION)
+
 - [ ] **Writings Page** (`src/pages/Writings.tsx`)
   - Add multiple entries: Prose, Monologues, Poems, Essays
   - For each entry:
@@ -102,6 +109,7 @@
 ## 🟡 Important - Recommended Before Deploy
 
 ### 8. Contact Form Integration & Layout
+
 - [ ] **Contact Page** (`src/pages/Contact.tsx`)
   - **Layout**: Split-screen design (Left: contact details + social, Right: form)
   - **Form Submission**: Implement actual form backend
@@ -117,6 +125,7 @@
   - **Verify**: Ripple effect on submit button works
 
 ### 9. SEO & Metadata
+
 - [ ] **index.html** (Already updated but verify)
   - Line 5: Page title
   - Line 6: Meta description
@@ -125,6 +134,7 @@
 - [ ] Consider adding sitemap.xml for better SEO
 
 ### 10. Images & Assets
+
 - [ ] Add profile photo
   - Recommended location: `public/images/profile.jpg`
   - Or use `src/assets/profile.jpg` with import
@@ -134,9 +144,10 @@
 ## 🟢 Optional - Nice to Have
 
 ### 11. Advanced Features & Bonus Enhancements
+
 - [ ] **Preloader**: Already added - verify FARAAZ glow animation works
 - [ ] **Auto-hiding Navbar**: Already added - fades after 5s idle, test functionality
-- [ ] **Ambient Sound**: 
+- [ ] **Ambient Sound**:
   - Toggle in footer - replace with custom sound file
   - File location: `/public/assets/sounds/ambient.mp3`
 - [ ] **Mobile Hamburger Menu**: Already added - test on mobile devices
@@ -146,12 +157,14 @@
 - [ ] **3D Lighting Layer**: Subtle reflection effect (CSS light gradient moving with cursor)
 
 ### 12. Analytics & Performance
+
 - [ ] Add Google Analytics or Plausible
 - [ ] Track page views and user interactions
 - [ ] Test GPU-accelerated transitions
 - [ ] Verify lazy loading for images
 
 ### 13. Browser & Device Testing
+
 - [ ] Test on mobile devices (iOS Safari, Android Chrome)
 - [ ] Check page load speed (<3s ideal)
 - [ ] Verify all animations are smooth (60fps)
@@ -161,6 +174,7 @@
 - [ ] Verify glass effects render correctly across devices
 
 ### 14. Content Polish & Voice
+
 - [ ] Proofread all text for typos and grammar
 - [ ] Ensure consistent voice/tone (intelligent, poetic, precise)
 - [ ] Verify all external links open in new tabs
@@ -171,6 +185,7 @@
 ## 📦 Deployment Steps
 
 ### GitHub Pages
+
 1. [ ] Update repository name to `your-username.github.io`
 2. [ ] Push all code to GitHub
 3. [ ] Go to repository Settings → Pages
@@ -179,6 +194,7 @@
 6. [ ] Visit `https://your-username.github.io`
 
 ### Other Platforms
+
 - **Vercel**: Connect repo, auto-deploy on push
 - **Netlify**: Connect repo, auto-deploy on push
 - **Lovable**: Click "Publish" button in top right
@@ -196,7 +212,7 @@
 
 ## 🔍 File Locations Reference
 
-```
+``` bash
 Key Files to Edit:
 ├── src/pages/Home.tsx          → Hero text and tagline
 ├── src/pages/About.tsx         → Bio and skills
@@ -225,17 +241,20 @@ Use your code editor's find/replace (Ctrl+Shift+F or Cmd+Shift+F):
 ## 🎨 Design System Overview (Mindspace v2.5)
 
 ### Color Palette
+
 - **Background**: Deep blacks (#050505, #0A0A0A, #111111)
 - **Accent Cyan**: #00FFFF (primary highlight, AI tone)
 - **Accent Gold**: #B58900 (creative warmth, rim lighting)
 - **Text**: White (#FFFFFF) and Gray (#8B8B8B)
 
 ### Typography
+
 - **Primary**: Space Grotesk (modern sans-serif)
 - **Secondary**: Inter (body text)
 - **Optional Serif**: Playfair Display (creative sections)
 
 ### Effects & Motion
+
 - **Glass**: Frosted blur with depth, cyan/gold glow edges
 - **Transitions**: Fade, slide, zoom-out, pan-left (cinematic camera feel)
 - **Hover**: Lift + glow edge
@@ -259,6 +278,7 @@ This portfolio draws inspiration from:
 ## ✅ Final Checklist
 
 Before clicking deploy:
+
 - [ ] All TODO items in code are addressed
 - [ ] No console errors in browser
 - [ ] Contact form works (or is properly disabled)
@@ -272,10 +292,11 @@ Before clicking deploy:
 **Estimated Time to Complete:** 4-8 hours
 
 **Priority Order:**
+
 1. **Phase 1 - Identity** (30 min)
    - Update name, tagline, bio
    - Replace social links and email
-   
+
 2. **Phase 2 - Content Foundation** (2 hours)
    - Resume: 6-7 experiences + 30+ skills
    - Projects: 15-20 entries + 3-4 research papers
@@ -297,7 +318,7 @@ Before clicking deploy:
    - Animation smoothness
    - Preloader verification
    - Navbar auto-hide testing
-   
+
 6. **Phase 6 - Deployment** (30 min)
    - Final build test
    - GitHub Pages setup

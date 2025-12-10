@@ -220,12 +220,6 @@ const Projects = () => {
             </div>
           </AnimatedSection>
 
-          {/* Note about TODO items */}
-          <div className="mt-12 p-4 rounded-lg bg-accent/5 border border-accent/20">
-            <p className="text-sm text-muted-foreground">
-              <strong className="text-accent">Note:</strong> Add 15-20 real projects with GitHub links and 3-4 research papers with DOI/publication links. Update Projects.tsx.
-            </p>
-          </div>
         </div>
       </div>
     </div>

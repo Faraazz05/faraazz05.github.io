@@ -31,18 +31,15 @@ const Contact = () => {
     {
       icon: Mail,
       label: "Email",
-      href: "mailto:faraaz@example.com", // Update this
-      handle: "faraaz@example.com", // Update this
+      href: "mailto:sp_mohfaraz@outlook.com", // Update this
+      handle: "sp_mohdfaraz@outlook.com", // Update this
     },
   ];
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
-    // TODO: CRITICAL - Implement actual form submission
+
     // Option 1: Formspree - Add action="https://formspree.io/f/YOUR_FORM_ID"
-    // Option 2: EmailJS - Install package and implement
-    // Option 3: Lovable Cloud - Create edge function
     // For now, this just shows a toast notification
     toast({
       title: "Message sent!",
@@ -192,13 +189,6 @@ const Contact = () => {
             </GlassCard>
           </div>
 
-          {/* Note about TODO items */}
-          <div className="mt-12 p-4 rounded-lg bg-accent/5 border border-accent/20">
-            <p className="text-sm text-muted-foreground">
-              <strong className="text-accent">Note:</strong> Update all social links and email addresses 
-              in Contact.tsx. Implement form submission using Formspree, EmailJS, or a custom backend endpoint.
-            </p>
-          </div>
         </div>
       </div>
     </div>

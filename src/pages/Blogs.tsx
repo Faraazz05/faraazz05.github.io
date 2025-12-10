@@ -18,7 +18,7 @@ const Blogs = () => {
   useEffect(() => {
     // TODO: CRITICAL - Replace with YOUR actual Medium RSS feed URL
     // Format: https://medium.com/feed/@your-username
-    const MEDIUM_RSS_URL = "https://medium.com/feed/@faraaz";
+    const MEDIUM_RSS_URL = "https://medium.com/feed/@faraazz05";
     
     // Using a CORS proxy to fetch Medium RSS
     const fetchPosts = async () => {
@@ -175,13 +175,6 @@ const Blogs = () => {
             ))}
           </div>
 
-          {/* Note about TODO items */}
-          <div className="mt-12 p-4 rounded-lg bg-accent/5 border border-accent/20">
-            <p className="text-sm text-muted-foreground">
-              <strong className="text-accent">Note:</strong> Update the MEDIUM_RSS_URL in Blogs.tsx 
-              with your actual Medium profile feed URL. The format is: https://medium.com/feed/@your-username
-            </p>
-          </div>
         </div>
       </div>
     </div>

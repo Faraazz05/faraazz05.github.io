@@ -172,13 +172,6 @@ const ForsakenKa = () => {
             </GlassCard>
           </AnimatedSection>
 
-          {/* Note about TODO items */}
-          <div className="mt-12 p-4 rounded-lg bg-accent/5 border border-accent/20">
-            <p className="text-sm text-muted-foreground">
-              <strong className="text-accent">Note:</strong> Replace the preface and chapter 
-              content with your actual Forsaken Ká manuscript. Add more chapters as needed.
-            </p>
-          </div>
         </div>
       </div>
     </div>
