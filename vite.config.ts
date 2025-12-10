@@ -4,7 +4,8 @@ import path from "path";
 import { componentTagger } from "lovable-tagger";
 
 export default defineConfig(({ mode }) => ({
-  // For username.github.io user site:
+  base: "/",   // ✅ important – NOT "/faraazz05.github.io"
+
   server: {
     host: "::",
     port: 8080,
