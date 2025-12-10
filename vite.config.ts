@@ -3,12 +3,9 @@ import react from "@vitejs/plugin-react-swc";
 import path from "path";
 import { componentTagger } from "lovable-tagger";
 
-// https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
-  // TODO: For GitHub Pages deployment, uncomment and set your repo name:
-  base: "/Faraazz05.github.io/",
-  // For custom domain (username.github.io), use:
-  // base: "/",
+  // For username.github.io user site:
+  base: "/",          // ✅ change this (or just delete the base line entirely)
   server: {
     host: "::",
     port: 8080,
