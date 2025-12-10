@@ -1,9 +1,11 @@
 import { ArrowDown } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import RippleButton from "@/components/RippleButton";
+import { useMouseParallax } from "@/hooks/use-parallax";
 
 const Home = () => {
   const navigate = useNavigate();
+  const mouseParallax = useMouseParallax(0.02);
 
   const exploreToAbout = () => {
     // Trigger zoom-out transition to About page
@@ -28,7 +30,10 @@ const Home = () => {
         {/* #todo: Replace particle config in this section if needed */}
         {/* #todo: Optional - add video background in /public/assets/bg/ */}
         
-        <div className="container mx-auto px-6 text-center z-10">
+        <div 
+          className="container mx-auto px-6 text-center z-10 parallax-element"
+          style={{ transform: `translate(${mouseParallax.x}px, ${mouseParallax.y}px)` }}
+        >
           {/* Text fade-up on load, then glow pulse */}
           <div className="animate-fade-in">
             {/* TODO: Replace "FARAAZ" with your name if needed */}
@@ -83,8 +88,11 @@ const Home = () => {
           ))}
         </div>
 
-        {/* Radial gradient glow centered on name */}
-        <div className="absolute inset-0 pointer-events-none">
+        {/* Radial gradient glow centered on name with parallax */}
+        <div 
+          className="absolute inset-0 pointer-events-none parallax-element"
+          style={{ transform: `translate(${mouseParallax.x * -0.5}px, ${mouseParallax.y * -0.5}px)` }}
+        >
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-accent/5 rounded-full blur-[120px] animate-pulse" style={{ animationDuration: "4s" }} />
         </div>
       </section>

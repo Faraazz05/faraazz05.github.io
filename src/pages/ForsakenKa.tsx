@@ -79,7 +79,7 @@ const ForsakenKa = () => {
           {/* Hero Section */}
           <div className="text-center mb-16 animate-fade-in">
             <BookOpen className="w-16 h-16 text-accent mx-auto mb-6" />
-            <h1 className="text-5xl md:text-7xl font-bold mb-6 glow-text">
+            <h1 className="text-5xl md:text-7xl font-bold mb-6 glow-text glitch-hover cursor-default">
               Forsaken Ká
             </h1>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">

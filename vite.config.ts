@@ -5,6 +5,10 @@ import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
+  // TODO: For GitHub Pages deployment, uncomment and set your repo name:
+  base: "/Faraazz05.github.io/",
+  // For custom domain (username.github.io), use:
+  // base: "/",
   server: {
     host: "::",
     port: 8080,
@@ -14,5 +18,9 @@ export default defineConfig(({ mode }) => ({
     alias: {
       "@": path.resolve(__dirname, "./src"),
     },
+  },
+  build: {
+    outDir: "dist",
+    sourcemap: false,
   },
 }));

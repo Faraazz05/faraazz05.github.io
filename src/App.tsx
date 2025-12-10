@@ -4,7 +4,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Layout from "./components/Layout";
-import Preloader from "./components/Preloader";
+import LetterByLetterIntro from "./components/LetterByLetterIntro";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Resume from "./pages/Resume";
@@ -19,19 +19,23 @@ import NotFound from "./pages/NotFound";
 import CustomCursor from "./components/CustomCursor";
 import BackgroundEffects from "./components/BackgroundEffects";
 import CopyProtection from "./components/CopyProtection";
+import ThemeToggle from "./components/ThemeToggle";
+import { ThemeProvider } from "./contexts/ThemeContext";
 
 const queryClient = new QueryClient();
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Preloader />
-      <Toaster />
-      <Sonner />
-      <CustomCursor />
-      <BackgroundEffects />
-      <CopyProtection />
-      <BrowserRouter>
+    <ThemeProvider>
+      <TooltipProvider>
+        <LetterByLetterIntro />
+        <Toaster />
+        <Sonner />
+        <CustomCursor />
+        <BackgroundEffects />
+        <CopyProtection />
+        <ThemeToggle />
+        <BrowserRouter>
         <Layout>
           <Routes>
             <Route path="/" element={<Home />} />
@@ -47,8 +51,9 @@ const App = () => (
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Layout>
-      </BrowserRouter>
-    </TooltipProvider>
+        </BrowserRouter>
+      </TooltipProvider>
+    </ThemeProvider>
   </QueryClientProvider>
 );
 

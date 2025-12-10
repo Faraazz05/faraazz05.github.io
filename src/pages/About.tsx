@@ -1,8 +1,10 @@
 import GlassCard from "@/components/GlassCard";
 import AnimatedSection from "@/components/AnimatedSection";
 import { Brain, Code, Pen, Target } from "lucide-react";
+import { useMouseParallax } from "@/hooks/use-parallax";
 
 const About = () => {
+  const mouseParallax = useMouseParallax(0.015);
   // TODO: Customize these skills to match your expertise
   const skills = [
     { icon: Brain, label: "AI Architecture", description: "Neural networks, transformers, and intelligent systems" },
@@ -27,12 +29,17 @@ const About = () => {
       <div className="container mx-auto px-6 lg:pl-32">
         <div className="max-w-6xl mx-auto">
           <AnimatedSection>
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 glow-text">
-              About Me
-            </h1>
-            <p className="text-lg sm:text-xl text-muted-foreground mb-16 max-w-3xl">
-              A builder at the intersection of logic and emotion.
-            </p>
+            <div 
+              className="parallax-element"
+              style={{ transform: `translate(${mouseParallax.x}px, ${mouseParallax.y}px)` }}
+            >
+              <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 glow-text">
+                About Me
+              </h1>
+              <p className="text-lg sm:text-xl text-muted-foreground mb-16 max-w-3xl">
+                A builder at the intersection of logic and emotion.
+              </p>
+            </div>
           </AnimatedSection>
 
           {/* Split Screen Layout */}
