@@ -5,7 +5,7 @@ import { useMouseParallax } from "@/hooks/use-parallax";
 
 const Home = () => {
   const navigate = useNavigate();
-  const mouseParallax = useMouseParallax(0.02);
+  const { position: mouseParallax } = useMouseParallax(0.02);
 
   const exploreToAbout = () => {
     // Trigger zoom-out transition to About page

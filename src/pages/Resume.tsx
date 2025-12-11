@@ -20,62 +20,68 @@ const Resume = () => {
       role: "AI Researcher / Developer",
       company: "Independent",
       duration: "2024 - Present",
-      description: "Building intelligent systems that reason and adapt. Focused on neural architecture design and machine learning from first principles.",
+      description: "Built small-scale intelligent systems with a strong focus on XAI and model behavior. Experimented with neural architecture concepts, interpretability workflows, and reasoning-driven ML approaches.",
     },
-    // TODO: Add more experience entries here (6-7 total)
+    // TODO: Add more experience entries here (6-7 total) 
     {
-      role: "#todo: Add Role Title",
-      company: "#todo: Add Company Name",
-      duration: "#todo: Add Duration",
-      description: "#todo: Add description of responsibilities and achievements",
-    },
-    {
-      role: "#todo: Add Role Title",
-      company: "#todo: Add Company Name",
-      duration: "#todo: Add Duration",
-      description: "#todo: Add description of responsibilities and achievements",
+      role: "Marketing Coordinator",
+      company: "Commania (College Society)",
+      duration: "September 2023 - March 2024",
+      description: "Supported large college events like the annual fest and Diwali mela, managing promotions, sponsorship coordination, and team operations. Contributed to campaign strategies that helped external brands grow their presence on campus.",
     },
     {
-      role: "#todo: Add Role Title",
-      company: "#todo: Add Company Name",
-      duration: "#todo: Add Duration",
-      description: "#todo: Add description of responsibilities and achievements",
+      role: "Marketing Manager",
+      company: "Storiies AI",
+      duration: "November 2023 - January 2024",
+      description: "Led user acquisition, community growth, and marketing strategy for an early-stage AI platform. Helped shape positioning, engagement flows, and outreach that supported early traction.",
     },
     {
-      role: "#todo: Add Role Title",
-      company: "#todo: Add Company Name",
-      duration: "#todo: Add Duration",
-      description: "#todo: Add description of responsibilities and achievements",
+      role: "Project Manager",
+      company: "Be The Spotlight",
+      duration: "May 2023 - August 2023",
+      description: "Managed end-to-end operations for a communication-skills course, supporting the founder with planning, technical setup, and execution. Streamlined processes to make the course delivery more efficient and effective.",
     },
     {
-      role: "#todo: Add Role Title",
-      company: "#todo: Add Company Name",
-      duration: "#todo: Add Duration",
-      description: "#todo: Add description of responsibilities and achievements",
+      role: "Community Manager",
+      company: "AY Ventures",
+      duration: "March 2023 - June 2023",
+      description: "Managed investor and community relations, focusing on growth, engagement, and event planning. Developed strategies that strengthened community participation and brand presence.",
+    },
+    {
+      role: "Manager",
+      company: "WomensCafe",
+      duration: "August 2022 - January 2023",
+      description: "Oversaw community operations for an NFT project, managing Discord, engagement activities, and daily communication. Helped maintain a healthy, active, and structured community environment.",
+    },
+    {
+      role: "Community Relations Manager",
+      company: "Metanatics",
+      duration: "March 2022 - August 2022",
+      description: "Handled moderation, growth, partnerships, and event coordination for the project’s community. Built and designed the entire Discord ecosystem, setting up workflows, roles, and engagement systems.",
     },
   ];
 
   // TODO: Add all 4 education entries
   const education = [
     {
-      degree: "10th Grade",
-      institution: "#todo: Add your school name",
-      duration: "#todo: Add year",
+      degree: "Bachelor's Degree in Computer Applications",
+      institution: "Jamia Hamdard University, New Delhi",
+      duration: "2025-28 (Expected)",
     },
     {
-      degree: "12th Grade",
-      institution: "#todo: Add your school name",
-      duration: "#todo: Add year",
+      degree: "Bachelor of Commerce (B.Com)",
+      institution: "Swami shraddhanand College, Delhi University",
+      duration: "2023-25 (Dropped out)",
     },
     {
-      degree: "College (Dropped)",
-      institution: "#todo: Add college name",
-      duration: "#todo: Add year",
+      degree: "AISSCE",
+      institution: "Brahmanand Public School, Bulandshahr",
+      duration: "2022-23",
     },
     {
-      degree: "Current College",
-      institution: "#todo: Add current college name",
-      duration: "#todo: Add year",
+      degree: "AISSE",
+      institution: "Nirmala Convent School, Bulandshahr",
+      duration: "2020-21",
     },
   ];
 
@@ -88,12 +94,18 @@ const Resume = () => {
 
   // TODO: Update with 30+ skills across all categories
   const skills = {
-    "Programming": ["Python", "C", "JavaScript", "SQL", "TypeScript"],
-    "AI & ML": ["PyTorch", "TensorFlow", "LangChain", "LLM fine-tuning", "Prompt engineering"],
-    "MLOps": ["Docker", "Kubernetes", "CI/CD", "MLflow"],
-    "Soft Skills": ["Systems thinking", "Leadership", "Creative communication"],
-    "Marketing": ["Brand Strategy", "Digital funnels", "Content design"],
-    "Tools": ["VSCode", "Figma", "Notion", "Git", "Postman"],
+    "Programming": ["Python", "C", "R", "SQL", "GNU Octave", "Matlab", "JSON",],
+    "Core AI & ML": ["Supervised Learning"," Unsupervised Learning", " Deep Learning Fundamentals", "Reinforcement Learning Basics", "Model Evaluation Metrics", "Model Deployment and debugging Basics", "Feature Engineering", "Optimization Techniques", "Neural Network"],
+    "Frameworks & Libraries": ["TensorFlow", "PyTorch","NLTK", "Pillow", "scikit-learn", "Pandas", "NumPy", "Matplotlib", "Seaborn", "Keras", "Joblib", "Hugging Face Transformers", "Langchain", "Langgraph", "XGBOOST", "CATBOOST", "LightGBM", "OpenCV", "JAX", "Flax", "Optax","Plotly","Streamlit", "Fastapi", "OpenAI", "CNTK", "Google Cloud AI", "Azure ML", "Google-auth", "Boto3", "Google-api-python-client", "Twilio", "Flask", "Django", "IBM Watson SDK", "IBM Cloud SDK"],
+    "XAI (Explainable AI)":["SHAP", "LIME", "Integrated Gradients", "Saliency Maps", "Counterfactual Explanations", "Attention Visualization", "Model Interpretability Techniques", "Model Behavior Analysis", "Fairness and Bias Detection", "Causal Inference Basics", "Interpretability Techniques"],
+    "NLP":["Transformer Architectures", "Text Preprocessing", "Word Embeddings", "Sentiment Analysis", "Named Entity Recognition", "Text Generation", "Topic Modeling", "Language Modeling", "Sequence-to-Sequence Models", "Attention Mechanisms", "Text Classification", "Tokenization Techniques", "Prompt Engineering", "Large Language Models", "Fine-tuning LLMs" ],
+    "Deep Learning":["Convolutional Neural Networks (CNNs)", "Recurrent Neural Networks (RNNs)", "Generative Adversarial Networks (GANs)","LSTM","Neural Networks", "Autoencoders", "Transfer Learning", "Regularization Techniques", "Hyperparameter Tuning", "Neural Architecture Search", "Optimization Algorithms", "Activation Functions", "Loss Functions"],
+    "Reasoining & Agents":["Symbolic Reasoning Basics","Retrieval-Augmented Generation(RAG)", "Knowledge Graphs", "Logic Programming", "Cognitive Architectures", "Multi-Agent Systems", "Reinforcement Learning for Agents", "Planning Algorithms", "Decision Making under Uncertainty", "Multi-step Thinking Flows", "Reasoning pipelines"],
+    "Deployment":["Model Serving", "Model Packaging", "REST APIs", "Pipleine Building", "Inference Optimization"],
+    "MLOps": ["Docker", "Kubernetes", "CI/CD", "MLflow", "Data Versioning", "Model Monitoring", "Cloud Platforms", "Automation Tools", "Experiment Tracking", "Version Control"],
+    "Tools": ["Git & GitHub", "Jupyter Notebooks", "VS Code", "Google Colab", "Anaconda", "Postman", "DVC", "Tableau", "Excel", "Notion", "Trello", "Slack", "Discord", "Obsidian", "Figma", "Canva", "Zotero", "Langflow", "OBS studio", "IBM Watson", "IBM Cloud", "Hugging Face", "IBM WATSONX Orchestrator", "Google Cloud Platform", "Microsoft Azure", "AWS"],
+    "Marketing":["Brand Strategy", "Digital Funnels", "Content Design", "User Acuisition", "Growth Strategy","Campaign Planning", "Community Growth", "Marketing Operations", "Strategic Planning", "Data-Driven Marketing"],
+    "Soft Skills": ["Systems Thinking", "Problem Solving", "Effective Communication", "Team Collaboration", "Adaptability", "Time Management", "Leadership", "Critical Thinking", "Creativity", "Emotional Intelligence", "Project Management", "Problem Solving", "Public Speaking", "Networking", "Conflict Resolution", "Decision Making", "Critical Thinking", "Error Handling", "File Handling", "DSA", "OOPS", "Performance Optimization", "Debugging Techniques"],
   };
 
   // TODO: Update with 3-4 current learning topics
@@ -101,6 +113,10 @@ const Resume = () => {
     "Neural architecture design",
     "Philosophy of intelligence",
     "Human-AI co-creativity",
+    "Emotional intelligence in AI",
+    "XAI techniques",
+    "Computational System",
+    "Quantum Computing Basics",
   ];
 
   return (

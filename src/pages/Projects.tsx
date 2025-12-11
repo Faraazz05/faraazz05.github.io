@@ -1,19 +1,80 @@
-import GlassCard from "@/components/GlassCard";
 import AnimatedSection from "@/components/AnimatedSection";
+import TiltCard from "@/components/TiltCard";
 import RippleButton from "@/components/RippleButton";
-import { ExternalLink, Github, FileText } from "lucide-react";
-import { useState } from "react";
+import { ExternalLink, FileText, Check, Loader2, Clock, Pause } from "lucide-react";
+
+type ProjectStatus = "completed" | "in-progress" | "planning" | "paused";
+
+interface Project {
+  title: string;
+  description: string;
+  techStack: string[];
+  githubLink: string;
+  liveLink: string | null;
+  status: ProjectStatus;
+  progress?: number;
+}
+
+const StatusBar = ({ status, progress }: { status: ProjectStatus; progress?: number }) => {
+  const statusConfig = {
+    completed: {
+      icon: Check,
+      label: "Completed",
+      barClass: "bg-accent",
+      width: "100%",
+    },
+    "in-progress": {
+      icon: Loader2,
+      label: `In Progress${progress ? ` • ${progress}%` : ""}`,
+      barClass: "bg-gradient-to-r from-accent to-accent-gold status-shimmer",
+      width: `${progress || 50}%`,
+    },
+    planning: {
+      icon: Clock,
+      label: "Planning",
+      barClass: "bg-muted-foreground/50 animate-pulse",
+      width: "20%",
+    },
+    paused: {
+      icon: Pause,
+      label: "Paused",
+      barClass: "bg-muted-foreground/30",
+      width: "40%",
+    },
+  };
+
+  const config = statusConfig[status];
+  const Icon = config.icon;
+
+  return (
+    <div className="mt-4 pt-4 border-t border-border/30">
+      <div className="flex items-center justify-between mb-2">
+        <div className="flex items-center gap-2 text-xs text-muted-foreground">
+          <Icon className={`w-3 h-3 ${status === "in-progress" ? "animate-spin" : ""}`} />
+          <span>{config.label}</span>
+        </div>
+      </div>
+      <div className="h-1.5 bg-muted/30 rounded-full overflow-hidden">
+        <div
+          className={`h-full rounded-full transition-all duration-500 ${config.barClass}`}
+          style={{ width: config.width }}
+        />
+      </div>
+    </div>
+  );
+};
 
 const Projects = () => {
   // TODO: Replace ALL these placeholder projects with your real projects (15-20 total)
-  // Update: title, description, techStack, githubLink, liveLink
-  const projects = [
+  const projects: Project[] = [
     {
       title: "AI Research Project",
       description: "Neural architecture exploration focusing on adaptive learning systems and real-time reasoning capabilities.",
       techStack: ["Python", "PyTorch", "Docker"],
       githubLink: "https://github.com/faraazz05",
       liveLink: null,
+      status: "in-progress",
+      progress: 75,
     },
     {
       title: "Intelligent Backend System",
@@ -21,6 +82,7 @@ const Projects = () => {
       techStack: ["Python", "Flask", "PostgreSQL", "Redis"],
       githubLink: "https://github.com/faraazz05",
       liveLink: null,
+      status: "completed",
     },
     {
       title: "Creative Writing Platform",
@@ -28,6 +90,8 @@ const Projects = () => {
       techStack: ["React", "TypeScript", "Node.js"],
       githubLink: "https://github.com/faraazz05",
       liveLink: null,
+      status: "in-progress",
+      progress: 60,
     },
     {
       title: "ML Model Optimizer",
@@ -35,6 +99,7 @@ const Projects = () => {
       techStack: ["Python", "TensorFlow", "NumPy"],
       githubLink: "https://github.com/faraazz05",
       liveLink: null,
+      status: "planning",
     },
     {
       title: "API Gateway Service",
@@ -42,6 +107,7 @@ const Projects = () => {
       techStack: ["Node.js", "Express", "Redis", "JWT"],
       githubLink: "https://github.com/faraazz05",
       liveLink: null,
+      status: "completed",
     },
     {
       title: "Data Visualization Dashboard",
@@ -49,6 +115,8 @@ const Projects = () => {
       techStack: ["React", "D3.js", "WebSocket"],
       githubLink: "https://github.com/faraazz05",
       liveLink: null,
+      status: "paused",
+      progress: 45,
     },
     // TODO: Add 9-14 more real projects
     ...Array.from({ length: 14 }, (_, i) => ({
@@ -57,6 +125,8 @@ const Projects = () => {
       techStack: ["#todo", "Add", "Real", "Tech"],
       githubLink: "https://github.com/faraazz05",
       liveLink: null,
+      status: (["planning", "in-progress", "completed", "paused"][i % 4]) as ProjectStatus,
+      progress: i % 4 === 1 ? 30 + (i * 5) : undefined,
     })),
   ];
 
@@ -82,7 +152,9 @@ const Projects = () => {
     },
   ];
 
-  const [hoveredProject, setHoveredProject] = useState<number | null>(null);
+  const handleProjectClick = (githubLink: string) => {
+    window.open(githubLink, "_blank", "noopener,noreferrer");
+  };
 
   return (
     <div className="min-h-screen pt-24 pb-20 gradient-bg relative overflow-hidden">
@@ -115,73 +187,53 @@ const Projects = () => {
           <div className="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6 mb-20">
             {projects.map((project, index) => (
               <AnimatedSection key={index} delay={index * 50} className="break-inside-avoid">
-                <div
-                  className="relative"
-                  onMouseEnter={() => setHoveredProject(index)}
-                  onMouseLeave={() => setHoveredProject(null)}
+                <TiltCard
+                  onClick={() => handleProjectClick(project.githubLink)}
+                  className="group"
                 >
-                  <GlassCard 
-                    hoverable={false}
-                    className="transition-all duration-500 hover:border-accent/50 hover:shadow-[0_0_30px_rgba(0,255,255,0.2)] hover:scale-[1.02]"
-                  >
-                    <h3 className="text-xl font-semibold mb-3 text-accent">{project.title}</h3>
-                    <p className="text-muted-foreground leading-relaxed mb-4">
-                      {project.description}
-                    </p>
-                    
-                    {/* Tech Stack - Visible on Hover */}
-                    <div 
-                      className={`overflow-hidden transition-all duration-300 ${
-                        hoveredProject === index ? 'max-h-32 opacity-100 mb-4' : 'max-h-0 opacity-0'
-                      }`}
-                    >
-                      <div className="flex flex-wrap gap-2">
-                        {project.techStack.map((tech) => (
-                          <span
-                            key={tech}
-                            className="px-3 py-1 text-xs rounded-full bg-accent/10 text-accent border border-accent/30"
-                          >
-                            {tech}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
+                  {/* External link indicator */}
+                  <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                    <ExternalLink className="w-4 h-4 text-accent" />
+                  </div>
 
-                    {/* Actions - Visible on Hover */}
-                    <div 
-                      className={`overflow-hidden transition-all duration-300 ${
-                        hoveredProject === index ? 'max-h-20 opacity-100' : 'max-h-0 opacity-0'
-                      }`}
-                    >
-                      <div className="flex gap-2 pt-2">
-                        <RippleButton
-                          variant="outline"
-                          size="sm"
-                          className="flex-1 border-accent/30 hover:bg-accent/10 hover:border-accent"
-                          asChild
-                        >
-                          <a href={project.githubLink} target="_blank" rel="noopener noreferrer">
-                            <Github className="w-4 h-4 mr-2" />
-                            View GitHub
-                          </a>
-                        </RippleButton>
-                        {project.liveLink && (
-                          <RippleButton
-                            variant="outline"
-                            size="sm"
-                            className="flex-1 border-accent/30 hover:bg-accent/10 hover:border-accent"
-                            asChild
-                          >
-                            <a href={project.liveLink} target="_blank" rel="noopener noreferrer">
-                              <ExternalLink className="w-4 h-4 mr-2" />
-                              Live
-                            </a>
-                          </RippleButton>
-                        )}
-                      </div>
+                  <h3 className="text-xl font-semibold mb-3 text-accent pr-8">{project.title}</h3>
+                  <p className="text-muted-foreground leading-relaxed mb-4">
+                    {project.description}
+                  </p>
+                  
+                  {/* Tech Stack */}
+                  <div className="flex flex-wrap gap-2 mb-2">
+                    {project.techStack.map((tech) => (
+                      <span
+                        key={tech}
+                        className="px-3 py-1 text-xs rounded-full bg-accent/10 text-accent border border-accent/30"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+
+                  {/* Live Link Button */}
+                  {project.liveLink && (
+                    <div className="mt-4">
+                      <RippleButton
+                        variant="outline"
+                        size="sm"
+                        className="border-accent/30 hover:bg-accent/10 hover:border-accent"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          window.open(project.liveLink!, "_blank", "noopener,noreferrer");
+                        }}
+                      >
+                        <ExternalLink className="w-4 h-4 mr-2" />
+                        Live Demo
+                      </RippleButton>
                     </div>
-                  </GlassCard>
-                </div>
+                  )}
+
+                  {/* Status Bar */}
+                  <StatusBar status={project.status} progress={project.progress} />
+                </TiltCard>
               </AnimatedSection>
             ))}
           </div>
@@ -195,7 +247,7 @@ const Projects = () => {
             <div className="space-y-6">
               {researchPapers.map((paper, index) => (
                 <AnimatedSection key={index} delay={400 + index * 100}>
-                  <GlassCard hoverable={false} className="border-accent-gold/20 hover:border-accent-gold/40 transition-all duration-300">
+                  <TiltCard glowColor="gold">
                     <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-3">
                       <h3 className="text-xl font-semibold text-accent-gold">{paper.title}</h3>
                       <span className="text-sm text-muted-foreground mt-2 md:mt-0 px-3 py-1 rounded-full bg-accent-gold/10 border border-accent-gold/30">
@@ -214,12 +266,18 @@ const Projects = () => {
                         Read Paper
                       </a>
                     </RippleButton>
-                  </GlassCard>
+                  </TiltCard>
                 </AnimatedSection>
               ))}
             </div>
           </AnimatedSection>
 
+          {/* Note about TODO items */}
+          <div className="mt-12 p-4 rounded-lg bg-accent/5 border border-accent/20">
+            <p className="text-sm text-muted-foreground">
+              <strong className="text-accent">Note:</strong> Add 15-20 real projects with GitHub links and 3-4 research papers with DOI/publication links. Update Projects.tsx.
+            </p>
+          </div>
         </div>
       </div>
     </div>

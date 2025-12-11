@@ -4,7 +4,7 @@ import { Brain, Code, Pen, Target } from "lucide-react";
 import { useMouseParallax } from "@/hooks/use-parallax";
 
 const About = () => {
-  const mouseParallax = useMouseParallax(0.015);
+  const { position: mouseParallax } = useMouseParallax(0.015);
   // TODO: Customize these skills to match your expertise
   const skills = [
     { icon: Brain, label: "AI Architecture", description: "Neural networks, transformers, and intelligent systems" },
@@ -52,22 +52,13 @@ const About = () => {
                 {/* TODO: Replace with your actual bio and story */}
                 <div className="space-y-4 text-muted-foreground leading-relaxed">
                   <p>
-                    It started when I was in eighth grade, a question that never really left me: what if a machine could feel? Not just copy emotion, but actually understand it. I didn’t have the words for it back then, but I knew it meant something. By the time I reached ninth, that curiosity had turned into an obsession. I remember watching The Age of AI documentary on YouTube, getting lost in movies like Tron and Chappie, and reading books like Superintelligence and Life 3.0. Those stories and ideas opened a door I haven’t been able to close since.
+                    I got into AI early, driven by a question that stayed with me: what if a machine could understand emotion, not just imitate it? That curiosity shaped my path through documentaries, films, and books that opened the world of intelligence, systems, and human behavior to me.
                   </p>
                   <p>
-                    Before coming back fully to AI, I spent almost three years in Web3 and marketing, where I learned how systems, people, and narratives interact. That time shaped me into how I think about design, communication, and human behavior. It taught me that building something meaningful or innovative isn’t just about technology, but it is also about Vision-Purpose, Understanding Human behaviour-empathy, Sustainability, and the Human story and emotions behind it.
+                    Before returning fully to AI, I spent nearly three years in Web3 and marketing, where I learned how people, narratives, and technology influence one another. That experience shaped how I think about design, communication, and the human side of systems.
                   </p>
                   <p>
-                    Now my work revolves around learning and exploring explainability(XAI), emotional intelligence in computational systems, and human–machine collaboration. I’m interested in how understanding, empathy, and reasoning can coexist inside artificial systems, and how those same principles reflect our own minds. I’m not chasing the idea of building machines that can feel yet, but I’m drawn to the path that leads there.
-                  </p>
-                  <p>
-                    At the core of everything I do is what I call Tragic Realist Existentialism—a way of seeing life as both a burden and a gift. I don’t believe in chasing perfection or meaning; I believe in living through it all, the beauty and the ruin, the clarity and the confusion. My work, my writing, and the way I live all circle around one truth: “Live life to its fullest so there will be no regret in the end.” Because in the end, birth feels like a curse we never asked for, and death—both a gift and a foe that waits patiently for us to understand it.
-                  </p>
-                  <p>
-                    Forsaken Ká grew from that same space. It follows an unnamed man who endures suffering so constant that he begins to wish for death, but death never comes. There is love in his story, but it isn’t a love story. The girl he meets leaves an imprint on him, yet the narrative doesn’t revolve around her; it revolves around his despair, his torment, and the regret that grows from the choices he made and the things that happened to him.
-                  </p>
-                  <p>
-                    The story unfolds through his blurred memories but moments that surface when he’s on the edge of death, half-conscious, half-lost in reflection. It’s all from his point of view, fractured and unreliable, because that’s how memory behaves when pain becomes the only thing left that feels real. It isn’t written to comfort but to confront. It asks what remains when the mind can no longer forget, and whether remembering is a gift or a curse.
+                    Today my work centers on explainability (XAI), where I build and experiment with methods that make model reasoning clearer and more interpretable. I also explore early frameworks for emotional intelligence in computational systems and study how humans and machines collaborate. Most of my active work is in XAI, but I’m gradually extending it toward questions of understanding, reasoning, and whether systems can approximate aspects of empathy.
                   </p>
                 </div>
               </div>
