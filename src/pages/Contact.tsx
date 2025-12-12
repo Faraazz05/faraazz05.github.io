@@ -1,3 +1,4 @@
+// contact.tsx
 import { useState } from "react";
 import GlassCard from "@/components/GlassCard";
 import { Button } from "@/components/ui/button";
@@ -6,6 +7,9 @@ import { Textarea } from "@/components/ui/textarea";
 import { Github, Linkedin, Mail, Send } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
+const WEB3FORMS_ENDPOINT = "https://api.web3forms.com/submit";
+const WEB3FORMS_ACCESS_KEY = "223b5477-2c3f-4579-bc01-28197ad9351c"; // <-- replace this
+
 const Contact = () => {
   const { toast } = useToast();
   const [formData, setFormData] = useState({
@@ -13,41 +17,85 @@ const Contact = () => {
     email: "",
     message: "",
   });
+  const [sending, setSending] = useState(false);
 
   // TODO: Update ALL these social links and email address
   const socialLinks = [
     {
       icon: Github,
       label: "GitHub",
-      href: "https://github.com/faraazz05", // Update this
-      handle: "@faraazz05", // Update this
+      href: "https://github.com/faraazz05",
+      handle: "@faraazz05",
     },
     {
       icon: Linkedin,
       label: "LinkedIn",
-      href: "https://linkedin.com/in/faraazz05", // Update this
-      handle: "/faraazz05", // Update this
+      href: "https://linkedin.com/in/faraazz05",
+      handle: "/faraazz05",
     },
     {
       icon: Mail,
       label: "Email",
-      href: "mailto:sp_mohfaraz@outlook.com", // Update this
-      handle: "sp_mohdfaraz@outlook.com", // Update this
+      href: "mailto:sp_mohfaraz@outlook.com",
+      handle: "sp_mohdfaraz@outlook.com",
     },
   ];
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    // Option 1: Formspree - Add action="https://formspree.io/f/YOUR_FORM_ID"
-    // For now, this just shows a toast notification
-    toast({
-      title: "Message sent!",
-      description: "Thank you for reaching out. I'll get back to you soon.",
-    });
+    // Basic client-side guard
+    if (!formData.name || !formData.email || !formData.message) {
+      toast({
+        title: "Missing fields",
+        description: "Please fill all required fields before sending.",
+      });
+      return;
+    }
 
-    // Reset form
-    setFormData({ name: "", email: "", message: "" });
+    setSending(true);
+
+    try {
+      // Build FormData exactly as web3forms expects
+      const fd = new FormData();
+      fd.append("access_key", WEB3FORMS_ACCESS_KEY);
+      fd.append("name", formData.name);
+      fd.append("email", formData.email);
+      fd.append("message", formData.message);
+
+      // Optional: add subject or redirect fields
+      // fd.append("subject", "Website message from portfolio");
+      // fd.append("redirect", "https://your-site.com/thanks");
+
+      const res = await fetch(WEB3FORMS_ENDPOINT, {
+        method: "POST",
+        body: fd,
+      });
+
+      const json = await res.json().catch(() => ({}));
+
+      if (res.ok) {
+        toast({
+          title: "Message sent!",
+          description: "Thanks — I'll get back to you soon.",
+        });
+        setFormData({ name: "", email: "", message: "" });
+      } else {
+        // web3forms sends useful messages in json.message
+        toast({
+          title: "Failed to send",
+          description: json?.message || "Something went wrong. Try again later.",
+        });
+      }
+    } catch (err) {
+      console.error("Web3Forms error:", err);
+      toast({
+        title: "Network error",
+        description: "Couldn't send message. Check your connection or try again.",
+      });
+    } finally {
+      setSending(false);
+    }
   };
 
   const handleChange = (
@@ -180,10 +228,11 @@ const Contact = () => {
 
                 <Button
                   type="submit"
+                  disabled={sending}
                   className="w-full glass-hover bg-accent/10 hover:bg-accent/20 text-accent border border-accent/30 transition-all hover:shadow-[0_0_20px_rgba(0,255,255,0.3)] group"
                 >
                   <Send className="mr-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                  Send Message
+                  {sending ? "Sending..." : "Send Message"}
                 </Button>
               </form>
             </GlassCard>

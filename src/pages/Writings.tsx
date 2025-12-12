@@ -6,26 +6,52 @@ import { BookOpen, FileText, ChevronRight } from "lucide-react";
 const Writings = () => {
   const navigate = useNavigate();
 
-  // TODO: Replace ALL these placeholder writings with your actual creative work
-  // Update: id, title, category, excerpt, date
   const writings = [
     {
-      id: "fragment-i-silence",
-      title: "Fragment I: The Weight of Silence",
+      id: "prayer",
+      title: "The Prayer Before Fall",
+      category: "Poetry",
+      excerpt: "In the quiet before the fall, I whisper a prayer to the winds of change. May they carry my hopes and fears alike, weaving them into the tapestry of tomorrow. For in every ending lies a new beginning, and in every fall, the chance to rise again.",
+      date: "2025",
+    },
+    {
+      id: "WHO_I",
+      title: "WHO AM I",
+      category: "Prose",
+      excerpt: "Who am i a stupid question isn't it?",
+      date: "2025",
+    },
+    {
+      id: "Cursed_Birth",
+      title: "Birth is a Curse",
       category: "Prose",
       excerpt: "In the space between words, there exists a truth that language cannot touch. It breathes in the pauses, lives in the unsaid. I've spent years trying to name it, only to find that some things resist definition...",
+      date: "2025",
+    },
+    {
+      id: "How_does",
+      title: "How does it feel",
+      category: "monologue",
+      excerpt: "How does it feel to be alive when every breath feels like a battle? To walk through a world that seems indifferent to your existence, yet you yearn for connection, for meaning, for a sign that you matter?",
+      date: "2025",
+    },
+    {
+      id: "Love_JOKE",
+      title: "Love or a Divine Joke?",
+      category: "Poetry",
+      excerpt: "What is Love? perhaphs an Divine Jest",
+      date: "2025",
+    },
+    {
+      id: "Weight_of_Tears",
+      title: "The Weight of Tears",
+      category: "Prose",
+      excerpt: "Tears are not just drops of water; they are the silent witnesses of our deepest sorrows and joys. Each tear carries the weight of unspoken words, the burden of hidden pain, and the lightness of relief. In their fall, we find a paradoxical strength, a vulnerability that connects us to our humanity.",
       date: "2024",
     },
     {
-      id: "conscious-systems",
-      title: "On Building Conscious Systems",
-      category: "Essay",
-      excerpt: "What does it mean for a system to understand? Not process, not compute—but truly comprehend. This question drives my work, haunts my research, and shapes every line of code I write...",
-      date: "2024",
-    },
-    {
-      id: "meditation-intelligence",
-      title: "Meditation on Intelligence",
+      id: "Time_Paradox",
+      title: "TIME",
       category: "Poetry",
       excerpt: "To think is to exist / To exist is to question / To question is to doubt / And in doubt / We find the first spark / Of something real",
       date: "2024",
