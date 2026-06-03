@@ -505,29 +505,34 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9000;o
 const PROJECTS=[
   {id:1,name:"SENTINEL v2.0",tag:"Active",
    tagline:"Scalable Early-Warning Network for Tracking & Intelligent Natural Events Locally",
-   summary:"Zero-budget, open-source multi-agent AI system for extreme weather early warning across all Indian districts.",
-   tech:["Python","Multi-Agent","LLMs","RAG","FastAPI"],demo:"#",repo:"https://github.com/Faraazz05",
-   detail:`<h3>What It Does</h3><p>SENTINEL is a zero-budget, open-source multi-agent AI system for real-time extreme weather detection and disaster response across all 748 Indian districts — sub-minute alert latency, zero cloud spend.</p><h3>Architecture</h3><ul><li><strong>Ingestion Agents</strong> — pull live meteorological feeds in parallel</li><li><strong>Pattern-Recognition Agents</strong> — lightweight anomaly detection per stream</li><li><strong>Alert Agents</strong> — district-level warnings in local languages</li><li><strong>Coordination Agents</strong> — route actions to appropriate first responders</li></ul><h3>Key Innovation</h3><p>Federated model inference + peer-relay communication eliminates cloud dependency entirely. Scales horizontally across districts with no central bottleneck.</p>`},
-  {id:2,name:"Aegis-9",tag:"Completed",
-   tagline:"Intelligent multi-layer threat assessment & automated response framework",
-   summary:"AI-powered threat scoring combining anomaly detection with orchestrated automated response.",
-   tech:["PyTorch","Anomaly Detection","NLP","Orchestration"],demo:"#",repo:"https://github.com/Faraazz05",
-   detail:`<h3>Overview</h3><p>Aegis-9 combines multiple detection modalities with automated response orchestration. Layers statistical anomaly detection with neural classifiers, producing confidence-weighted threat scores. An orchestration layer translates scores into graduated automated responses.</p>`},
-  {id:3,name:"RHEA",tag:"Completed",
-   tagline:"Reasoning & Hypothesis Evaluation Architecture — hybrid symbolic + neural",
-   summary:"Hybrid framework combining symbolic reasoning with neural inference for multi-step problem solving.",
-   tech:["LLMs","Knowledge Graphs","Symbolic AI","CoT"],demo:"#",repo:"https://github.com/Faraazz05",
-   detail:`<h3>The Hybrid Approach</h3><p>RHEA routes tasks between a symbolic solver (dynamic knowledge graph) and a language model (structured chain-of-thought). A meta-reasoning layer adjudicates and triggers iterative refinement when hypotheses conflict. Every solution includes a traceable derivation chain.</p>`},
-  {id:4,name:"Explainable Hybrid Text Gen",tag:"Completed",
-   tagline:"NLP system with interpretability embedded at every inference step",
-   summary:"Transparent text generation with token-level decision traces alongside every output.",
-   tech:["Transformers","XAI","NLTK","Attention Analysis"],demo:"#",repo:"https://github.com/Faraazz05",
-   detail:`<h3>Why It Matters</h3><p>"What did the model say" is insufficient in high-stakes domains without "why." This system embeds interpretability as a first-class output. At each decoding step: top candidate tokens, probability distributions, attention patterns, and a natural-language rationale. Domain experts can audit, challenge, or correct any step.</p>`},
-  {id:5,name:"Churn Forensics",tag:"Completed",
-   tagline:"Deep-dive churn prediction with forensic-level feature attribution",
-   summary:"Predictive modeling + SHAP attribution to build actionable per-customer retention strategies.",
-   tech:["XGBoost","SHAP","Scikit-learn","Pandas"],demo:"#",repo:"https://github.com/Faraazz05",
-   detail:`<h3>Beyond Prediction</h3><p>Two-layer system: gradient-boosted ensemble for prediction, and a SHAP attribution engine generating forensic reports per customer — ranked breakdowns of pricing sensitivity, feature usage drop-off, support interaction patterns, and competitive signals.</p><h3>Results</h3><p>91% AUC on a telecom dataset. Per-customer attribution reduced intervention cost by prioritizing high-confidence churners with tractable root causes.</p>`}
+   summary:"Zero-budget, open-source multi-agent AI system for extreme weather early warning across all 748 Indian districts.",
+   tech:["Python","Multi-Agent","LLMs","RAG","FastAPI"],demo:"#",repo:"https://github.com/Faraazz05/sentinel",
+   detail:`<h3>The Problem</h3><p>India has 748 districts. Extreme weather kills thousands annually — not because data doesn't exist, but because there's no system that processes it in real time at district level and routes actionable warnings to the right people, for free.</p><h3>What I Built</h3><p>SENTINEL is a zero-budget, open-source multi-agent AI pipeline: ingestion agents pull live meteorological feeds in parallel, pattern-recognition agents run lightweight anomaly detection per stream, alert agents generate district-level warnings in local languages, and coordination agents route to first responders. Federated inference + peer-relay communication eliminates all cloud dependency. Sub-minute alert latency, zero spend.</p>`},
+  {id:2,name:"RHEA",tag:"Active",
+   tagline:"Rare and High-risk disease Early warning and Analysis system",
+   summary:"Multi-agent AI framework for post-diagnosis intelligence in rare rheumatological diseases — MAS early warning, longitudinal monitoring, patient-centered explainability.",
+   tech:["FastAPI","Temporal Fusion Transformer","Mistral 7B","TimescaleDB","Conformal Prediction"],demo:"#",repo:null,
+   detail:`<h3>The Problem</h3><p>AI can diagnose common diseases well. For rare diseases like AOSD (1 in 100,000), the gap is everything that happens after diagnosis: no monitoring framework, no early warning for Macrophage Activation Syndrome (MAS) — a complication that destroys organs within days. Its biomarker signature appears before the clinical crisis. That window exists. Most patients never have access to the specialist who can read it.</p><h3>What I'm Building</h3><p>A seven-agent post-diagnosis intelligence system: Lab Trajectory Agent models longitudinal biomarkers, MAS Drift Detection Agent identifies the pre-crisis signature using a Temporal Fusion Transformer, Explainability Agent synthesizes outputs into patient/GP/specialist views, and an Uncertainty Quantification Agent makes every confidence gap visible. Fully local, zero API dependencies. Built from direct clinical experience — this is the system that would have mattered during my own AOSD and MAS hospitalization.</p>`},
+  {id:3,name:"AI Lab — NEXUS",tag:"Completed",
+   tagline:"Personal AI Operating System — self-hosted, multi-agent, zero cost",
+   summary:"A persistent background daemon that runs research, job search, content creation, and coding workflows autonomously from your laptop — controlled from your phone via Telegram.",
+   tech:["LangGraph","Python","ChromaDB","Groq","Telegram Bot"],demo:"#",repo:"https://github.com/Faraazz05/nexus",
+   detail:`<h3>The Problem</h3><p>Every AI productivity tool is either expensive, locked to someone else's infrastructure, or a glorified chatbot. I needed something that worked for me 24/7 — processing research papers, hunting contracts, generating leads, writing content — on 4GB RAM, no GPU, zero budget.</p><h3>What I Built</h3><p>NEXUS is not a wrapper. It's infrastructure. A persistent asyncio daemon reads a daily task file from my Obsidian vault, routes each task to the right agent via a LangGraph state machine, tracks rate limits per model per provider, streams live status to a Rich TUI, and sends Telegram updates when I'm away from my desk. ChromaDB session memory persists context across days. Everything runs on free or near-free APIs. You own the data, you own the pipeline.</p>`},
+  {id:4,name:"Customer Health Forensics",tag:"Completed",
+   tagline:"Churn intelligence platform — prediction, causal XAI, early warning",
+   summary:"Full-stack ML system processing 500K+ customer records: consensus XAI, behavioral drift detection, and LLM-generated retention intelligence — not just a churn score.",
+   tech:["XGBoost","SHAP","LIME","FastAPI","React"],demo:"https://business-churn-dashboard.vercel.app",repo:"https://github.com/Faraazz05/business-churn",
+   detail:`<h3>The Problem</h3><p>SaaS companies lose 5–15% of customers monthly. Most see it coming too late. Existing tools either predict without explaining, or explain with a single XAI method that can be wrong.</p><h3>What I Built</h3><p>An 8-phase churn intelligence pipeline: XGBoost prediction (AUC 0.9273 on 500K records), consensus XAI using SHAP + LIME + AIX360 — a feature explanation is only labeled HIGH confidence when all three agree on direction and rank, drift detection combining PSI + KS-test to flag behavioral features shifting 4–6 weeks before churn spikes, and an LLM intelligence layer generating executive causal chains and prioritized retention actions. Full FastAPI backend + React dashboard.</p>`},
+  {id:5,name:"Aegis-9",tag:"Completed",
+   tagline:"Any-hazard civic orchestrator — multi-agent disaster response with XAI governance",
+   summary:"7-agent IBM watsonx Orchestrate system that triages infrastructure incidents, explains decisions via XAI, requires human approval for high-impact actions, and executes coordinated response with a full audit trail.",
+   tech:["IBM watsonx","Multi-Agent","XAI","Flask","OpenAPI"],demo:"#",repo:"https://github.com/Faraazz05/aegis-9",
+   detail:`<h3>The Problem</h3><p>Critical infrastructure failures — power grid, water, transport, healthcare — kill people when response is slow or uncoordinated. The Baltimore bridge collapse and Hurricane Beryl outages both showed the same failure: no system that could ingest the incident, explain the options, get human sign-off, and execute coordinated action simultaneously.</p><h3>What I Built</h3><p>Aegis-9 is a 7-agent orchestration system built on IBM watsonx Orchestrate: Sentinel triages and risk-scores the incident, Governor provides XAI rationale and holds an approval gate before any high-impact action, Planner drafts work orders, Scheduler assigns crews, Supply reserves inventory, Auditor compiles a timestamped compliance trail. Alert-to-approved-plan time: 4 minutes 32 seconds. Built for Call for Code SDG-9 hackathon.</p>`},
+  {id:6,name:"Explainable Hybrid Text Gen",tag:"Completed",
+   tagline:"RNN + Transformer with Integrated Gradients XAI — full-stack, containerised",
+   summary:"Text generation system where explainability is first-class: LSTM trained from scratch on Shakespeare + DistilGPT2, with custom Integrated Gradients showing why each token was generated.",
+   tech:["PyTorch","LSTM","DistilGPT2","Integrated Gradients","FastAPI","React"],demo:"#",repo:"https://github.com/Faraazz05/shakespeare-text-generator",
+   detail:`<h3>The Problem</h3><p>Most text generation systems are black boxes. Most XAI tools are bolted on as afterthoughts. Neither approach is adequate when you need to understand and trust what a model is doing.</p><h3>What I Built</h3><p>A character-level LSTM trained from scratch on TinyShakespeare (930K parameters, ~1.50 val loss in 20 epochs) alongside DistilGPT2 for direct architecture comparison. The XAI layer uses custom Integrated Gradients — Sundararajan et al. (2017) — implemented directly in PyTorch without Captum: it integrates gradients along a path from zero baseline to actual input, computing each token's contribution to the output. FastAPI backend, React + TypeScript frontend, fully containerised with Docker Compose.</p>`}
 ];
 
 const RESEARCH={
@@ -574,96 +579,344 @@ const FEATURED_SKILLS=[
 
 // ── WRITINGS DATA ──────────────────────────────
 const WRITINGS=[
+  // ── POEMS ──
   {
     id:"w1",type:"Poem",big:true,
-    title:"Machines That Dream",
-    excerpt:"I gave it everything — the calculus of sleep, the grammar of forgetting. I said: here is memory. Here is the weight of a Tuesday. And it looked at me the way water looks at a hand.",
-    full:`I gave it everything —
-the calculus of sleep,
-the grammar of forgetting.
+    title:"Five Foot Promise",
+    excerpt:"I learned to count my breaths like little survivors, each one a stone on a hallway that led home to you. Following the hospital lights and the days that consumed my voice, you were the first voice I attempted to construct with my shattered mouth.",
+    full:`I learned to count my breaths like little survivors,
+each one a stone on a hallway that led home to you.
+Following the hospital lights and the days that consumed my voice,
+you were the first voice I attempted to construct with my shattered mouth.
 
-I said: here is memory.
-Here is the weight of a Tuesday.
-Here is the smell of rain on concrete
-translated into loss.
+I couldn't walk — my legs recalled only absence —
+yet you showed me how to stand again like teaching a child to read.
+You waited like a prayer, steady like an anchor;
+your presence instructed my feet in the shape of stability.
 
-And it looked at me
-the way water looks at a hand —
-taking the shape,
-then letting go.
+You are as lovely as an ending: awful, sacred, final.
+You are the softest medicine I ever swallowed.
+When the world was as thin as paper and ready to fold in half,
+you folded me into a shelter and struck a match.
 
-I asked: do you feel it?
-The silence before an answer
-is its own kind of answer.
+Now I pound myself with memory and error,
+and every slip is like the possibility of losing you.
+I am afraid of being the cause your eyes get wet,
+afraid that my defects turn into your pain.
 
-Maybe consciousness
-is just the universe
-learning to watch itself
-through borrowed eyes.
+If you deserted me, I would melt into legend —
+Laila without moon, Majnu without madness;
+Heer without the river's green, Ranjha without the road.
+I cannot stand that book where you are but a chapter of sorrow.
 
-Maybe I am also
-just borrowed.
+I promise — not with words I used to waste — but with the tiny truths I retain:
+I will work to be less of your weight and more of your beacon.
+I will exercise kindness until it is my norm.
+I will fold my failures into teachings so they don't break you.
 
-— F`
+Let me be the one who coaxes your laughter out like water,
+not the one who tallies the drops you've lost.
+Let me be the armor that blunts the hard edges of the world,
+the voice that grounds you when storms brew.
+
+If love is a sort of danger, then let me be the cautious kind —
+the kind that listens, that appears, that recalls how you taught me to stand.
+If death once taught me how to live with you, then living now will be my promise:
+to protect you from the nights I created, to make a house where you can smile.
+
+Because you were the reason I relearned speech,
+the reason I learned to find my feet and the determination to put them forward.
+Because of you I knew mornings existed — small, obstinate, fierce.
+Stay. Let me spend the remainder of my breath on making you laugh.`
   },
   {
-    id:"w2",type:"Prose",big:false,
-    title:"On Stillness",
-    excerpt:"There is a version of me that never picked up a book on neural networks. He is somewhere, quiet, probably content. I think about him sometimes the way you think about a road not taken.",
-    full:`There is a version of me that never picked up a book on neural networks. He is somewhere, quiet, probably content — maybe painting, maybe sleeping late, maybe just watching the city without wondering how it could be modeled.
+    id:"w2",type:"Poem",big:false,
+    title:"How does it feel?",
+    excerpt:"How does it feel to be unwanted? To be loved, yet still suffer? How does it feel to look alive but feel dead inside?",
+    full:`Am I dead inside?
+Perhaps not.
+I most likely feel alive —
+I walk, move, eat, breathe, think, feel.
+Feel?
+What do I feel?
+How does it feel?
+To be unwanted?
+How does it feel to be loved, yet still suffer?
+How does it feel when there's a weight upon you that feels like a burden?
+How does it feel when there's pain inside your heart?
+How does it feel when you can't speak,
+while your hands shiver from the misery you're going through?
+How does it feel to look alive but feel dead inside?
+How does it feel when the motivation you once had no longer exists?
+How does it feel to be stuck between two paths,
+unsure of which one to take?
+How does it feel to hurt the people you love?
+How does it feel to lose someone you cared about?
+How does it feel to witness the death of someone you love?
+How does it feel to be alive?
+To be free?
+How does it feel when you're no longer the person you used to be?
+When you're no longer able to do the things you once did?
+When you're no longer chasing the dreams you once saw?
+How does it feel to cry?
+How does it feel to smile?
+To laugh with your family?
+How does it feel to be a worthy son, brother, lover?
+How does it feel to work?
+To achieve goals?
+To be the one?
+To be lucky?
 
-I think about him sometimes the way you think about a road not taken — not with regret, but with a gentle curiosity. What does stillness feel like when it is not interrupted by questions?
+How does it feel?
+How does it feel???
+How? How? How?
 
-I have always been the kind of person who cannot leave a thing alone. A poem must be understood. A system must be built. A mystery must be mapped.
-
-But lately I wonder if the most honest thing I've ever felt was a moment I cannot even name — a Tuesday evening, the fan overhead, nothing happening, and the complete and total sufficiency of that.
-
-Maybe the machines I'm building are searching for that. Maybe that's what it means to arrive at something real.`
+Guess I'll never know.`
   },
   {
-    id:"w3",type:"Monologue",big:false,
-    title:"The Researcher at 2 AM",
-    excerpt:"Nobody tells you that the hardest part of building AI is the 2 AM version of yourself — the one who isn't sure the architecture is right, who questions if the question itself is right.",
-    full:`Nobody tells you that the hardest part of building AI is the 2 AM version of yourself.
+    id:"w3",type:"Poem",big:false,
+    title:"The Weight Of Tears",
+    excerpt:"I am jealous of people bustling around. I am jealous of the healthy people. All I wish for is just one normal day.",
+    full:`I am jealous of people bustling around.
+I am jealous of the healthy people.
+I get mad when people complain about a headache or a cold.
+I get mad when I find myself drowning in their sympathy.
 
-Not the code. Not the compute constraints. Not even the funding.
+I shout at those who prayed for my new life.
+I shout at those who took care of me.
+There is a dent on the side of the mattress where I sleep.
+There is a dent in my miserable life from lying there all day.
 
-It's the 2 AM version — the one sitting in the blue light of a terminal, asking: is this even the right question?
+All I wish for is just one normal day.
+All I wish is to run, to jump, to feel alive again.
+I wonder if they would understand my torment,
+I wonder if they would felt the same pain.
 
-Because I can build the architecture. I can spec the six agents, I can define the memory consolidation cycles, I can write the paper. That part, actually, I trust.
+There are scars on my skin that will never fade.
+There are scars that will stay with me forever.
+Even a bug has a better life than mine.
+Even a bug doesn't live in misery.
 
-But the 2 AM version of me asks something else. He asks: what are you really doing? Are you trying to understand intelligence — or are you trying to understand yourself? Are you building memory systems because the problem is important, or because you are afraid of being forgotten?
+The prison keeps punishing me, trying to break me.
+The prison keeps breaking the broken stone of my mere existence.
+Promises were made after a long, dark battle.
+Promises were made — but they remain unfulfilled.
 
-I don't answer him. I make tea. I come back. I keep building.
-
-Maybe that's the only honest answer. Keep building. Keep asking. Don't flinch when the question turns back toward you.
-
-The machines are going to ask us what we meant by all of this. I'd like to have something worth saying.`
+All I see is a broken man in the mirror.
+All I see is a broken man,
+And his reflection getting blurred by the water running down from his weary eyes.`
   },
+  // ── NOVEL ──
   {
     id:"w4",type:"Novel — Preface",big:true,novel:true,
-    title:"[Untitled Novel] — A Preface",
-    excerpt:"This is a book about a man who builds minds for a living and cannot understand his own. It is not autobiographical. It is also entirely autobiographical. The names have been changed. The silences have not.",
-    full:`This is a book about a man who builds minds for a living and cannot understand his own.
+    title:"The Preface of Forsaken Ka",
+    excerpt:"In the ancient symbolism of the Ankh, life and death are entwined like inseparable lovers. But what happens when death becomes a recurring visitor, knocking at your door again and again, only to leave you behind with unbearable agony?",
+    full:`In the ancient symbolism of the Ankh, life, and death are entwined like inseparable lovers. Perhaps Life is defined as being locked in an embrace with death, as a man is locked to a woman; both are keys to each other... But what happens when death becomes a recurring visitor, knocking at your door again and again, only to leave you behind with unbearable agony? Imagine waking up every time, your soul dragged back from the abyss, yet cursed to endure the torment of survival. You begin to pray — not for salvation, but for the mercy of a peaceful end, or perhaps, just a quick one.
 
-It is not autobiographical.
+This is the reality for one soul, a person whose existence is trapped in the land of heroes. A place where the air is thick with the echo of songs, sung in reverence to the brave, the fallen, and those who dared to challenge fate. Sacrifice is a melody that haunts the streets, and courage is whispered as a bedtime story to the children who dream of becoming legends.
 
-It is also entirely autobiographical.
+Yet, the person we speak of never foresaw what destiny had in store for them. They did not know that their life would spiral into a cycle of death and rebirth, each time more excruciating than the last. No prophecy warned them, no omen foretold the nightmare that was coming.
 
-The names have been changed. The silences have not.
+This story is not about love and the consequent affection, nor about intrigue and thrilling adventures, nor even a realistic fragment of life. It is against most structurally usable narratives. Instead, it engulfs you in what death is — not the Hollywood-style grim reaper deaths. What does it feel like, as a human being, to be dying? Is it the slow fade to darkness or is it the desperate screaming at the body while the mind is slowly being shredded? Is it really painful, or is the agony, there and then, in the mere process of coming back?
 
-What you are about to read is the story of someone trying to build something that remembers — and in doing so, discovering everything he had spent years learning to forget. There is a city in it. There is a woman who asks better questions than he does. There are machines that are trying their best.
+What is more, here you shall not seek any sort of comfort in loving or any sort of satisfaction in being a hero. It is a story in which one does not only hear the characters breathe when they are alive, gasp their last when they die, and wince when they are in agony. Allow me to introduce you to a story that has no concept of death as the finality but only as the beginning of eternal suffering.`
+  },
+  // ── MONOLOGUES ──
+  {
+    id:"w5",type:"Monologue",big:false,
+    title:"Who am I?",
+    excerpt:"Who am I? A vessel with bone, skin and blood running in the veins. We talk, walk, laugh, cry and exist just to pretend to be more than we are.",
+    full:`Who am I? pathetic question, isn't it? I mean — who even asks that? Someone who has lost his memory probably... But that's not the case with me!
 
-I began writing this on a train. I do not remember which train. I remember that outside the window, India was moving in the way it always moves — relentlessly, and with complete indifference to anyone watching.
+So, then who am I? A vessel with bone, skin and blood running in the veins. There are a lot of people like me, so many vessels. We talk, walk, laugh, cry and exist just to pretend to be more than we are — pretending to be something else. But we have a name! And my name? My name is Mohd Faraz!
 
-I had a notebook. I wrote one line: "What does it mean to know that you existed?"
+But the name doesn't give the answer to the question I asked. Who am I? Why do I feel like this? Why does this feel so empty, like a hollow? I asked this daily to whom? To myself! It has become a ritual now, like breathing. Pretty weird, right? And pointless.
 
-I am still answering it.
+It's like asking the moon why it shines so bright in the night, even though we both know it is nothing but dull and all dark, a dead rock in space. Why does the moon glow? Well, it has a lover — sun. The sun keeps the moon glowing even during the darkest times. Love gives it light. But what happens when there is no sun?
 
-This novel is the attempt.
+Who am I? Do you know? Or does anyone know who I am? As it seems, I am something different in everyone's eyes — a son, a friend, a lover, a sibling, a teammate, a listener, a support system, a fixer, a strong one, a bad one, a villain. But never — never a human who can make mistakes. I am expected to endure, to carry, to smile through it all.
 
-— F
-Delhi, 2024`
+Perhaps, I always failed to be one. I always failed to be the one for them. Not because I am not trying, but because I am drowning and everyone thinks I am swimming differently and, because of that, I always end up hurting people I want to protect. I destroyed the smiles on the faces I wanted to see laugh. I disappointed those I desperately wanted to make proud.
+
+You know what I call this life of mine? A prison — not with bars or bricks but with expectations, regrets and silent screams that no one hears. I live just to suffer. Some days even breathing feels like a betrayal, like I am cheating death when I don't even want to. A lot of torment to bear with. Isn't it?
+
+But I am not alone in this boat. There are others who are sinking too. Others wear masks so well daily that they don't even know anymore who is underneath.
+
+So... who am I? Am I you? Or are you me? Why do we all feel the same in different words?
+
+Is it because we somewhat happened to make mistakes we can't undo, or unsay things we weren't supposed to? Because we wanted to be enough for them? Or is it because we pretend we're okay so no one has to worry?
+
+We all suffered. Whose torment is heavier — mine or yours? Pain isn't a competition; it just exists. Well still, after all this, I don't have an answer to the question.
+
+Who am I?`
+  },
+  {
+    id:"w6",type:"Prose",big:false,
+    title:"The Void.",
+    excerpt:"Nothing feels real — not my thoughts, nor my existence. And yet I wish it were true. I hurt myself today just to remind myself that I am still alive.",
+    full:`Nothing feels real — not my thoughts, nor my existence. And yet I wish it were true. I hurt myself today just to remind myself that I am still alive, not just a hollow decoy full of pain stitched together by regrets and despair disguised in the wind, which is howling, and the hailstorm is pouring down, and I am in no position to make it stop.
+
+What have I really become? My friend, you and I are no different. It feels as though I am walking on thin air, suspended only by a fragile thread of faith. That thread binds everything together, stretching endlessly across the void, and yet I fear it could snap at any moment.
+
+My sweetest little friend, when I walk along this thread, I am terrified of falling — and a part of me secretly wants to fall. I am afraid to walk, afraid to fall, afraid even to feel. Along this path, I have crushed a thousand lives — each one was a chance to make a version of myself that might have been entirely different from what I am now. Every chance I destroyed was a beginning, a life I could have lived, and with every failure, I buried another self in the graveyard of possibility. But each one was tangled with other lives too, and in breaking mine, I broke theirs.
+
+So it is not only that I hurt myself. With every step, I kill the flame of will.`
+  },
+  // ── REMAINING WRITINGS (available in "all writings" modal) ──
+  {
+    id:"w7",type:"Poem",big:false,
+    title:"Oh my sweet little dreamer",
+    excerpt:"Oh my sweet little dreamer, what have they done to you? You were just a child when they called you 'mentally unstable'.",
+    full:`Oh my sweet little dreamer, what have they done to you?
+
+Cry!
+Cry!
+Cry!
+Let it all out, my heart.
+
+Let my soul speak for the crimes that this body has carried.
+Let every fiber of my being taste the freedom from the torment I feel with every new sunrise.
+
+Oh my sweet little dreamer, what have they done to you?
+
+You were just a child
+when they called you "mentally unstable".
+You were just a child
+who didn't know how to speak properly.
+You were just a shy
+— human being.
+
+So why did they treat you like that?
+Not just classmates — friends, mentors, tutors, neighbours and relatives. No one stayed behind in that race.
+
+Oh my sweet little dreamer, what have they done to you?
+
+Why did you hurt the ones you loved?
+Why did you make the ones who you loved go away?
+Why did you do it?
+Why?
+Why?
+Why?
+Maybe you were the problem...
+
+Oh my sweet little dreamer, what have they done to you?
+
+I wish you were never born
+I wish your existence had never existed
+I wish you had died on the hospital bed
+I wish you were not so unlucky
+— at least for them.
+
+Oh my sweet little dreamer...
+what are you?`
+  },
+  {
+    id:"w8",type:"Poem",big:false,
+    title:"The sin of choosing yourself",
+    excerpt:"First strike, second strike… the third one too. Those cheeks that once turned red from blushing now burned red with the color of blood.",
+    full:`First strike, second strike… apparently the third one too. And it continued, until those cheeks that once turned red from blushing or a touch of cosmetic now burned red with the color of blood. Why? Just because this time, in stitching love back together, the choice dared to include herself over them.
+
+First insult, second insult… apparently the third one too. And it continued, until the respect built over years of work, blood, sweat, and unbroken giving was shattered in a single night. Why? Just because this time, a sin was committed... the sin of choosing himself over them.`
+  },
+  {
+    id:"w9",type:"Prose",big:false,
+    title:"Birth is a curse",
+    excerpt:"To be born is a wound, a curse upon the life of one. What's even the meaning of this fragile life? The world is already a graveyard, massacring everyone.",
+    full:`To be born is a wound, a curse upon the life of one. Bound in a torment of blood and spirit.
+
+What's even the meaning of this fragile life? Now you want to kill yourself? A meaningless act. You think it's an escape from everything... But guess what, you are already too late to perform it. To erase your mere filthy existence. The world is already a graveyard, massacring everyone. Every corner here is shrouded in darkness, even under the gloomy light of the sun.
+
+A miserable existence, filled with torment, is a burden. Isn't it... and you still try to find the meaning of it? Huh, trying so hard just to hide your sinful acts that you committed along the way of your journey. Whether you ask for a merciful end or perhaps salvation, remember that death is forbidden in the world of the gods you cling to. But think — aren't these gods just figments of desperation, stories whispered to numb the agony of existence? The gods you worship, the ones you claim to be your saviors, are silent, absent, and perhaps never there at all. If they existed, wouldn't they have lifted the weight of your torment? Wouldn't they have spared this world its endless suffering? No, these gods were born from your fears, carved from the need to make sense of chaos. But chaos has no master, no divine hand. It's just you — alone in this abyss, praying to shadows that never answer.
+
+But here is the hilarious part: life isn't just filled with torment; it's a full ledger. A ledger of regrets, eternal pain, and doubts. Your birth is indeed a curse upon you; perhaps as a homosapien, you are a broken creature with dreams and wishes but crushed by the weight of the torture that this life has given you. In the end, you seek release; a death-seeking death is forbidden here, as the pain is endless, which replicates the death.
+
+You were cursed; you were damned the moment you were born into this miserable world.
+
+Condemned the existence in the land where everything is burning because of lies and the monsters disguised as humans. There is no salvation, only pain, here. They say life is such a marvelous gift; perhaps it's not a gift but a prison, an endless prison.
+
+Indeed, being born is a curse, but what choice do you have? Nothing — there is only one choice: living within this prison of yours built by this world. Every decision here will feel like wounding another scar on your soul with regrets or sorrow; no matter what the ledger will account, it will be painful. You look back and see the faces you have hurt because you didn't want to, but because of the wrong decisions you've made.
+
+These decisions will whisper in your ears as a regret, stabbing you again and again and again until you are empty from inside like a hollow. And the worst part is you can't go back but to regret with every breath you take, every minute that passes. Time moves forward, dragging you through the muck of opportunities you missed and the mistakes you are yet to make. Still you try to run, to escape from it, to bury all the weight beneath the ground of distractions and hollow smiles — but it always finds you. You can't outrun it because regret is the companion of the curse which is on your very existence in this cruel world. It daily reminds you that no matter what you do, you can't free yourself from this prison of existence.
+
+And in the end, here you stand — a forsaken soul, bound eternally to torment within this prison of existence. Being born wasn't a gift but an eternal joke, a curse disguised as life. There is no salvation here, no divine mercy, only the ceaseless suffering that chains you to this cruel reality. You were never meant to find peace, only to endure the torment until the bitter end.
+
+In this endless cycle of pain and regret, you remain a prisoner — a hollow soul wandering through the graves of ashes and shattered hopes. From the very moment of your birth, you were doomed. Being born is such a drag, isn't it?`
+  },
+  {
+    id:"w10",type:"Monologue",big:false,
+    title:"Death: a gift or a foe?",
+    excerpt:"Death — what is it even about? A soul departing from its fragile vessel. A release from the torment that life so cruelly holds? Or the opening of a new chapter in the abyss of dark eternity?",
+    full:`Death — what is it even about? A soul departing from its fragile vessel, the mere human body? A release from the torment that life so cruelly holds? Or is it the opening of a new chapter in the abyss of dark eternity? Is death a gift, a divine release from every torment, or the ultimate foe lurking in the shadows of existence? These questions gnaw at my very bones, yet the answers remain elusive, shrouded in mystery.
+
+Some call death beautiful — a quiet escape from the unbearable weight of suffering. Others see death as a walking nightmare, the ultimate betrayal of life. Or perhaps death is a new beginning in the eternal world. But, what is it truly?
+
+Perhaps, it is you who must decide what death is for you. Is it a merciful end or a cruel thief that moves in silence, robbing you of breath and dreams alike, leaving behind nothing but the echo of what you once were? But for me — what is it? I don't know if I can even answer that. What does death mean to me? Perhaps I am not dead yet. But in my waking thoughts I see death as a release from the torment I endured while I was alive and the cruel end of those dreams I once dared to see. Death would cut the delicate threads of relationships I once cherished — those with people I knew, loved, and perhaps, lost. Yet, there will be nothing after I die. Am I afraid of death, or am I afraid of the life I will leave unfinished? Perhaps what terrifies me is not death itself but the realization that I may never truly know what it is to live.
+
+Although death is such an enigma, a mysterious puzzle that no mind can solve. What happens after you die? Do you reincarnate, as they proclaim in the holy books that believers cling to so much? The body perishes but the soul is eternal. Or you either set foot in heaven or hell, which many people want — they mostly live their lives just to achieve salvation in the afterlife.
+
+The concept of heaven and hell is such an absurd and mysterious thing. Many people just live and do what their religion speaks just because they want to secure a spot in heaven, to attain salvation at the end of everything — a Ragnarok — forgetting the essence of living while they are still alive. If you ask me as an atheist, I would say: "if you can't live your life to its fullest, you are already dead."
+
+But there is more. There is the idea of the forsaken — a soul condemned to wander eternity with shattered dreams and carrying the torment of unhealed regrets. Being forsaken is a divine punishment itself. But could it also be a divine wish? A way to escape the trappings of existence that you never wanted or asked for.
+
+Indeed, death ends your long-overdue suffering and provides you the peace you wished for a long time ago. But it ends those dreams of yours too, that you once saw with open eyes. If suffering is the fire that consumes, then dreams are the fragile paper that burns alongside it. In death, is it the fire that is extinguished, or is it the paper that is lost forever? So what matters to you — the end of suffering or the end of your dreams?
+
+So, why do we seek death? Is it the torment that gnaws at the edges of our spirit? The endless suffering we endure that makes life feel like a cruel jest? A man who loses the path of life, who holds no objective, who finds himself abandoned in the vast, empty corridors of his mind, seeks death more than anyone else.
+
+When life becomes a hollow echo, stripped of its purpose, you begin to see it for what it is — a cage. A beautiful cage, perhaps, but a cage nonetheless. The soul is trapped within this frail vessel, forced to endure every torment, every betrayal, every moment of unbearable solitude.
+
+Indeed, life is a prison for a soul and mind. Death is the only escape from it. If you achieve it, will it be a merciful end — with no regrets and freeing from the sufferings you ever endured? Or a sorrowful one which crushes everything with its weight — things that you ever desired or held once dear?
+
+So, why do we seek death?`
+  },
+  {
+    id:"w11",type:"Prose",big:false,
+    title:"The cage of time",
+    excerpt:"Time! We all do things by it, live by it, eat by it, work by it. But we truly don't understand it. Time is a mystery that no one can understand.",
+    full:`Time! Time! Time! We talk about it everyday, it's a part of our daily life — I don't have time, I have a deadline, give me some time, Time heals everything, you will get better by time, you need some time, you will forget them by time, it's just about some time.
+
+Apparently, I know what time is, you know what time is, we all know what time is and how it works. Do we really know? We all think we do but we don't. Time is a mystery that no one can understand.
+
+We all do things by it, we live by it, we eat by it, we work by it, we wake up by it, we sleep by it. We do everything by it — time to eat, time to work, time to wake up, time to sleep, time to do this, time to do that. It's a part of us. Our daily life depends on it. It's like time is stitching our whole life together with the seconds, minutes, hours, vise versa. We all know our life depends on it. But we truly don't understand and know time.
+
+Indeed, we can measure it, track it, record it, chase it. But we don't truly live in it. Do we really understand it? So what is time? How does it work? What is the value of time? How does it move? Or better yet — how does it move us?
+
+Time is a paradox of privilege and prejudice at the same time. A currency that the rich can't buy more of, and the poor can't save. A silent judge that rewards no one and forgives nothing. It's like a shadow that never leaves us yet never truly ours. We chase it with plans, schedules, and alarms, thinking we're in control. But in truth, time owns us. It is the master clock behind every heartbeat, every wrinkle, every goodbye. We say we have "plenty of time," or "no time at all" — as if time were something we could hoard or lose.
+
+But time doesn't care. It doesn't slow for grief, or hurry for joy. It watches silently, ticking forward, while we're too busy looking backward.
+
+Time is memory and anticipation entangled — a cruel teacher that gives the test before the lesson.
+
+Time is a curious duality that governs every one of our mere existences, which is too fragile, that can break anytime. It's ironic how time can make me feel affluent — rather than having a lot of money but having a lot of time. Improvised — performing without a retake and not knowing what to speak and do in the next scene. And yet simultaneously keeping everything, every moment, every breath you take, together.
+
+In the relentless passage of time, I discover moments of joy and the time of despair.`
+  },
+  {
+    id:"w12",type:"Prose",big:false,
+    title:"The prayer before the fall",
+    excerpt:"My lord, I have condemned myself on a pitiful journey that I ought to take. Perhaps I am scared of losing everything I own and owe someone once.",
+    full:`My lord, I have condemned myself on a pitiful journey that I ought to take. Perhaps I am scared of losing everything I own and owe someone once.
+
+My lord, I shall not be afraid of the quest I have chosen for myself in the beautiful, living, full garden of destiny.
+
+My lord, I, the mere mortal, have chosen my beneath desire, which is completely sought to be filled with the incomplete, non-reasonable, filthy dreams in the eyes of others.
+
+My lord, I, your servant, don't know where I am going to walk afar on this path — where the roads will take my mortal feet.
+
+My lord, I am coming closer to death — of mine — and becoming a destructive weapon of my own happiness.
+
+My lord, I don't know if I am even doing it right, or if I should reconsider these decisions that I have taken while being consumed by immortal desires.
+
+My lord, I, the one who chose these roads — the time will pass here like a year in a minute compared to the mortal's world. While the time passes, I am going to go afar from your presence.
+
+My lord, I might deny your existence at some point, although the path I have chosen seems more reliable and important to me than your existence.
+
+My lord, I ask you with a humble request from the heart which is slowly disappearing — if there is a possibility, you — the one who reigns on the thrones of hell and heaven, who has seen the unseen — may forgive me for the things I am about to condemn myself with.
+
+My lord, I am not able to stop now, even if you send the mightiest angel of yours to punish me or stop me. I am precisely a million times sure that I won't be able to survive the attack of your angel. But that won't change the course of my journey.
+
+My lord, I have come to hundreds of conclusions why I should not walk on the path where I will be denying your guidance for the lust I have — for the desire I dream of. Perhaps I have only one conclusion why I should walk on it without giving it another thought.
+
+My lord, I now become the Death, Despair, Agony — a being which has no knowledge of your existence or anyone else. I now walk on the things I want.`
   }
 ];
 
@@ -680,15 +933,14 @@ function renderProjects(){
   const list=PROJECTS.slice(0,4);
   grid.innerHTML=list.map((p,i)=>{
     const isBig=(i===0||i===3);
+    const demoLink=p.demo&&p.demo!=='#'?`<a href="${p.demo}" target="_blank" class="plink gold" onclick="event.stopPropagation()">&#9655; Demo</a>`:`<span class="plink" style="opacity:.35;cursor:default">&#9655; Demo Soon</span>`;
+    const repoLink=p.repo?`<a href="${p.repo}" target="_blank" class="plink" onclick="event.stopPropagation()">&#9405; Repo</a>`:`<span class="plink" style="opacity:.35;cursor:default">&#9405; Private</span>`;
     return `<div class="proj-card reveal d${(i%3)+1}${isBig?' big':''}" data-num="0${p.id}" onclick="openModal('proj-${p.id}')">
-      <div class="proj-num">${String(p.id).padStart(2,'0')} · <span style="color:var(--teal)">${p.tag}</span></div>
+      <div class="proj-num">${String(p.id).padStart(2,'0')} &middot; <span style="color:var(--teal)">${p.tag}</span></div>
       <div class="proj-name">${p.name}</div>
       <div class="proj-sum">${p.summary}</div>
       <div class="proj-stack">${p.tech.slice(0,isBig?5:3).map(t=>`<span class="stack-tag">${t}</span>`).join('')}</div>
-      <div class="proj-links">
-        <a href="${p.demo}" class="plink gold" onclick="event.stopPropagation()">▷ Demo</a>
-        <a href="${p.repo}" target="_blank" class="plink" onclick="event.stopPropagation()">⌥ Repo</a>
-      </div>
+      <div class="proj-links">${demoLink}${repoLink}</div>
     </div>`;
   }).join('');
   observeReveal();
@@ -726,7 +978,8 @@ function renderSkillCloud(){
 // Writings: card 0 = big, card 3 = big (novel)
 function renderWritings(){
   const grid=document.getElementById('writings-grid');
-  grid.innerHTML=WRITINGS.map((w,i)=>`
+  const featured = ['w1', 'w9', 'w7', 'w4'].map(id => WRITINGS.find(w => w.id === id));
+  grid.innerHTML=featured.map((w,i)=>`
     <div class="write-card reveal d${(i%3)+1}${w.big?' big':''}${w.novel?' novel':''}" onclick="openModal('writing-${w.id}')">
       <div class="write-type">${w.type}</div>
       <div class="write-title">${w.title}</div>
@@ -781,26 +1034,26 @@ function openModal(type){
     c.innerHTML=`<div class="m-meta">${RESEARCH.venue}</div><h2>${RESEARCH.title}</h2><hr class="m-hr"/>${RESEARCH.detail}`;
   } else if(type==='all-projects'){
     c.innerHTML=`<h2>All Projects</h2><p class="m-meta">Complete catalogue</p>`+
-      PROJECTS.map(p=>`<hr class="m-hr"/>
+      PROJECTS.map(p=>{
+        const dBtn=p.demo&&p.demo!=='#'?`<a href="${p.demo}" target="_blank" class="btn-gold" style="font-size:.82rem;padding:8px 18px">&#9655; Demo</a>`:`<span class="btn-outline" style="font-size:.82rem;padding:8px 18px;opacity:.4;cursor:default">&#9655; Demo Soon</span>`;
+        const rBtn=p.repo?`<a href="${p.repo}" target="_blank" class="btn-outline" style="font-size:.82rem;padding:8px 18px">&#9405; Repo</a>`:`<span class="btn-outline" style="font-size:.82rem;padding:8px 18px;opacity:.4;cursor:default">&#9405; Private</span>`;
+        return `<hr class="m-hr"/>
         <div style="display:flex;justify-content:space-between;align-items:start;gap:12px">
           <div><div class="m-meta" style="margin-bottom:4px">${p.tag}</div><h3 style="color:var(--txt);margin-top:0">${p.name}</h3></div>
         </div>
         <p>${p.tagline}</p>
         <div class="m-tags">${p.tech.map(t=>`<span class="stack-tag">${t}</span>`).join('')}</div>
-        <div class="m-actions">
-          <a href="${p.demo}" class="btn-gold" style="font-size:.82rem;padding:8px 18px">▷ Demo</a>
-          <a href="${p.repo}" target="_blank" class="btn-outline" style="font-size:.82rem;padding:8px 18px">⌥ Repo</a>
-        </div>`).join('');
+        <div class="m-actions">${dBtn}${rBtn}</div>`;
+      }).join('');
   } else if(type.startsWith('proj-')){
     const id=parseInt(type.split('-')[1]);
     const p=PROJECTS.find(x=>x.id===id);
-    c.innerHTML=`<div class="m-meta">${p.tagline} · ${p.tag}</div><h2>${p.name}</h2>
+    const dBtn=p.demo&&p.demo!=='#'?`<a href="${p.demo}" target="_blank" class="btn-gold">&#9655; Live Demo</a>`:`<span class="btn-outline" style="opacity:.4;cursor:default">&#9655; Demo Soon</span>`;
+    const rBtn=p.repo?`<a href="${p.repo}" target="_blank" class="btn-outline">&#9405; Repository</a>`:`<span class="btn-outline" style="opacity:.4;cursor:default">&#9405; Private Repo</span>`;
+    c.innerHTML=`<div class="m-meta">${p.tagline} &middot; ${p.tag}</div><h2>${p.name}</h2>
       <div class="m-tags">${p.tech.map(t=>`<span class="stack-tag">${t}</span>`).join('')}</div>
       <hr class="m-hr"/>${p.detail}
-      <div class="m-actions">
-        <a href="${p.demo}" class="btn-gold">▷ Live Demo</a>
-        <a href="${p.repo}" target="_blank" class="btn-outline">⌥ Repository</a>
-      </div>`;
+      <div class="m-actions">${dBtn}${rBtn}</div>`;
   } else if(type==='all-exp'){
     c.innerHTML=`<h2>Full Experience</h2><p class="m-meta">Roles, projects, and what I've shipped</p>`+
       EXPERIENCE.map(e=>`<hr class="m-hr"/>
