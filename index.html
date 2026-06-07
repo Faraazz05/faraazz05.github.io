@@ -4,6 +4,12 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Faraz — AI Researcher & Engineer</title>
+<!-- #TODO: Add favicon — <link rel="icon" type="image/png" href="favicon.png"/> or .ico -->
+<!-- #TODO: Add OG meta tags for social sharing:
+     <meta property="og:title" content="Faraz — AI Researcher & Engineer"/>
+     <meta property="og:description" content="..."/>
+     <meta property="og:image" content="og-image.png"/>
+     <meta property="og:url" content="https://faraazz05.github.io"/> -->
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=JetBrains+Mono:wght@300;400;500&family=Lora:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1" rel="stylesheet"/>
@@ -342,6 +348,7 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9000;o
       Building AI systems that learn, adapt, and endure — from multi-agent disaster networks to theories of artificial memory and persistent identity.
     </p>
     <div class="hero-actions reveal d4">
+      <!-- #TODO: Update href below to your actual resume PDF link (Google Drive / hosted PDF) -->
       <a href="#projects" class="btn-gold">View My Work</a>
       <a href="#contact"  class="btn-outline">Get in Touch</a>
     </div>
@@ -356,6 +363,9 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9000;o
     <div class="sec-num reveal">001 // IDENTITY_FILE</div>
     <div class="about-grid">
       <div class="about-photo-wrap reveal d1" onclick="openModal('about')">
+        <!-- #TODO: Replace placeholder below with your actual photo:
+             <img src="photo.jpg" alt="Faraz" style="width:100%;height:100%;object-fit:cover;border-radius:20px"/>
+             Then remove the photo-placeholder div entirely -->
         <div class="photo-placeholder">
           <div class="photo-initials">F</div>
           <div class="photo-hint">Click to expand · Photo TODO</div>
@@ -466,12 +476,18 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9000;o
       <div>
         <h2 class="contact-hl reveal d1">Let's <span style="color:var(--gold)">Build</span><br/>Something Real.</h2>
         <p class="contact-desc reveal d2">Open to research collaborations, AI engineering roles, consulting, and conversations that go somewhere interesting.</p>
+        <!-- #TODO: Update email address below (currently placeholder hello@faraazz05.dev) -->
         <div class="cinfo-item reveal d3"><div class="cinfo-icon"><span class="ms" style="font-size:1.1rem;color:var(--gold)">mail</span></div><div><div class="cinfo-label">EMAIL</div><div class="cinfo-val">hello@faraazz05.dev</div></div></div>
         <div class="cinfo-item reveal d4"><div class="cinfo-icon"><span class="ms" style="font-size:1.1rem;color:var(--gold)">work</span></div><div><div class="cinfo-label">LINKEDIN</div><div class="cinfo-val">linkedin.com/in/Faraazz05</div></div></div>
         <div class="cinfo-item reveal d5"><div class="cinfo-icon"><span class="ms" style="font-size:1.1rem;color:var(--gold)">code</span></div><div><div class="cinfo-label">GITHUB</div><div class="cinfo-val">github.com/Faraazz05</div></div></div>
       </div>
       <div class="reveal d2">
         <div class="contact-panel">
+          <!-- #TODO: Wire up this form to a real backend. Options:
+               1. Formspree (free): change <button onclick="submitForm"> to a real <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+               2. Netlify Forms: add netlify attribute to the <form> tag
+               3. EmailJS: keep JS approach but use emailjs.send() instead of the fake submitForm()
+               Current submitForm() is a UI-only fake — no emails are actually sent. -->
           <div class="enc-badge">SECURE_CHANNEL ↗</div>
           <div class="form-group"><label class="form-label">USER_IDENTITY</label><input type="text" class="form-line" placeholder="Your name"/></div>
           <div class="form-group"><label class="form-label">GATEWAY_ADDRESS</label><input type="email" class="form-line" placeholder="you@domain.com"/></div>
@@ -502,6 +518,8 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9000;o
 
 <script>
 /* ══════════ DATA ══════════════════════════════ */
+// #TODO: Update project demo/repo links as they go live — demo:"#" means no live demo yet
+// #TODO: Add new projects to this array as they're completed and tested
 const PROJECTS=[
   {id:1,name:"SENTINEL",tag:"Active",
    tagline:"Scalable Early-Warning Network for Tracking & Intelligent Natural Events Locally",
@@ -536,45 +554,137 @@ const PROJECTS=[
 ];
 
 const RESEARCH={
-  venue:"Working Paper · Targeting NeurIPS / ICLR",
-  title:"Developmental Architecture for Persistent AI Memory",
-  status:"Active Research",
-  summary:"A multi-agent memory framework enabling AI systems to develop persistent, evolving identity through continuous structured learning — exploring what it means for an artificial mind to genuinely exist.",
-  detail:`<h3>Core Question</h3><p>What would it mean for an artificial mind to genuinely exist — to have lived, learned, and become something through its own experience?</p><h3>Six-Agent Architecture</h3><ul><li><strong>Episodic Memory Agent</strong> — stores and indexes temporal experiences</li><li><strong>Semantic Memory Agent</strong> — extracts and consolidates factual knowledge from episodes</li><li><strong>Procedural Memory Agent</strong> — learns and refines task-execution patterns</li><li><strong>Salience Agent</strong> — determines memory importance and retention priority</li><li><strong>Consolidation Agent</strong> — runs a continuous "dream cycle" compressing memory</li><li><strong>Core Identity Agent</strong> — maintains stable self-representation across all updates</li></ul><h3>Developmental Curriculum</h3><p>The AI progresses through stages analogous to human development — from near-zero knowledge through scaffolded experience accumulation. Four-paper roadmap targeting NeurIPS 2025 / ICLR 2026.</p>`
+  venue:"Working Paper · Targeting NeurIPS / ICLR / Cognitive Science Journal · arXiv preprint first",
+  title:"A Developmental Architecture for Persistent AI Memory: Theoretical Framework",
+  status:"Active — Paper 1 of 4",
+  summary:"Current transformer architectures have no genuine memory — they re-read rather than remember. This paper proposes a six-agent developmental memory system that solves hallucination, identity instability, and metacognitive failure simultaneously through architecture, not training patches.",
+  detail:`<h3>Central Question</h3>
+<p><em>"What would it mean for an artificial mind to genuinely exist — to have lived, learned, and become something through its own experience?"</em></p>
+<h3>Core Arguments</h3>
+<ul>
+  <li>Current transformer architectures have no genuine memory — they re-read rather than remember</li>
+  <li>Human memory is not one system but six interconnected systems; AI should mirror this</li>
+  <li>A developmental architecture — beginning near-zero and building through curriculum stages — solves hallucination, identity instability, and metacognition <em>simultaneously</em></li>
+  <li>The sleep mechanism (autonomous consolidation) is not optional — it is architecturally required for stable long-term learning</li>
+  <li>Ethics and values cannot be reliably imposed from outside — they must emerge through earned experience</li>
+</ul>
+<h3>Six-Agent Memory Architecture</h3>
+<ul>
+  <li><strong>Episodic Memory Agent</strong> — stores and indexes temporal experiences with full provenance</li>
+  <li><strong>Semantic Memory Agent</strong> — extracts and consolidates factual knowledge from episodes</li>
+  <li><strong>Procedural Memory Agent</strong> — learns and refines task-execution patterns over time</li>
+  <li><strong>Salience Agent</strong> — determines memory importance, retention priority, and forgetting curves</li>
+  <li><strong>Consolidation Agent</strong> — runs an always-on "dream cycle" compressing and integrating memory</li>
+  <li><strong>Core Identity Agent</strong> — maintains stable self-representation across all weight updates</li>
+</ul>
+<h3>What Makes This Novel</h3>
+<ul>
+  <li>No existing paper combines: developmental staging + multi-agent memory + always-on consolidation + provenance</li>
+  <li>Hallucination reframed as a <em>memory architecture problem</em>, not a model quality problem — with a structural fix rather than a training-side patch</li>
+  <li>The provenance layer (append-only, real vs synthetic memory distinction) has no precedent in AI memory literature</li>
+  <li>Formal treatment of identity stability as a measurable, designable property — no prior system in 40+ years of cognitive architecture research defines this as an architectural requirement</li>
+  <li>Argument that ethics must emerge through experience — a direct challenge to current alignment methodology</li>
+</ul>
+<h3>Paper 1 Sections</h3>
+<p>Abstract & Introduction · Related Work (CoALA, MIRIX, SALM, Differentiable Neural Computers) · Memory Taxonomy · Developmental Curriculum (5 stages) · Consolidation Architecture · Provenance Framework · Implications for alignment, identity, and AGI · Conclusion & Future Work</p>
+<h3>Four-Paper Roadmap</h3>
+<table style="width:100%;border-collapse:collapse;font-size:.88rem;margin-top:12px">
+  <tr style="color:var(--teal);font-family:'JetBrains Mono',monospace;font-size:.72rem">
+    <td style="padding:6px 10px;border-bottom:1px solid var(--border)">PAPER</td>
+    <td style="padding:6px 10px;border-bottom:1px solid var(--border)">FOCUS</td>
+    <td style="padding:6px 10px;border-bottom:1px solid var(--border)">STATUS</td>
+  </tr>
+  <tr><td style="padding:6px 10px;border-bottom:1px solid var(--border);color:var(--gold)">1 — Theoretical Framework</td><td style="padding:6px 10px;border-bottom:1px solid var(--border);color:var(--txt2)">Architecture, no implementation needed</td><td style="padding:6px 10px;border-bottom:1px solid var(--border);color:var(--teal)">ACTIVE</td></tr>
+  <tr><td style="padding:6px 10px;border-bottom:1px solid var(--border);color:var(--txt2)">2 — Episodic-Semantic Consolidation</td><td style="padding:6px 10px;border-bottom:1px solid var(--border);color:var(--txt2)">Implementation · hallucination reduction</td><td style="padding:6px 10px;border-bottom:1px solid var(--border);color:var(--txt3)">Year 1–2</td></tr>
+  <tr><td style="padding:6px 10px;border-bottom:1px solid var(--border);color:var(--txt2)">3 — Autonomous Offline Consolidation</td><td style="padding:6px 10px;border-bottom:1px solid var(--border);color:var(--txt2)">Dream cycle · provenance · identity stability</td><td style="padding:6px 10px;border-bottom:1px solid var(--border);color:var(--txt3)">Year 2</td></tr>
+  <tr><td style="padding:6px 10px;color:var(--txt2)">4 — Full Developmental Curriculum</td><td style="padding:6px 10px;color:var(--txt2)">Ethics emergence · complete system</td><td style="padding:6px 10px;color:var(--txt3)">Year 3+</td></tr>
+</table>`
 };
 
 const EXPERIENCE=[
-  {role:"AI Researcher (Independent)",company:"Self-Directed Research",period:"2024 — Present",
-   summary:"Developing novel architectures for persistent AI memory and multi-agent coordination.",
-   detail:"Leading independent research into developmental AI architectures, persistent memory systems, and multi-agent coordination. Current outputs: SENTINEL v2.0 architecture, full memory spec with 6-agent system, consolidation engine prototype, 4-paper roadmap targeting NeurIPS/ICLR."},
-  {role:"AI Engineer",company:"Contract Projects",period:"2023 — 2024",
-   summary:"Built and deployed end-to-end AI solutions across NLP, predictive modeling, and automation.",
-   detail:"Delivered production-grade AI across multiple client engagements: NLP pipelines for document classification, predictive modeling with explainability layers, automated decision systems with audit trails, RAG-based knowledge retrieval. Emphasis on explainability and measurable outcomes."},
-  {role:"Project Manager & Marketing Strategist",company:"Various Organizations",period:"2022 — 2023",
-   summary:"Led cross-functional delivery and digital strategy for multiple organizations.",
-   detail:"Managed end-to-end project delivery: digital marketing strategy with ROI tracking, cross-team coordination, stakeholder communication, process documentation. Built transferable skills in structured thinking and delivery under ambiguity."}
+  {role:"Co-Founder & CTO (Part-Time)",company:"CaseMentor AI",period:"2026 — Present",
+   summary:"Building the backend for an AI-powered consulting interview prep platform.",
+   detail:"Architecting a full-stack consulting interview prep platform from scratch. Engineered a 14-step AI pipeline that converts raw case PDFs into structured, queryable case libraries using DeepSeek, Groq, and GPT-4o. Built AI mock interview and evaluation agents that score candidates across consulting frameworks, a peer buddy-matching system, and real-time collaborative practice rooms with XP gamification and voice analysis. Stack: FastAPI · PostgreSQL · Redis · ChromaDB · Celery · MinIO · LLMs."},
+  {role:"Independent AI Researcher",company:"Self-Directed",period:"2024 — Present",
+   summary:"Designing research-grade multi-agent AI systems across climate, healthcare, and infrastructure.",
+   detail:"Designed and led SENTINEL (9-agent climate early-warning system for India), RHEA (7-agent rare disease intelligence layer), and Aegis-9 (multi-agent disaster response, IBM watsonx Hackathon Finalist). Applied multi-agent orchestration, XAI governance, uncertainty quantification, conformal prediction, and offline RL. Produced 3 active working papers targeting NeurIPS, ICLR, and arXiv."},
+  {role:"AI Engineering Intern",company:"Madrid Software · Delhi",period:"Feb 2026 — Apr 2026",
+   summary:"Built LLM automation workflows cutting manual processing time by 30%.",
+   detail:"Built and benchmarked LLM automation workflows using GPT-4, Claude, and Gemini — cutting manual processing time 30% across 3 production pipelines. Implemented modular prompt-engineering systems and FastAPI endpoints for AI-powered internal tooling."},
+  {role:"Machine Learning Intern",company:"Softnexs · Remote",period:"Aug 2025 — Jan 2026",
+   summary:"Engineered ML pipelines and optimized inference latency 35% via quantization.",
+   detail:"Engineered classification and regression ML pipelines end-to-end. Deployed FastAPI-served models via Docker + CI/CD on Render and AWS. Managed PostgreSQL schemas with SQLAlchemy ORM, Redis caching, and Celery async queues. Optimized inference latency 35% through model quantization."},
+  {role:"AI Marketing Strategist",company:"Storiiies AI · Contract",period:"Nov 2023 — Jan 2024",
+   summary:"Designed AI marketing funnels; grew engagement 35%.",
+   detail:"Designed AI-driven marketing funnels that increased user engagement by 35%. Built automated content workflows using ChatGPT and Midjourney. Acquired 20+ paid event attendees and onboarded an industry expert panelist."},
+  {role:"Project Manager",company:"BeTheSpotlight.in · Contract",period:"May 2023 — Aug 2023",
+   summary:"Managed end-to-end product launch; coordinated sell-out of first course batch.",
+   detail:"Managed end-to-end product launch working directly with the founder. Coordinated sell-out of the first communication course batch through community building and cross-channel execution."},
+  {role:"NFT Community Manager",company:"WomensCafe · Contract",period:"Aug 2022 — Jan 2023",
+   summary:"Contributed to 600-NFT collection sell-out in under 3 hours.",
+   detail:"Managed NFT community operations and sales coordination. Contributed to a 600-NFT collection sell-out in under 3 hours through community-driven launch strategy."},
+  {role:"Community Relations Manager",company:"Metanatics · Contract",period:"Mar 2022 — Aug 2022",
+   summary:"Grew 1K+ member NFT community; boosted participation 45%.",
+   detail:"Grew and managed a 1,000+ member NFT community. Deployed Discord automation bots and AI-assisted engagement systems. Boosted active participation 45% through prompt-led discussions and AMAs."}
 ];
 
 const SKILLS={
   "AI & Machine Learning":{
-    pills:["Multi-Agent Systems","Large Language Models","RAG","NLP","Explainable AI","Reinforcement Learning","Anomaly Detection","Knowledge Graphs","Chain-of-Thought"],
-    types:["gold","teal","gold","teal","gold","teal","gold","dim","teal"]
+    pills:["Multi-Agent Systems","Large Language Models","RAG","NLP","Explainable AI (XAI)","Reinforcement Learning","Anomaly Detection","Knowledge Graphs","Chain-of-Thought","Few-Shot Learning","Transfer Learning","Conformal Prediction","Uncertainty Quantification","Prompt Engineering","AI Ethics & Governance"],
+    types:["gold","teal","gold","teal","gold","teal","gold","dim","teal","gold","dim","gold","teal","gold","dim"]
   },
-  "Engineering & Dev":{
-    pills:["Python","FastAPI","PyTorch","Transformers","Scikit-learn","XGBoost","SHAP","Pandas","Git","REST APIs"],
-    types:["teal","dim","gold","gold","teal","teal","gold","dim","teal","dim"]
+  "Deep Learning & Architectures":{
+    pills:["PyTorch","TensorFlow","Keras","Transformers","LSTM / GRU","CNN + CBAM","Graph Attention Networks (GAT)","Vision Transformers (ViT)","Temporal Fusion Transformer","DistilGPT2","Mistral 7B","Prithvi-100M","Stable-Baselines3","d3rlpy (Offline RL)","MAPIE"],
+    types:["gold","teal","dim","gold","teal","gold","teal","gold","teal","dim","gold","teal","gold","dim","teal"]
   },
-  "Research & Strategy":{
-    pills:["Research Design","Technical Writing","Literature Review","AI Ethics","Project Management","Product Thinking"],
-    types:["gold","dim","teal","gold","dim","teal"]
+  "Classical ML & Data Science":{
+    pills:["Scikit-learn","XGBoost","LightGBM","CatBoost","Optuna","Pandas","NumPy","SciPy","Statsmodels","Matplotlib","Seaborn","Plotly","Tableau","Power BI","Excel"],
+    types:["gold","teal","teal","dim","dim","teal","gold","dim","dim","teal","dim","dim","gold","dim","dim"]
+  },
+  "XAI & Interpretability":{
+    pills:["SHAP","LIME","Integrated Gradients","Attention Rollout","AIX360","Evidently AI","PSI / KS-Test","Conformal Prediction (MAPIE)"],
+    types:["gold","gold","teal","dim","gold","teal","dim","gold"]
+  },
+  "LLMs & Agent Frameworks":{
+    pills:["LangGraph","LangChain","LangFlow","HuggingFace Hub","Ollama","IBM watsonx","OpenAI API","Sentence Transformers","RAG Pipelines","Multi-Agent Orchestration"],
+    types:["gold","teal","dim","teal","gold","gold","teal","dim","gold","teal"]
+  },
+  "NLP & Computer Vision":{
+    pills:["HuggingFace Transformers","NLTK","OpenCV","Pillow","PyMuPDF","Tokenization","Text Generation","Sentence Transformers"],
+    types:["gold","dim","teal","dim","dim","teal","gold","dim"]
+  },
+  "Backend & APIs":{
+    pills:["Python","FastAPI","Flask","Streamlit","REST APIs","OpenAPI 3.1","WebSockets","Async APIs","SQLAlchemy"],
+    types:["gold","gold","teal","dim","teal","gold","dim","teal","dim"]
+  },
+  "MLOps & Infrastructure":{
+    pills:["Docker","Apache Kafka","Celery","Redis","MLflow","CI/CD","Apache Airflow","Kubernetes","GitHub Actions","Terraform"],
+    types:["gold","teal","dim","gold","teal","dim","dim","dim","teal","dim"]
+  },
+  "Databases & Vector Stores":{
+    pills:["PostgreSQL","PostGIS","TimescaleDB","MySQL","SQLite","MongoDB","ChromaDB","Redis","Feature Engineering"],
+    types:["gold","gold","teal","dim","dim","dim","gold","teal","gold"]
+  },
+  "Cloud & DevOps":{
+    pills:["AWS","Azure","Oracle Cloud (Always-Free)","IBM Cloud","Render","Git","Bash","Jupyter","Google Colab"],
+    types:["gold","teal","gold","dim","dim","teal","dim","dim","dim"]
+  },
+  "Research & Knowledge Tools":{
+    pills:["Obsidian","Zotero","Research Design","Technical Writing","Literature Review","Figma","Canva","Postman"],
+    types:["gold","teal","gold","dim","teal","dim","dim","dim"]
+  },
+  "Languages":{
+    pills:["Python","SQL","Bash","YAML","JSON","R (Learning)","MATLAB / Octave (Learning)","C (Learning)"],
+    types:["gold","gold","teal","dim","dim","dim","dim","dim"]
   }
 };
 
 // Skills featured on the experience side
 const FEATURED_SKILLS=[
-  {s:"Multi-Agent Systems",t:"sp-gold"},{s:"LLMs",t:"sp-teal"},{s:"RAG",t:"sp-gold"},
-  {s:"Python",t:"sp-teal"},{s:"PyTorch",t:"sp-gold"},{s:"NLP",t:"sp-teal"},
-  {s:"Explainable AI",t:"sp-gold"},{s:"FastAPI",t:"sp-dim"},{s:"Research Design",t:"sp-teal"}
+  {s:"Multi-Agent Systems",t:"sp-gold"},{s:"PyTorch",t:"sp-teal"},{s:"LangGraph",t:"sp-gold"},
+  {s:"Python",t:"sp-teal"},{s:"Explainable AI",t:"sp-gold"},{s:"FastAPI",t:"sp-dim"},
+  {s:"RAG",t:"sp-teal"},{s:"SHAP / LIME",t:"sp-gold"},{s:"Kafka",t:"sp-dim"},
+  {s:"Docker",t:"sp-teal"},{s:"PostgreSQL",t:"sp-dim"},{s:"LLMs",t:"sp-gold"}
 ];
 
 // ── WRITINGS DATA ──────────────────────────────
@@ -957,8 +1067,9 @@ function renderResearch(){
 
 function renderTimeline(){
   const tl=document.getElementById('timeline');
+  const visible=EXPERIENCE.slice(0,4);
   tl.innerHTML=`<div class="timeline-line"></div>`+
-    EXPERIENCE.map((e,i)=>`
+    visible.map((e,i)=>`
       <div class="timeline-item reveal d${i+1}" onclick="openModal('exp-${i}')">
         <div class="timeline-dot"></div>
         <div class="tl-period">${e.period}</div>
