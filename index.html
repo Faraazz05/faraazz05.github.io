@@ -363,13 +363,7 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9000;o
     <div class="sec-num reveal">001 // IDENTITY_FILE</div>
     <div class="about-grid">
       <div class="about-photo-wrap reveal d1" onclick="openModal('about')">
-        <!-- #TODO: Replace placeholder below with your actual photo:
-             <img src="photo.jpg" alt="Faraz" style="width:100%;height:100%;object-fit:cover;border-radius:20px"/>
-             Then remove the photo-placeholder div entirely -->
-        <div class="photo-placeholder">
-          <div class="photo-initials">F</div>
-          <div class="photo-hint">Click to expand · Photo TODO</div>
-        </div>
+        <img src="IMG-20251007-WA0140.jpg" alt="Faraz" style="width:100%;height:100%;object-fit:cover;border-radius:20px"/>
         <div class="photo-ring"></div>
       </div>
       <div>
@@ -476,23 +470,29 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9000;o
       <div>
         <h2 class="contact-hl reveal d1">Let's <span style="color:var(--gold)">Build</span><br/>Something Real.</h2>
         <p class="contact-desc reveal d2">Open to research collaborations, AI engineering roles, consulting, and conversations that go somewhere interesting.</p>
-        <!-- #TODO: Update email address below (currently placeholder hello@faraazz05.dev) -->
-        <div class="cinfo-item reveal d3"><div class="cinfo-icon"><span class="ms" style="font-size:1.1rem;color:var(--gold)">mail</span></div><div><div class="cinfo-label">EMAIL</div><div class="cinfo-val">hello@faraazz05.dev</div></div></div>
+        <div class="cinfo-item reveal d3"><div class="cinfo-icon"><span class="ms" style="font-size:1.1rem;color:var(--gold)">mail</span></div><div><div class="cinfo-label">EMAIL</div><div class="cinfo-val"><a href="mailto:sp_mohdfaraz@outlook.com" style="text-decoration:none; color:inherit;">sp_mohdfaraz@outlook.com</a></div></div></div>
         <div class="cinfo-item reveal d4"><div class="cinfo-icon"><span class="ms" style="font-size:1.1rem;color:var(--gold)">work</span></div><div><div class="cinfo-label">LINKEDIN</div><div class="cinfo-val">linkedin.com/in/Faraazz05</div></div></div>
         <div class="cinfo-item reveal d5"><div class="cinfo-icon"><span class="ms" style="font-size:1.1rem;color:var(--gold)">code</span></div><div><div class="cinfo-label">GITHUB</div><div class="cinfo-val">github.com/Faraazz05</div></div></div>
       </div>
       <div class="reveal d2">
         <div class="contact-panel">
-          <!-- #TODO: Wire up this form to a real backend. Options:
-               1. Formspree (free): change <button onclick="submitForm"> to a real <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-               2. Netlify Forms: add netlify attribute to the <form> tag
-               3. EmailJS: keep JS approach but use emailjs.send() instead of the fake submitForm()
-               Current submitForm() is a UI-only fake — no emails are actually sent. -->
           <div class="enc-badge">SECURE_CHANNEL ↗</div>
-          <div class="form-group"><label class="form-label">USER_IDENTITY</label><input type="text" class="form-line" placeholder="Your name"/></div>
-          <div class="form-group"><label class="form-label">GATEWAY_ADDRESS</label><input type="email" class="form-line" placeholder="you@domain.com"/></div>
-          <div class="form-group"><label class="form-label">INPUT_STRING</label><textarea class="form-line" placeholder="Project overview or collaboration idea..." rows="4"></textarea></div>
-          <button class="form-submit" onclick="submitForm(this)">Execute_Transmission</button>
+          <form action="https://api.web3forms.com/submit" method="POST">
+            <input type="hidden" name="access_key" value="223b5477-2c3f-4579-bc01-28197ad9351c">
+            <div class="form-group">
+              <label class="form-label">USER_IDENTITY</label>
+              <input type="text" name="name" class="form-line" placeholder="Your name" required/>
+            </div>
+            <div class="form-group">
+              <label class="form-label">GATEWAY_ADDRESS</label>
+              <input type="email" name="email" class="form-line" placeholder="you@domain.com" required/>
+            </div>
+            <div class="form-group">
+              <label class="form-label">INPUT_STRING</label>
+              <textarea name="message" class="form-line" placeholder="Project overview or collaboration idea..." rows="4" required></textarea>
+            </div>
+            <button type="submit" class="form-submit">Execute_Transmission</button>
+          </form>
         </div>
       </div>
     </div>
@@ -524,7 +524,7 @@ const PROJECTS=[
   {id:1,name:"SENTINEL",tag:"Active",
    tagline:"Scalable Early-Warning Network for Tracking & Intelligent Natural Events Locally",
    summary:"Zero-budget, open-source multi-agent AI system for extreme weather early warning across all 748 Indian districts.",
-   tech:["Python","Multi-Agent","LLMs","RAG","FastAPI"],demo:"#",repo:"https://github.com/Faraazz05/sentinel",
+   tech:["Python","Multi-Agent","LLMs","RAG","FastAPI"],demo:"#",repo:"https://github.com/Faraazz05/SENTINEL",
    detail:`<h3>The Problem</h3><p>India has 748 districts. Extreme weather kills thousands annually — not because data doesn't exist, but because there's no system that processes it in real time at district level and routes actionable warnings to the right people, for free.</p><h3>What I Built</h3><p>SENTINEL is a zero-budget, open-source multi-agent AI pipeline: ingestion agents pull live meteorological feeds in parallel, pattern-recognition agents run lightweight anomaly detection per stream, alert agents generate district-level warnings in local languages, and coordination agents route to first responders. Federated inference + peer-relay communication eliminates all cloud dependency. Sub-minute alert latency, zero spend.</p>`},
   {id:2,name:"RHEA",tag:"Active",
    tagline:"Rare and High-risk disease Early warning and Analysis system",
@@ -534,22 +534,22 @@ const PROJECTS=[
   {id:3,name:"AI Lab — NEXUS",tag:"Completed",
    tagline:"Personal AI Operating System — self-hosted, multi-agent, zero cost",
    summary:"A persistent background daemon that runs research, job search, content creation, and coding workflows autonomously from your laptop — controlled from your phone via Telegram.",
-   tech:["LangGraph","Python","ChromaDB","Groq","Telegram Bot"],demo:"#",repo:"https://github.com/Faraazz05/nexus",
+   tech:["LangGraph","Python","ChromaDB","Groq","Telegram Bot"],demo:null,repo:null,
    detail:`<h3>The Problem</h3><p>Every AI productivity tool is either expensive, locked to someone else's infrastructure, or a glorified chatbot. I needed something that worked for me 24/7 — processing research papers, hunting contracts, generating leads, writing content — on 4GB RAM, no GPU, zero budget.</p><h3>What I Built</h3><p>NEXUS is not a wrapper. It's infrastructure. A persistent asyncio daemon reads a daily task file from my Obsidian vault, routes each task to the right agent via a LangGraph state machine, tracks rate limits per model per provider, streams live status to a Rich TUI, and sends Telegram updates when I'm away from my desk. ChromaDB session memory persists context across days. Everything runs on free or near-free APIs. You own the data, you own the pipeline.</p>`},
   {id:4,name:"Customer Health Forensics",tag:"Completed",
    tagline:"Churn intelligence platform — prediction, causal XAI, early warning",
    summary:"Full-stack ML system processing 500K+ customer records: consensus XAI, behavioral drift detection, and LLM-generated retention intelligence — not just a churn score.",
-   tech:["XGBoost","SHAP","LIME","FastAPI","React"],demo:"https://business-churn-dashboard.vercel.app",repo:"https://github.com/Faraazz05/business-churn",
+   tech:["XGBoost","SHAP","LIME","FastAPI","React"],demo:"https://faraazz05.github.io/churn-forensics/",repo:"https://github.com/Faraazz05/churn-forensics",
    detail:`<h3>The Problem</h3><p>SaaS companies lose 5–15% of customers monthly. Most see it coming too late. Existing tools either predict without explaining, or explain with a single XAI method that can be wrong.</p><h3>What I Built</h3><p>An 8-phase churn intelligence pipeline: XGBoost prediction (AUC 0.9273 on 500K records), consensus XAI using SHAP + LIME + AIX360 — a feature explanation is only labeled HIGH confidence when all three agree on direction and rank, drift detection combining PSI + KS-test to flag behavioral features shifting 4–6 weeks before churn spikes, and an LLM intelligence layer generating executive causal chains and prioritized retention actions. Full FastAPI backend + React dashboard.</p>`},
   {id:5,name:"Aegis-9",tag:"Completed",
    tagline:"Any-hazard civic orchestrator — multi-agent disaster response with XAI governance",
    summary:"7-agent IBM watsonx Orchestrate system that triages infrastructure incidents, explains decisions via XAI, requires human approval for high-impact actions, and executes coordinated response with a full audit trail.",
-   tech:["IBM watsonx","Multi-Agent","XAI","Flask","OpenAPI"],demo:"#",repo:"https://github.com/Faraazz05/aegis-9",
+   tech:["IBM watsonx","Multi-Agent","XAI","Flask","OpenAPI"],demo:"#",repo:"https://github.com/Faraazz05/Aegis-9",
    detail:`<h3>The Problem</h3><p>Critical infrastructure failures — power grid, water, transport, healthcare — kill people when response is slow or uncoordinated. The Baltimore bridge collapse and Hurricane Beryl outages both showed the same failure: no system that could ingest the incident, explain the options, get human sign-off, and execute coordinated action simultaneously.</p><h3>What I Built</h3><p>Aegis-9 is a 7-agent orchestration system built on IBM watsonx Orchestrate: Sentinel triages and risk-scores the incident, Governor provides XAI rationale and holds an approval gate before any high-impact action, Planner drafts work orders, Scheduler assigns crews, Supply reserves inventory, Auditor compiles a timestamped compliance trail. Alert-to-approved-plan time: 4 minutes 32 seconds. Built for Call for Code SDG-9 hackathon.</p>`},
   {id:6,name:"Explainable Hybrid Text Gen",tag:"Completed",
    tagline:"RNN + Transformer with Integrated Gradients XAI — full-stack, containerised",
    summary:"Text generation system where explainability is first-class: LSTM trained from scratch on Shakespeare + DistilGPT2, with custom Integrated Gradients showing why each token was generated.",
-   tech:["PyTorch","LSTM","DistilGPT2","Integrated Gradients","FastAPI","React"],demo:"#",repo:"https://github.com/Faraazz05/shakespeare-text-generator",
+   tech:["PyTorch","LSTM","DistilGPT2","Integrated Gradients","FastAPI","React"],demo:"https://faraazz05.github.io/shakespeare-text-generator/",repo:"https://github.com/Faraazz05/shakespeare-text-generator",
    detail:`<h3>The Problem</h3><p>Most text generation systems are black boxes. Most XAI tools are bolted on as afterthoughts. Neither approach is adequate when you need to understand and trust what a model is doing.</p><h3>What I Built</h3><p>A character-level LSTM trained from scratch on TinyShakespeare (930K parameters, ~1.50 val loss in 20 epochs) alongside DistilGPT2 for direct architecture comparison. The XAI layer uses custom Integrated Gradients — Sundararajan et al. (2017) — implemented directly in PyTorch without Captum: it integrates gradients along a path from zero baseline to actual input, computing each token's contribution to the output. FastAPI backend, React + TypeScript frontend, fully containerised with Docker Compose.</p>`}
 ];
 
@@ -1110,7 +1110,7 @@ async function fetchBlogs(){
         title:item.title,
         date:new Date(item.pubDate).toLocaleDateString('en-US',{year:'numeric',month:'short',day:'numeric'}),
         excerpt:(item.description||'').replace(/<[^>]+>/g,'').slice(0,110)+'…',
-        link:item.link,img:item.thumbnail||null,cls:`blog-img-${i+1}`
+        link:item.link,img:item.thumbnail||(item.description?item.description.match(/<img[^>]+src="([^">]+)"/)?.[1]:null)||null,cls:`blog-img-${i+1}`
       })));
     }else showBlogs(BLOG_PLACEHOLDERS.map(b=>({...b,link:'https://medium.com/@Faraazz05'})));
   }catch{showBlogs(BLOG_PLACEHOLDERS.map(b=>({...b,link:'https://medium.com/@Faraazz05'})));}
