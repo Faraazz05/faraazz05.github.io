@@ -325,8 +325,8 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9000;o
   <a href="#projects"   class="nav-item" data-s="projects"><span class="ms nav-icon">code_blocks</span><span class="nav-lbl">WORK</span></a>
   <a href="#research"   class="nav-item" data-s="research"><span class="ms nav-icon">biotech</span><span class="nav-lbl">RESEARCH</span></a>
   <a href="#experience" class="nav-item" data-s="experience"><span class="ms nav-icon">work_history</span><span class="nav-lbl">EXP</span></a>
-  <a href="#writings"   class="nav-item" data-s="writings"><span class="ms nav-icon">auto_stories</span><span class="nav-lbl">WRITES</span></a>
   <a href="#blogs"      class="nav-item" data-s="blogs"><span class="ms nav-icon">article</span><span class="nav-lbl">BLOG</span></a>
+  <a href="#writings"   class="nav-item" data-s="writings"><span class="ms nav-icon">auto_stories</span><span class="nav-lbl">WRITES</span></a>
   <a href="#contact"    class="nav-item" data-s="contact"><span class="ms nav-icon">alternate_email</span><span class="nav-lbl">CONTACT</span></a>
 </nav>
 
@@ -432,10 +432,23 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9000;o
 </section>
 <div class="divider"></div>
 
+<!-- ══ BLOGS ══ -->
+<section id="blogs">
+  <div class="wrap">
+    <div class="sec-num reveal">005 // FIELD_NOTES</div>
+    <h2 class="sec-title reveal d1">From the <span>Blog</span></h2>
+    <div class="blogs-grid" id="blogs-grid"><div class="blogs-load">// FETCHING FROM MEDIUM...</div></div>
+    <div class="proj-footer reveal">
+      <a href="https://medium.com/@Faraazz05" target="_blank" class="btn-outline">All Articles on Medium</a>
+    </div>
+  </div>
+</section>
+<div class="divider"></div>
+
 <!-- ══ WRITINGS ══ -->
 <section id="writings">
   <div class="wrap">
-    <div class="sec-num reveal">005 // PERSONAL_LOGS</div>
+    <div class="sec-num reveal">006 // PERSONAL_LOGS</div>
     <h2 class="sec-title reveal d1">The Things I Write<br/><span>When I'm Not Building</span></h2>
     <div class="writings-header reveal d2">
       <p class="writings-quote">I don't write to publish. I write to understand — the world, myself, and the unbearable silence between what is felt and what can be said.</p>
@@ -444,19 +457,6 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9000;o
     <div class="writings-bento" id="writings-grid"></div>
     <div class="writings-footer reveal">
       <button class="btn-outline" onclick="openModal('all-writings')">View All Writings</button>
-    </div>
-  </div>
-</section>
-<div class="divider"></div>
-
-<!-- ══ BLOGS ══ -->
-<section id="blogs">
-  <div class="wrap">
-    <div class="sec-num reveal">006 // FIELD_NOTES</div>
-    <h2 class="sec-title reveal d1">From the <span>Blog</span></h2>
-    <div class="blogs-grid" id="blogs-grid"><div class="blogs-load">// FETCHING FROM MEDIUM...</div></div>
-    <div class="proj-footer reveal">
-      <a href="https://medium.com/@Faraazz05" target="_blank" class="btn-outline">All Articles on Medium</a>
     </div>
   </div>
 </section>
@@ -534,8 +534,8 @@ const PROJECTS=[
   {id:3,name:"AI Lab — NEXUS",tag:"Completed",
    tagline:"Personal AI Operating System — self-hosted, multi-agent, zero cost",
    summary:"A persistent background daemon that runs research, job search, content creation, and coding workflows autonomously from your laptop — controlled from your phone via Telegram.",
-   tech:["LangGraph","Python","ChromaDB","Groq","Telegram Bot"],demo:null,repo:null,
-   detail:`<h3>The Problem</h3><p>Every AI productivity tool is either expensive, locked to someone else's infrastructure, or a glorified chatbot. I needed something that worked for me 24/7 — processing research papers, hunting contracts, generating leads, writing content — on 4GB RAM, no GPU, zero budget.</p><h3>What I Built</h3><p>NEXUS is not a wrapper. It's infrastructure. A persistent asyncio daemon reads a daily task file from my Obsidian vault, routes each task to the right agent via a LangGraph state machine, tracks rate limits per model per provider, streams live status to a Rich TUI, and sends Telegram updates when I'm away from my desk. ChromaDB session memory persists context across days. Everything runs on free or near-free APIs. You own the data, you own the pipeline.</p>`},
+   tech:["LangGraph","Python","ChromaDB","Groq","Telegram Bot"],demo:null,repo:"https://github.com/Faraazz05/NEXUS",
+   detail:`<h3>The Problem</h3><p>Every AI productivity tool is either expensive, locked to someone else's infrastructure, or a glorified chatbot. I needed something that worked for me 24/7 — processing research papers, hunting contracts, generating leads, writing content — on 4GB RAM, no GPU, zero budget.</p><h3>What I Built</h3><p>NEXUS is not a wrapper. It's infrastructure. A persistent asyncio daemon reads a daily task file from my Obsidian vault, routes each task to the right agent via a LangGraph state machine, tracks rate limits per model per provider, streams live status to a Rich TUI, and sends Telegram updates when I'm away from my desk. ChromaDB session memory persists context across days. Everything runs on free or near-free APIs. You own the data, you own the pipeline.</p><p style="margin-top:12px;font-size:.88rem;color:var(--txt3)"><em>Note: The linked GitHub repository hosts complete system architecture documentation and workflow specifications (source code remains private).</em></p>`},
   {id:4,name:"Customer Health Forensics",tag:"Completed",
    tagline:"Churn intelligence platform — prediction, causal XAI, early warning",
    summary:"Full-stack ML system processing 500K+ customer records: consensus XAI, behavioral drift detection, and LLM-generated retention intelligence — not just a churn score.",
@@ -602,9 +602,22 @@ const RESEARCH={
 };
 
 const EXPERIENCE=[
-  {role:"Co-Founder & CTO (Part-Time)",company:"CaseMentor AI",period:"2026 — Present",
-   summary:"Building the backend for an AI-powered consulting interview prep platform.",
-   detail:"Architecting a full-stack consulting interview prep platform from scratch. Engineered a 14-step AI pipeline that converts raw case PDFs into structured, queryable case libraries using DeepSeek, Groq, and GPT-4o. Built AI mock interview and evaluation agents that score candidates across consulting frameworks, a peer buddy-matching system, and real-time collaborative practice rooms with XP gamification and voice analysis. Stack: FastAPI · PostgreSQL · Redis · ChromaDB · Celery · MinIO · LLMs."},
+  {role:"Freelance AI & Full-Stack Engineer",company:"Self-Employed · Client Solutions",period:"Jul 2026 — Present",
+   summary:"Delivered 6+ production web applications and custom business automation pipelines across healthcare, e-commerce, and ML.",
+   detail:`End-to-end engineering of production web platforms, ML applications, and automated business workflows for international clients.<br/><br/>
+<strong style="color:var(--gold)">Selected Production Web Deployments (6 Live):</strong><br/>
+• <strong>Healthcare:</strong> <a href="https://www.freeflowphysiotherapy.com/" target="_blank" style="color:var(--gold);text-decoration:underline">FreeFlow Physiotherapy</a> — Clinic website with modern appointment routing &amp; patient interface.<br/>
+• <strong>E-Commerce:</strong> <a href="https://fitkartshop.com/" target="_blank" style="color:var(--gold);text-decoration:underline">FitKart Shop</a> — Full e-commerce store for fitness supplements &amp; wellness products.<br/>
+• <strong>Client Portfolios:</strong> <a href="https://dharanimuppana15.github.io/" target="_blank" style="color:var(--gold);text-decoration:underline">Dharani Muppana</a> — Showcase portfolio for business analysts.<br/>
+• <strong>Production ML Deployments:</strong> <a href="https://faraazz05.github.io/churn-forensics/" target="_blank" style="color:var(--gold);text-decoration:underline">Customer Health Forensics</a> (XAI churn platform) and <a href="https://faraazz05.github.io/shakespeare-text-generator/" target="_blank" style="color:var(--gold);text-decoration:underline">Shakespeare Text Generator</a> (LSTM + Transformer).<br/>
+• <strong>Personal Portfolio:</strong> <a href="https://faraazz05.github.io/" target="_blank" style="color:var(--gold);text-decoration:underline">Faraazz05.github.io</a> — Interactive AI research &amp; engineering portfolio.<br/>
+• <em>Pipeline:</em> Currently building web platforms for a corporate law firm and a restaurant.<br/><br/>
+<strong style="color:var(--gold)">Business Automations &amp; AI Pipelines:</strong><br/>
+• <strong>Omnichannel Communication Center:</strong> Automated bulk messaging and document dispatch system via WhatsApp and email.<br/>
+• <strong>AI Content Generation:</strong> Automated workflow generating Instagram captions and marketing visuals.<br/>
+• <strong>B2B Lead Generation:</strong> Automated lead scraping, contact enrichment, and pipeline integration.<br/>
+• <strong>Churn Forensics:</strong> Machine learning retention and churn risk analytics for customer data.<br/><br/>
+<strong>Stack:</strong> Python · FastAPI · React / Modern Web · Machine Learning &amp; XAI · WhatsApp &amp; SMTP APIs · Automation Pipelines`},
   {role:"Independent AI Researcher",company:"Self-Directed",period:"2024 — Present",
    summary:"Designing research-grade multi-agent AI systems across climate, healthcare, and infrastructure.",
    detail:"Designed and led SENTINEL (9-agent climate early-warning system for India), RHEA (7-agent rare disease intelligence layer), and Aegis-9 (multi-agent disaster response, IBM watsonx Hackathon Finalist). Applied multi-agent orchestration, XAI governance, uncertainty quantification, conformal prediction, and offline RL. Produced 3 active working papers targeting NeurIPS, ICLR, and arXiv."},
@@ -1251,7 +1264,7 @@ function observeReveal(){
 
 /* ══════════ ACTIVE NAV ════════════════════════ */
 function updateNav(){
-  const secs=['hero','about','projects','research','experience','writings','blogs','contact'];
+  const secs=['hero','about','projects','research','experience','blogs','writings','contact'];
   const scrollY=window.scrollY+220;
   let cur='hero';
   secs.forEach(id=>{const el=document.getElementById(id);if(el&&el.offsetTop<=scrollY)cur=id});
