@@ -1,0 +1,454 @@
+/* ==========================================================================
+   MOBILE STYLESHEET (Optimized for Mobile Devices: <= 600px)
+   Portfolio: Faraz — AI Researcher & Engineer
+   ========================================================================== */
+
+@media (max-width: 600px) {
+  /* ── TOUCH & CURSOR FIXES ────────────────────────────────────────────── */
+  #c-dot, #c-ring {
+    display: none !important;
+  }
+  body, a, button, [onclick], .btn-gold, .btn-outline, .btn-link,
+  .plink, .social-pill, .expand-hint, .proj-card, .research-card,
+  .timeline-item, .write-card, .write-open, .blog-card, .blog-read,
+  .form-line, .form-submit, #modal-close, .nav-item {
+    cursor: auto !important;
+    -webkit-tap-highlight-color: rgba(200,168,75,.15);
+  }
+
+  /* ── BASE & SECTION SPACING ──────────────────────────────────────────── */
+  body {
+    padding-bottom: 95px;
+    font-size: 15px;
+  }
+  section {
+    padding: 65px 0 45px;
+    min-height: auto;
+  }
+  .wrap {
+    padding: 0 18px;
+  }
+  .sec-num {
+    font-size: 0.64rem;
+    margin-bottom: 8px;
+  }
+  .sec-num::before {
+    width: 20px;
+  }
+  .sec-title {
+    font-size: clamp(1.75rem, 8.5vw, 2.35rem);
+    margin-bottom: 30px;
+    line-height: 1.15;
+  }
+
+  /* ── HERO ────────────────────────────────────────────────────────────── */
+  #hero {
+    min-height: 85vh;
+    padding: 40px 0 30px;
+  }
+  .hero-inner {
+    padding: 0 18px;
+  }
+  .hero-badge {
+    margin-bottom: 18px;
+    padding: 5px 12px;
+  }
+  .badge-text {
+    font-size: 0.62rem;
+    letter-spacing: 0.16em;
+  }
+  .hero-name {
+    font-size: clamp(2.85rem, 14vw, 4.3rem);
+    line-height: 0.95;
+    letter-spacing: -0.02em;
+    margin-bottom: 14px;
+    word-break: break-word;
+  }
+  .char-outline {
+    -webkit-text-stroke: 1.5px var(--gold);
+  }
+  .hero-sub {
+    font-size: 0.92rem;
+    line-height: 1.45;
+    margin-bottom: 16px;
+  }
+  .hero-bio {
+    font-size: 0.9rem;
+    line-height: 1.65;
+    max-width: 100%;
+    margin-bottom: 28px;
+  }
+  .hero-actions {
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+    align-items: stretch;
+  }
+  .hero-actions .btn-gold,
+  .hero-actions .btn-outline {
+    width: 100%;
+    justify-content: center;
+    padding: 13px 20px;
+    font-size: 0.92rem;
+  }
+  .scroll-hint {
+    display: none;
+  }
+
+  /* ── ABOUT ───────────────────────────────────────────────────────────── */
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  .about-photo-wrap {
+    max-width: 210px;
+    margin: 0 auto 12px;
+    border-radius: 16px;
+  }
+  .photo-initials {
+    font-size: 4.2rem;
+  }
+  .about-txt {
+    font-size: 0.92rem;
+    line-height: 1.68;
+    margin-bottom: 14px;
+  }
+  .about-tags {
+    gap: 6px;
+    margin-bottom: 16px;
+  }
+  .about-tag {
+    font-size: 0.64rem;
+    padding: 3px 10px;
+  }
+  .about-socials {
+    gap: 8px;
+    justify-content: flex-start;
+  }
+  .social-pill {
+    padding: 8px 14px;
+    font-size: 0.74rem;
+    min-height: 42px;
+  }
+
+  /* ── PROJECTS (1-Column Mobile Layout) ───────────────────────────────── */
+  .proj-bento {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    margin-bottom: 24px;
+  }
+  .proj-card,
+  .proj-card.big {
+    grid-column: span 1;
+    padding: 20px 18px;
+  }
+  .proj-card.big::after {
+    display: none !important;
+  }
+  .proj-card .proj-name,
+  .proj-card.big .proj-name {
+    font-size: 1.25rem;
+    line-height: 1.25;
+  }
+  .proj-sum {
+    font-size: 0.84rem;
+    line-height: 1.55;
+    margin-bottom: 14px;
+  }
+  .proj-stack {
+    gap: 5px;
+    margin-bottom: 14px;
+  }
+  .stack-tag {
+    font-size: 0.62rem;
+    padding: 3px 8px;
+  }
+  .proj-links {
+    gap: 8px;
+  }
+  .plink {
+    padding: 7px 12px;
+    font-size: 0.74rem;
+  }
+  .proj-footer .btn-outline {
+    width: 100%;
+    justify-content: center;
+    padding: 12px 20px;
+  }
+
+  /* ── RESEARCH ────────────────────────────────────────────────────────── */
+  .research-card {
+    padding: 24px 18px;
+  }
+  .research-venue {
+    font-size: 0.64rem;
+    letter-spacing: 0.1em;
+    margin-bottom: 10px;
+  }
+  .research-title {
+    font-size: 1.25rem;
+    line-height: 1.25;
+    margin-bottom: 14px;
+  }
+  .research-sum {
+    font-size: 0.88rem;
+    line-height: 1.62;
+    margin-bottom: 18px;
+  }
+  .research-status {
+    font-size: 0.65rem;
+  }
+  .btn-link {
+    font-size: 0.75rem;
+  }
+
+  /* ── EXPERIENCE & SKILLS ─────────────────────────────────────────────── */
+  .exp-grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+  .timeline-wrap {
+    padding-left: 26px;
+    max-width: 100%;
+  }
+  .timeline-line {
+    left: 10px;
+  }
+  .timeline-dot {
+    left: -21px;
+    width: 10px;
+    height: 10px;
+    top: 6px;
+  }
+  .timeline-item {
+    padding-bottom: 30px;
+  }
+  .tl-role {
+    font-size: 1.05rem;
+  }
+  .tl-company {
+    font-size: 0.84rem;
+  }
+  .tl-summary {
+    font-size: 0.84rem;
+    line-height: 1.55;
+  }
+  .skills-side-title {
+    font-size: 1.35rem;
+    margin-bottom: 16px;
+  }
+  .skill-pill {
+    padding: 7px 12px;
+    font-size: 0.72rem;
+    animation: none !important;
+  }
+  .skill-cloud {
+    gap: 7px;
+    margin-bottom: 20px;
+  }
+  .exp-btns {
+    flex-direction: column;
+    width: 100%;
+    gap: 8px;
+  }
+  .exp-btns .btn-outline {
+    width: 100%;
+    justify-content: center;
+    padding: 11px;
+  }
+
+  /* ── WRITINGS ────────────────────────────────────────────────────────── */
+  .writings-header {
+    margin-bottom: 26px;
+  }
+  .writings-quote {
+    font-size: 1.05rem;
+    padding-left: 14px;
+    line-height: 1.6;
+    margin-bottom: 6px;
+  }
+  .writings-bento {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    margin-bottom: 24px;
+  }
+  .write-card,
+  .write-card.big {
+    grid-column: span 1;
+    padding: 20px 18px;
+  }
+  .write-title,
+  .write-card.big .write-title {
+    font-size: 1.2rem;
+    line-height: 1.25;
+  }
+  .write-excerpt {
+    font-size: 0.86rem;
+    line-height: 1.62;
+    margin-bottom: 16px;
+  }
+  .writings-footer .btn-outline {
+    width: 100%;
+    justify-content: center;
+    padding: 12px 20px;
+  }
+
+  /* ── BLOGS ───────────────────────────────────────────────────────────── */
+  .blogs-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    margin-bottom: 24px;
+  }
+  .blog-img {
+    height: 140px;
+  }
+  .blog-body {
+    padding: 18px 16px;
+  }
+  .blog-title {
+    font-size: 0.98rem;
+  }
+  .blog-excerpt {
+    font-size: 0.84rem;
+    line-height: 1.55;
+  }
+
+  /* ── CONTACT ─────────────────────────────────────────────────────────── */
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .contact-hl {
+    font-size: 1.6rem;
+  }
+  .contact-desc {
+    font-size: 0.92rem;
+    line-height: 1.6;
+    margin-bottom: 24px;
+  }
+  .cinfo-item {
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+  .cinfo-icon {
+    width: 36px;
+    height: 36px;
+  }
+  .cinfo-val {
+    font-size: 0.86rem;
+    word-break: break-all;
+  }
+  .contact-panel {
+    padding: 24px 18px;
+  }
+  .enc-badge {
+    top: -12px;
+    right: 14px;
+    font-size: 0.56rem;
+    padding: 4px 9px;
+  }
+  .form-group {
+    margin-bottom: 18px;
+  }
+  .form-line,
+  textarea.form-line {
+    font-size: 16px !important; /* Prevents iOS auto-zoom */
+    padding: 8px 0;
+  }
+  .form-submit {
+    padding: 14px;
+    font-size: 0.92rem;
+    min-height: 48px;
+  }
+
+  /* ── PILL NAVIGATION (Mobile Bottom Floating Bar) ───────────────────── */
+  #pill-nav {
+    bottom: calc(10px + env(safe-area-inset-bottom, 0px));
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 6px 8px;
+    max-width: calc(100vw - 20px);
+    width: max-content;
+    gap: 2px;
+    box-shadow: 0 4px 28px rgba(0,0,0,0.65);
+  }
+  #pill-nav:hover {
+    padding: 6px 8px;
+  }
+  .nav-lbl {
+    display: none !important;
+  }
+  .nav-item {
+    padding: 6px 7px;
+    min-width: 36px;
+    min-height: 38px;
+    justify-content: center;
+    border-radius: 8px;
+  }
+  .nav-item:hover {
+    transform: none;
+  }
+  .nav-icon {
+    font-size: 1.15rem;
+  }
+
+  /* ── MODAL (Mobile Sheet/Overlay) ────────────────────────────────────── */
+  #modal-bg {
+    padding: 10px;
+  }
+  #modal-box {
+    padding: 22px 18px;
+    width: 100%;
+    max-height: 90vh;
+    border-radius: 16px;
+  }
+  #modal-close {
+    top: 12px;
+    right: 12px;
+    width: 42px;
+    height: 42px;
+    min-width: 42px;
+    min-height: 42px;
+    font-size: 1.25rem;
+    background: var(--bg3);
+    z-index: 10;
+  }
+  #modal-content h2 {
+    font-size: 1.35rem;
+    padding-right: 38px;
+    line-height: 1.25;
+  }
+  #modal-content h3 {
+    font-size: 1.05rem;
+  }
+  #modal-content p,
+  #modal-content ul {
+    font-size: 0.9rem;
+    line-height: 1.65;
+  }
+  .m-actions {
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+  }
+  .m-actions .btn-gold,
+  .m-actions .btn-outline {
+    width: 100%;
+    justify-content: center;
+    min-height: 44px;
+    padding: 11px 18px;
+    font-size: 0.85rem;
+  }
+
+  /* ── FOOTER ──────────────────────────────────────────────────────────── */
+  #site-footer {
+    padding: 20px 18px calc(24px + env(safe-area-inset-bottom, 0px));
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+  }
+  .footer-soc {
+    justify-content: center;
+    gap: 14px;
+  }
+}

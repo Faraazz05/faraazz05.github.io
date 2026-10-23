@@ -13,303 +13,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=JetBrains+Mono:wght@300;400;500&family=Lora:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1" rel="stylesheet"/>
-<style>
-/* ── RESET & VARS ─────────────────────────────── */
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{
-  --bg:#030912;--bg2:#060f1e;--bg3:#091527;
-  --gold:#C8A84B;--gold-b:#E2C56E;--gold-dim:rgba(200,168,75,.15);--gold-glow:rgba(200,168,75,.25);
-  --teal:#00BFA8;--teal-dim:rgba(0,191,168,.1);
-  --txt:#EEF0F8;--txt2:#9097B8;--txt3:#4A5070;
-  --card:rgba(9,21,42,.65);--border:rgba(200,168,75,.12);
-  --r:14px;
-}
-html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--txt);font-family:'DM Sans',sans-serif;font-size:16px;line-height:1.65;overflow-x:hidden;cursor:none;padding-bottom:100px}
-::selection{background:var(--gold-dim);color:var(--gold-b)}
-a{color:inherit;text-decoration:none}
-.ms{font-family:'Material Symbols Outlined';font-variation-settings:'FILL' 0,'wght' 300,'GRAD' 0,'opsz' 24;font-size:1.25rem;line-height:1;user-select:none}
-
-/* ── CURSOR ───────────────────────────────────── */
-#c-dot{position:fixed;width:7px;height:7px;background:var(--gold);border-radius:50%;pointer-events:none;z-index:9999;mix-blend-mode:screen}
-#c-ring{position:fixed;width:34px;height:34px;border:1.5px solid rgba(200,168,75,.45);border-radius:50%;pointer-events:none;z-index:9998;box-shadow:0 0 12px rgba(200,168,75,.15);transition:border-color .2s,box-shadow .2s,width .25s,height .25s}
-body.hovering #c-dot{background:var(--teal)}
-body.hovering #c-ring{width:52px;height:52px;border-color:rgba(0,191,168,.5);box-shadow:0 0 20px rgba(0,191,168,.2)}
-
-/* ── BG GLOWS ─────────────────────────────────── */
-.bg-glow{position:fixed;border-radius:50%;filter:blur(120px);pointer-events:none;z-index:-1}
-.glow-gold{width:700px;height:700px;background:radial-gradient(circle,rgba(200,168,75,.1),transparent 70%);top:-200px;right:-200px}
-.glow-teal{width:550px;height:550px;background:radial-gradient(circle,rgba(0,191,168,.07),transparent 70%);bottom:-150px;left:-150px}
-
-/* ── CANVAS ───────────────────────────────────── */
-#hero-canvas{position:absolute;inset:0;z-index:0;opacity:.5;pointer-events:none}
-
-/* ── REVEAL ───────────────────────────────────── */
-.reveal{opacity:0;transform:translateY(36px);transition:opacity .8s cubic-bezier(.16,1,.3,1),transform .8s cubic-bezier(.16,1,.3,1)}
-.reveal.active{opacity:1;transform:translateY(0)}
-.d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}
-.d4{transition-delay:.32s}.d5{transition-delay:.4s}.d6{transition-delay:.48s}
-
-/* ── SECTION BASE ─────────────────────────────── */
-section{position:relative;padding:100px 0 80px;min-height:100vh;display:flex;align-items:center}
-.wrap{width:100%;max-width:1140px;margin:0 auto;padding:0 44px}
-.sec-num{font-family:'JetBrains Mono',monospace;font-size:.68rem;letter-spacing:.22em;color:var(--teal);margin-bottom:10px;display:flex;align-items:center;gap:8px}
-.sec-num::before{content:'';display:block;width:28px;height:1px;background:var(--teal);opacity:.5}
-.sec-title{font-family:'Syne',sans-serif;font-size:clamp(2rem,4vw,3.4rem);font-weight:800;line-height:1.08;color:var(--txt);margin-bottom:52px}
-.sec-title span{color:var(--gold)}
-.divider{width:100%;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:.15}
-
-/* ── BUTTONS ──────────────────────────────────── */
-.btn-gold{display:inline-flex;align-items:center;gap:8px;background:var(--gold);color:#030912;font-family:'DM Sans',sans-serif;font-weight:700;font-size:.9rem;padding:11px 26px;border-radius:8px;border:none;cursor:none;transition:background .2s,transform .2s,box-shadow .2s}
-.btn-gold:hover{background:var(--gold-b);transform:translateY(-2px);box-shadow:0 10px 34px rgba(200,168,75,.35)}
-.btn-outline{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--border);color:var(--txt2);font-size:.9rem;padding:11px 26px;border-radius:8px;cursor:none;transition:all .2s;background:none}
-.btn-outline:hover{border-color:var(--gold);color:var(--gold);background:var(--gold-dim)}
-.btn-link{display:inline-flex;align-items:center;gap:6px;font-family:'JetBrains Mono',monospace;font-size:.78rem;color:var(--gold);cursor:none;background:none;border:none;letter-spacing:.06em;transition:gap .2s}
-.btn-link:hover{gap:12px}
-.btn-link::after{content:'→'}
-
-/* ══ HERO ═══════════════════════════════════════ */
-#hero{min-height:100vh;display:flex;align-items:center;padding:0;overflow:hidden;
-  background:radial-gradient(ellipse 100% 70% at 50% 20%,rgba(9,21,42,.95),var(--bg) 75%)}
-#hero::before{content:'';position:absolute;inset:0;
-  background:radial-gradient(circle 700px at 75% 40%,rgba(200,168,75,.055),transparent),
-             radial-gradient(circle 500px at 15% 70%,rgba(0,191,168,.045),transparent)}
-.hero-inner{position:relative;z-index:1;padding:0 44px;max-width:1140px;margin:0 auto;width:100%}
-.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(0,191,168,.06);border:1px solid rgba(0,191,168,.18);border-radius:999px;padding:6px 16px;margin-bottom:28px}
-.badge-dot{width:7px;height:7px;border-radius:50%;background:var(--teal);animation:pulsedot 1.6s ease-in-out infinite}
-@keyframes pulsedot{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(1.6)}}
-.badge-text{font-family:'JetBrains Mono',monospace;font-size:.7rem;letter-spacing:.22em;color:var(--teal)}
-.hero-name{font-family:'Syne',sans-serif;font-size:clamp(4.5rem,12vw,10.5rem);font-weight:800;line-height:.9;letter-spacing:-.025em;color:var(--txt);margin-bottom:10px}
-.char-gold{color:var(--gold)}
-.char-outline{-webkit-text-stroke:2px var(--gold);color:transparent;transition:color .3s,-webkit-text-stroke .3s;cursor:none}
-.char-outline:hover{color:var(--gold);-webkit-text-stroke:0px}
-.hero-sub{font-family:'Syne',sans-serif;font-size:clamp(1rem,2.2vw,1.5rem);font-weight:500;color:var(--txt2);margin-bottom:24px}
-.hero-bio{font-size:1.05rem;color:var(--txt2);max-width:560px;line-height:1.75;margin-bottom:44px}
-.hero-actions{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
-.scroll-hint{position:absolute;bottom:36px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:7px;color:var(--txt3);font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:.18em;animation:floatY 2.6s ease-in-out infinite}
-.scroll-line{width:1px;height:44px;background:linear-gradient(to bottom,var(--gold),transparent)}
-@keyframes floatY{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(9px)}}
-.parallax{}
-
-/* ══ ABOUT ═══════════════════════════════════════ */
-#about{background:var(--bg2)}
-.about-grid{display:grid;grid-template-columns:1fr 1.15fr;gap:64px;align-items:center}
-.about-photo-wrap{position:relative;aspect-ratio:1;border-radius:20px;overflow:hidden;border:1px solid var(--border);background:var(--bg3);box-shadow:0 0 70px rgba(200,168,75,.08);cursor:none}
-.photo-placeholder{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;background:linear-gradient(135deg,var(--bg3),rgba(200,168,75,.04))}
-.photo-initials{font-family:'Syne',sans-serif;font-size:6rem;font-weight:800;color:var(--gold);opacity:.45;letter-spacing:-.05em}
-.photo-hint{font-family:'JetBrains Mono',monospace;font-size:.62rem;color:var(--txt3);letter-spacing:.2em;text-transform:uppercase}
-.photo-ring{position:absolute;inset:0;border-radius:20px;background:linear-gradient(135deg,rgba(200,168,75,.25),transparent 50%,rgba(0,191,168,.15));pointer-events:none}
-.about-tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px}
-.about-tag{font-family:'JetBrains Mono',monospace;font-size:.68rem;padding:4px 12px;border-radius:40px;border:1px solid var(--border);color:var(--gold);letter-spacing:.1em}
-.about-txt{font-size:1.02rem;color:var(--txt2);line-height:1.78;margin-bottom:16px}
-.about-socials{display:flex;gap:10px;margin-top:24px;flex-wrap:wrap}
-.social-pill{display:inline-flex;align-items:center;gap:7px;font-family:'JetBrains Mono',monospace;font-size:.78rem;padding:8px 16px;border:1px solid var(--border);border-radius:8px;color:var(--txt2);cursor:none;transition:all .2s}
-.social-pill:hover{border-color:var(--teal);color:var(--teal);background:var(--teal-dim)}
-.expand-hint{font-family:'JetBrains Mono',monospace;font-size:.68rem;color:var(--txt3);letter-spacing:.12em;margin-top:20px;display:flex;align-items:center;gap:6px;cursor:none;transition:color .2s;background:none;border:none}
-.expand-hint:hover{color:var(--gold)}
-
-/* ══ PROJECTS — BENTO GRID ═══════════════════════ */
-#projects{background:var(--bg)}
-/* 3-column bento grid */
-.proj-bento{display:grid;grid-template-columns:repeat(3,1fr);grid-auto-rows:auto;gap:16px;margin-bottom:32px}
-/* Card 1: big hero card spans 2 cols */
-.proj-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:28px;cursor:none;position:relative;overflow:hidden;transition:transform .35s cubic-bezier(.23,1,.32,1),border-color .35s,box-shadow .35s}
-.proj-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--gold),var(--teal));opacity:0;transition:opacity .3s}
-.proj-card:hover{transform:translateY(-6px);border-color:rgba(200,168,75,.3);box-shadow:0 20px 48px rgba(0,0,0,.5),0 0 24px rgba(200,168,75,.07)}
-.proj-card:hover::before{opacity:1}
-.proj-card.big{grid-column:span 2}
-/* subtle watermark number on big card */
-.proj-card.big::after{content:attr(data-num);position:absolute;right:24px;bottom:16px;font-family:'Syne',sans-serif;font-size:7rem;font-weight:800;color:rgba(200,168,75,.04);line-height:1;pointer-events:none;user-select:none}
-.proj-num{font-family:'JetBrains Mono',monospace;font-size:.66rem;color:var(--txt3);margin-bottom:10px}
-.proj-name{font-family:'Syne',sans-serif;font-size:1.25rem;font-weight:700;color:var(--txt);margin-bottom:8px}
-.proj-card.big .proj-name{font-size:1.7rem}
-.proj-sum{font-size:.88rem;color:var(--txt2);line-height:1.62;margin-bottom:18px}
-.proj-stack{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:18px}
-.stack-tag{font-family:'JetBrains Mono',monospace;font-size:.65rem;padding:3px 9px;border-radius:4px;background:rgba(0,191,168,.07);color:var(--teal);border:1px solid rgba(0,191,168,.14)}
-.proj-links{display:flex;gap:10px}
-.plink{display:inline-flex;align-items:center;gap:5px;font-size:.78rem;padding:6px 14px;border-radius:6px;border:1px solid var(--border);color:var(--txt2);cursor:none;transition:all .2s;font-family:'JetBrains Mono',monospace}
-.plink:hover{border-color:var(--gold);color:var(--gold)}
-.plink.gold{background:var(--gold-dim);border-color:rgba(200,168,75,.3);color:var(--gold)}
-.plink.gold:hover{background:var(--gold);color:#030912}
-.proj-footer{display:flex;justify-content:center;margin-top:4px}
-
-/* ══ RESEARCH ════════════════════════════════════ */
-#research{background:var(--bg2)}
-.research-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:44px;position:relative;overflow:hidden;cursor:none;transition:border-color .3s,box-shadow .3s}
-.research-card::after{content:'';position:absolute;right:-80px;top:-80px;width:280px;height:280px;border-radius:50%;background:radial-gradient(circle,rgba(200,168,75,.06),transparent 70%);pointer-events:none}
-.research-card:hover{border-color:rgba(200,168,75,.28);box-shadow:0 0 70px rgba(200,168,75,.07)}
-.research-venue{font-family:'JetBrains Mono',monospace;font-size:.7rem;color:var(--teal);letter-spacing:.14em;margin-bottom:14px}
-.research-title{font-family:'Syne',sans-serif;font-size:clamp(1.4rem,2.8vw,2.1rem);font-weight:700;color:var(--txt);line-height:1.2;margin-bottom:18px}
-.research-sum{font-size:1rem;color:var(--txt2);line-height:1.75;max-width:680px;margin-bottom:24px}
-.research-status{display:inline-flex;align-items:center;gap:8px;font-family:'JetBrains Mono',monospace;font-size:.7rem;color:var(--gold);letter-spacing:.12em}
-.status-dot{width:7px;height:7px;border-radius:50%;background:var(--gold);animation:pulsedot 1.5s ease-in-out infinite}
-
-/* ══ EXPERIENCE + SKILLS SIDE ═══════════════════ */
-#experience{background:var(--bg)}
-.exp-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
-.timeline-wrap{position:relative;padding-left:44px}
-.timeline-line{position:absolute;left:20px;top:0;bottom:0;width:1px;background:linear-gradient(to bottom,var(--gold),var(--teal),transparent)}
-.timeline-item{position:relative;padding-bottom:44px;cursor:none}
-.timeline-item:last-child{padding-bottom:0}
-.timeline-dot{position:absolute;left:-31px;top:7px;width:14px;height:14px;border-radius:50%;background:var(--gold);box-shadow:0 0 20px rgba(200,168,75,.55);transition:transform .3s}
-.timeline-item:nth-child(3) .timeline-dot{background:var(--teal);box-shadow:0 0 20px rgba(0,191,168,.45)}
-.timeline-item:nth-child(4) .timeline-dot{background:var(--txt3);box-shadow:0 0 12px rgba(74,80,112,.4)}
-.timeline-item:hover .timeline-dot{transform:scale(1.6)}
-.tl-period{font-family:'JetBrains Mono',monospace;font-size:.7rem;color:var(--teal);letter-spacing:.12em;margin-bottom:6px}
-.tl-role{font-family:'Syne',sans-serif;font-size:1.15rem;font-weight:700;color:var(--txt);margin-bottom:4px}
-.tl-company{font-size:.88rem;color:var(--txt2);margin-bottom:8px}
-.tl-summary{font-size:.88rem;color:var(--txt3);line-height:1.62}
-.skills-side-title{font-family:'Syne',sans-serif;font-size:1.6rem;font-weight:800;color:var(--txt);margin-bottom:28px}
-@keyframes floatTag{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
-.skill-pill{display:inline-flex;align-items:center;padding:9px 18px;border-radius:999px;font-family:'JetBrains Mono',monospace;font-size:.78rem;letter-spacing:.06em;cursor:default;animation:floatTag 3.5s ease-in-out infinite;transition:transform .2s,box-shadow .2s}
-.skill-pill:hover{box-shadow:0 0 20px rgba(200,168,75,.35)}
-.skill-pill.sp-gold{border:1px solid rgba(200,168,75,.25);color:var(--gold);background:rgba(200,168,75,.07)}
-.skill-pill.sp-teal{border:1px solid rgba(0,191,168,.2);color:var(--teal);background:rgba(0,191,168,.06)}
-.skill-pill.sp-dim{border:1px solid rgba(255,255,255,.07);color:var(--txt2);background:rgba(255,255,255,.02)}
-.skill-pill:nth-child(2n){animation-delay:.4s}
-.skill-pill:nth-child(3n){animation-delay:.9s}
-.skill-pill:nth-child(4n){animation-delay:1.3s}
-.skill-pill:nth-child(5n){animation-delay:1.8s}
-.skill-pill:nth-child(6n){animation-delay:2.2s}
-.skill-cloud{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:24px}
-.exp-btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:4px}
-
-/* ══ WRITINGS ════════════════════════════════════ */
-#writings{background:var(--bg2)}
-/* atmospheric header */
-.writings-header{margin-bottom:48px}
-.writings-quote{font-family:'Lora',serif;font-style:italic;font-size:clamp(1.1rem,2vw,1.5rem);color:var(--txt2);line-height:1.75;max-width:640px;position:relative;padding-left:20px;margin-bottom:8px}
-.writings-quote::before{content:'';position:absolute;left:0;top:4px;bottom:4px;width:2px;background:linear-gradient(to bottom,var(--gold),transparent)}
-.writings-byline{font-family:'JetBrains Mono',monospace;font-size:.68rem;color:var(--txt3);letter-spacing:.15em;padding-left:20px}
-/* writings bento */
-.writings-bento{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:32px}
-.write-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:28px 28px 24px;cursor:none;position:relative;overflow:hidden;transition:transform .35s cubic-bezier(.23,1,.32,1),border-color .35s,box-shadow .35s}
-.write-card::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(200,168,75,.025),transparent 60%);pointer-events:none}
-.write-card:hover{transform:translateY(-6px);border-color:rgba(200,168,75,.28);box-shadow:0 20px 48px rgba(0,0,0,.5),0 0 40px rgba(200,168,75,.06)}
-/* big featured writing card */
-.write-card.big{grid-column:span 2}
-/* novel card subtle gold bg */
-.write-card.novel{border-color:rgba(200,168,75,.2);background:linear-gradient(135deg,rgba(9,21,42,.9),rgba(200,168,75,.04))}
-.write-type{font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:.22em;color:var(--teal);text-transform:uppercase;margin-bottom:12px;display:flex;align-items:center;gap:6px}
-.write-type::before{content:'';display:inline-block;width:16px;height:1px;background:var(--teal);opacity:.6}
-.write-title{font-family:'Lora',serif;font-size:1.3rem;font-weight:500;color:var(--txt);line-height:1.3;margin-bottom:12px}
-.write-card.big .write-title{font-size:1.65rem}
-.write-excerpt{font-family:'Lora',serif;font-style:italic;font-size:.9rem;color:var(--txt2);line-height:1.75;margin-bottom:20px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
-.write-card.big .write-excerpt{-webkit-line-clamp:4}
-.write-open{display:inline-flex;align-items:center;gap:6px;font-family:'JetBrains Mono',monospace;font-size:.72rem;color:var(--gold);cursor:none;letter-spacing:.06em;transition:gap .2s;background:none;border:none}
-.write-open:hover{gap:10px}
-.write-open::after{content:'→'}
-.writings-footer{display:flex;justify-content:center}
-
-/* ══ BLOGS ════════════════════════════════════════ */
-#blogs{background:var(--bg)}
-.blogs-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px;margin-bottom:32px}
-.blog-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;cursor:none;transition:transform .35s cubic-bezier(.23,1,.32,1),border-color .35s}
-.blog-card:hover{transform:translateY(-7px);border-color:rgba(0,191,168,.28);box-shadow:0 20px 48px rgba(0,0,0,.4)}
-.blog-img{height:160px;overflow:hidden;position:relative}
-.blog-img-inner{width:100%;height:100%;background-size:cover;background-position:center;filter:grayscale(1) brightness(.7);transition:filter .55s,transform .55s}
-.blog-card:hover .blog-img-inner{filter:grayscale(0) brightness(1);transform:scale(1.06)}
-.blog-img-gradient{position:absolute;inset:0;background:linear-gradient(to bottom,transparent 40%,var(--bg3))}
-.blog-img-1{background:linear-gradient(135deg,rgba(200,168,75,.25),rgba(0,191,168,.15) 50%,rgba(9,21,42,1))}
-.blog-img-2{background:linear-gradient(135deg,rgba(0,191,168,.2),rgba(200,168,75,.1) 50%,rgba(9,21,42,1))}
-.blog-img-3{background:linear-gradient(135deg,rgba(9,21,42,1) 0%,rgba(200,168,75,.2))}
-.blog-body{padding:22px 24px 24px}
-.blog-date{font-family:'JetBrains Mono',monospace;font-size:.66rem;color:var(--txt3);margin-bottom:10px}
-.blog-title{font-family:'Syne',sans-serif;font-size:1.05rem;font-weight:700;color:var(--txt);line-height:1.35;margin-bottom:10px}
-.blog-excerpt{font-size:.86rem;color:var(--txt2);line-height:1.6;margin-bottom:16px}
-.blog-read{display:inline-flex;align-items:center;gap:5px;font-family:'JetBrains Mono',monospace;font-size:.72rem;color:var(--teal);cursor:none;transition:gap .2s}
-.blog-read:hover{gap:9px}
-.blog-read::after{content:'→'}
-.blogs-load{text-align:center;color:var(--txt3);font-family:'JetBrains Mono',monospace;font-size:.76rem;padding:36px}
-
-/* ══ CONTACT ══════════════════════════════════════ */
-#contact{background:var(--bg2);background-image:radial-gradient(ellipse 60% 50% at 50% 50%,rgba(200,168,75,.035),transparent)}
-.contact-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:80px;align-items:start}
-.contact-hl{font-family:'Syne',sans-serif;font-size:clamp(1.6rem,3vw,2.4rem);font-weight:800;line-height:1.15;margin-bottom:16px}
-.contact-desc{color:var(--txt2);font-size:1rem;line-height:1.72;margin-bottom:36px}
-.cinfo-item{display:flex;align-items:center;gap:14px;margin-bottom:22px}
-.cinfo-icon{width:40px;height:40px;border-radius:10px;background:var(--gold-dim);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.cinfo-label{font-family:'JetBrains Mono',monospace;font-size:.66rem;color:var(--txt3);letter-spacing:.1em;text-transform:uppercase}
-.cinfo-val{font-size:.92rem;color:var(--txt)}
-.contact-panel{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:36px;position:relative;backdrop-filter:blur(24px)}
-.enc-badge{position:absolute;top:-14px;right:22px;background:var(--teal);color:#030912;font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:.12em;padding:5px 12px;border-radius:4px;animation:enc-bounce 2.2s ease-in-out infinite}
-@keyframes enc-bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
-.form-group{display:flex;flex-direction:column;gap:7px;margin-bottom:24px}
-.form-label{font-family:'JetBrains Mono',monospace;font-size:.65rem;color:var(--txt3);letter-spacing:.14em;text-transform:uppercase}
-.form-line{width:100%;background:transparent;border:none;border-bottom:1px solid rgba(200,168,75,.2);color:var(--txt);font-family:'DM Sans',sans-serif;font-size:.95rem;padding:9px 0;outline:none;cursor:none;transition:border-color .2s}
-.form-line:focus{border-color:var(--gold)}
-.form-line::placeholder{color:var(--txt3)}
-textarea.form-line{resize:vertical;min-height:100px;border:1px solid rgba(200,168,75,.15);border-radius:6px;padding:10px 14px;margin-top:4px}
-textarea.form-line:focus{border-color:var(--gold)}
-.form-submit{width:100%;padding:13px;background:var(--gold);color:#030912;font-family:'Syne',sans-serif;font-weight:700;font-size:.95rem;border:none;border-radius:8px;cursor:none;transition:background .2s,transform .2s,box-shadow .2s;letter-spacing:.05em;text-transform:uppercase}
-.form-submit:hover{background:var(--gold-b);transform:translateY(-2px);box-shadow:0 10px 34px rgba(200,168,75,.35)}
-
-/* ══ FOOTER ═══════════════════════════════════════ */
-#site-footer{display:flex;justify-content:space-between;align-items:center;padding:20px 44px 30px;border-top:1px solid rgba(200,168,75,.1);max-width:1140px;margin:0 auto}
-.footer-copy{font-family:'JetBrains Mono',monospace;font-size:.64rem;color:var(--txt3)}
-.footer-soc{display:flex;gap:16px}
-.footer-soc a{font-family:'JetBrains Mono',monospace;font-size:.64rem;color:var(--txt3);letter-spacing:.08em;cursor:none;transition:color .2s}
-.footer-soc a:hover{color:var(--gold)}
-
-/* ══ PILL NAV ═════════════════════════════════════ */
-#pill-nav{position:fixed;bottom:22px;left:50%;transform:translateX(-50%);z-index:200;display:flex;align-items:center;gap:2px;padding:9px 16px;background:rgba(3,9,18,.82);backdrop-filter:blur(28px);border:1px solid rgba(200,168,75,.13);border-radius:999px;box-shadow:0 8px 40px rgba(0,0,0,.5);transition:padding .3s cubic-bezier(.23,1,.32,1)}
-#pill-nav:hover{padding:9px 22px}
-.nav-item{display:flex;flex-direction:column;align-items:center;gap:2px;padding:7px 11px;border-radius:999px;cursor:none;transition:all .2s cubic-bezier(.23,1,.32,1);color:var(--txt3)}
-.nav-item:hover{color:var(--gold);transform:scale(1.25) translateY(-3px)}
-.nav-item.active{color:var(--gold);background:rgba(200,168,75,.12)}
-.nav-icon{font-size:1.2rem}
-.nav-lbl{font-family:'JetBrains Mono',monospace;font-size:.52rem;letter-spacing:.1em;opacity:0;transition:opacity .2s}
-.nav-item:hover .nav-lbl,.nav-item.active .nav-lbl{opacity:1}
-
-/* ══ MODAL ════════════════════════════════════════ */
-#modal-bg{position:fixed;inset:0;z-index:500;background:rgba(3,9,18,.9);backdrop-filter:blur(14px);display:flex;align-items:center;justify-content:center;padding:24px;opacity:0;pointer-events:none;transition:opacity .35s}
-#modal-bg.open{opacity:1;pointer-events:all}
-#modal-box{background:var(--bg2);border:1px solid var(--border);border-radius:20px;width:100%;max-width:800px;max-height:86vh;overflow-y:auto;padding:48px;position:relative;transform:scale(.94) translateY(20px);transition:transform .4s cubic-bezier(.34,1.56,.64,1)}
-#modal-bg.open #modal-box{transform:scale(1) translateY(0)}
-#modal-close{position:absolute;top:20px;right:20px;width:36px;height:36px;border-radius:8px;border:1px solid var(--border);background:transparent;color:var(--txt2);display:flex;align-items:center;justify-content:center;cursor:none;transition:all .2s;font-size:1.1rem}
-#modal-close:hover{border-color:var(--gold);color:var(--gold)}
-#modal-content h2{font-family:'Syne',sans-serif;font-size:1.9rem;font-weight:800;margin-bottom:6px}
-#modal-content h3{font-family:'Syne',sans-serif;font-size:1.15rem;font-weight:700;color:var(--gold);margin:22px 0 8px}
-#modal-content p{color:var(--txt2);line-height:1.78;margin-bottom:12px}
-#modal-content ul{padding-left:20px;color:var(--txt2);line-height:1.78}
-#modal-content li{margin-bottom:6px}
-#modal-content strong{color:var(--txt)}
-/* writing modal overrides — serif, larger, breathable */
-.writing-modal-body{font-family:'Lora',serif;font-size:1.05rem;line-height:2;color:var(--txt2);white-space:pre-line}
-.writing-modal-body em{font-style:italic;color:var(--txt)}
-.m-meta{font-family:'JetBrains Mono',monospace;font-size:.72rem;color:var(--teal);letter-spacing:.12em;margin-bottom:22px}
-.m-hr{border:none;border-top:1px solid var(--border);margin:22px 0}
-.m-tags{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}
-.m-actions{display:flex;gap:12px;margin-top:26px;flex-wrap:wrap}
-
-/* ══ MISC ═════════════════════════════════════════ */
-::-webkit-scrollbar{width:3px}
-::-webkit-scrollbar-track{background:var(--bg)}
-::-webkit-scrollbar-thumb{background:rgba(200,168,75,.2);border-radius:4px}
-::-webkit-scrollbar-thumb:hover{background:var(--gold)}
-body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9000;opacity:.022;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-size:180px}
-
-/* ── RESPONSIVE ───────────────────────────────── */
-@media(max-width:960px){
-  .about-grid,.contact-grid,.exp-grid{grid-template-columns:1fr;gap:40px}
-  .proj-bento{grid-template-columns:1fr 1fr}
-  .proj-card.big{grid-column:span 2}
-  .writings-bento{grid-template-columns:1fr 1fr}
-  .write-card.big{grid-column:span 2}
-  #pill-nav{bottom:16px;padding:8px 12px}
-  .nav-lbl{display:none}
-  section{padding:80px 0 60px}
-  #modal-box{padding:28px}
-  .wrap{padding:0 24px}
-}
-@media(max-width:600px){
-  .hero-name{font-size:clamp(4rem,18vw,7rem)}
-  .proj-bento,.writings-bento{grid-template-columns:1fr}
-  .proj-card.big,.write-card.big{grid-column:span 1}
-  .hero-actions{flex-direction:column;align-items:flex-start}
-  .blogs-grid{grid-template-columns:1fr}
-}
-</style>
+<link rel="stylesheet" href="desktop.css"/>
+<link rel="stylesheet" media="(max-width: 1024px)" href="tablet.css"/>
+<link rel="stylesheet" media="(max-width: 600px)" href="mobile.css"/>
 </head>
 <body>
 
@@ -526,21 +232,26 @@ const PROJECTS=[
    summary:"Zero-budget, open-source multi-agent AI system for extreme weather early warning across all 748 Indian districts.",
    tech:["Python","Multi-Agent","LLMs","RAG","FastAPI"],demo:"#",repo:"https://github.com/Faraazz05/SENTINEL",
    detail:`<h3>The Problem</h3><p>India has 748 districts. Extreme weather kills thousands annually — not because data doesn't exist, but because there's no system that processes it in real time at district level and routes actionable warnings to the right people, for free.</p><h3>What I Built</h3><p>SENTINEL is a zero-budget, open-source multi-agent AI pipeline: ingestion agents pull live meteorological feeds in parallel, pattern-recognition agents run lightweight anomaly detection per stream, alert agents generate district-level warnings in local languages, and coordination agents route to first responders. Federated inference + peer-relay communication eliminates all cloud dependency. Sub-minute alert latency, zero spend.</p>`},
-  {id:2,name:"RHEA",tag:"Active",
-   tagline:"Rare and High-risk disease Early warning and Analysis system",
-   summary:"Multi-agent AI framework for post-diagnosis intelligence in rare rheumatological diseases — MAS early warning, longitudinal monitoring, patient-centered explainability.",
-   tech:["FastAPI","Temporal Fusion Transformer","Mistral 7B","TimescaleDB","Conformal Prediction"],demo:"#",repo:null,
-   detail:`<h3>The Problem</h3><p>AI can diagnose common diseases well. For rare diseases like AOSD (1 in 100,000), the gap is everything that happens after diagnosis: no monitoring framework, no early warning for Macrophage Activation Syndrome (MAS) — a complication that destroys organs within days. Its biomarker signature appears before the clinical crisis. That window exists. Most patients never have access to the specialist who can read it.</p><h3>What I'm Building</h3><p>A seven-agent post-diagnosis intelligence system: Lab Trajectory Agent models longitudinal biomarkers, MAS Drift Detection Agent identifies the pre-crisis signature using a Temporal Fusion Transformer, Explainability Agent synthesizes outputs into patient/GP/specialist views, and an Uncertainty Quantification Agent makes every confidence gap visible. Fully local, zero API dependencies. Built from direct clinical experience — this is the system that would have mattered during my own AOSD and MAS hospitalization.</p>`},
+  {id:4,name:"Customer Health Forensics",tag:"Completed",demoUnavailable:true,
+   tagline:"Churn intelligence platform — prediction, causal XAI, early warning",
+   summary:"Full-stack ML system processing 500K+ customer records: consensus XAI, behavioral drift detection, and LLM-generated retention intelligence — not just a churn score.",
+   tech:["XGBoost","SHAP","LIME","FastAPI","React"],demo:null,repo:"https://github.com/Faraazz05/churn-forensics",
+   detail:`<div style="display:inline-flex;align-items:center;gap:6px;background:rgba(234,179,8,.08);border:1px solid rgba(234,179,8,.3);color:#eab308;padding:6px 12px;border-radius:6px;font-family:'JetBrains Mono',monospace;font-size:.78rem;margin-bottom:14px">&#9888; Live demo temporarily unavailable &mdash; update in progress</div><h3>The Problem</h3><p>SaaS companies lose 5–15% of customers monthly. Most see it coming too late. Existing tools either predict without explaining, or explain with a single XAI method that can be wrong.</p><h3>What I Built</h3><p>An 8-phase churn intelligence pipeline: XGBoost prediction (AUC 0.9273 on 500K records), consensus XAI using SHAP + LIME + AIX360 — a feature explanation is only labeled HIGH confidence when all three agree on direction and rank, drift detection combining PSI + KS-test to flag behavioral features shifting 4–6 weeks before churn spikes, and an LLM intelligence layer generating executive causal chains and prioritized retention actions. Full FastAPI backend + React dashboard.</p>`},
   {id:3,name:"AI Lab — NEXUS",tag:"Completed",
    tagline:"Personal AI Operating System — self-hosted, multi-agent, zero cost",
    summary:"A persistent background daemon that runs research, job search, content creation, and coding workflows autonomously from your laptop — controlled from your phone via Telegram.",
    tech:["LangGraph","Python","ChromaDB","Groq","Telegram Bot"],demo:null,repo:"https://github.com/Faraazz05/NEXUS",
    detail:`<h3>The Problem</h3><p>Every AI productivity tool is either expensive, locked to someone else's infrastructure, or a glorified chatbot. I needed something that worked for me 24/7 — processing research papers, hunting contracts, generating leads, writing content — on 4GB RAM, no GPU, zero budget.</p><h3>What I Built</h3><p>NEXUS is not a wrapper. It's infrastructure. A persistent asyncio daemon reads a daily task file from my Obsidian vault, routes each task to the right agent via a LangGraph state machine, tracks rate limits per model per provider, streams live status to a Rich TUI, and sends Telegram updates when I'm away from my desk. ChromaDB session memory persists context across days. Everything runs on free or near-free APIs. You own the data, you own the pipeline.</p><p style="margin-top:12px;font-size:.88rem;color:var(--txt3)"><em>Note: The linked GitHub repository hosts complete system architecture documentation and workflow specifications (source code remains private).</em></p>`},
-  {id:4,name:"Customer Health Forensics",tag:"Completed",
-   tagline:"Churn intelligence platform — prediction, causal XAI, early warning",
-   summary:"Full-stack ML system processing 500K+ customer records: consensus XAI, behavioral drift detection, and LLM-generated retention intelligence — not just a churn score.",
-   tech:["XGBoost","SHAP","LIME","FastAPI","React"],demo:"https://faraazz05.github.io/churn-forensics/",repo:"https://github.com/Faraazz05/churn-forensics",
-   detail:`<h3>The Problem</h3><p>SaaS companies lose 5–15% of customers monthly. Most see it coming too late. Existing tools either predict without explaining, or explain with a single XAI method that can be wrong.</p><h3>What I Built</h3><p>An 8-phase churn intelligence pipeline: XGBoost prediction (AUC 0.9273 on 500K records), consensus XAI using SHAP + LIME + AIX360 — a feature explanation is only labeled HIGH confidence when all three agree on direction and rank, drift detection combining PSI + KS-test to flag behavioral features shifting 4–6 weeks before churn spikes, and an LLM intelligence layer generating executive causal chains and prioritized retention actions. Full FastAPI backend + React dashboard.</p>`},
+  {id:7,name:"CopilOPS AIP",tag:"Completed",
+   tagline:"Aeronautical data engineering platform & flight operations geospatial cockpit",
+   summary:"High-integrity aeronautical platform ingesting official Belgium & Luxembourg eAIP (skeyes): deterministic geometry parsing, strict AIRAC cycle diffing, typed REST API, and interactive Leaflet cockpit for OCC dispatchers.",
+   tech:["Python","TypeScript","React","Node.js","Leaflet","Docker"],demo:"https://faraazz05.github.io/copilops-aip/",repo:"https://github.com/faraazz05/copilops-aip",
+   detail:`<h3>The Problem</h3><p>Flight dispatchers and Operations Control Centers (OCC) rely on official Aeronautical Information Publications (eAIP) published on strict 28-day AIRAC cycles by civil aviation authorities. Ingesting this data into operational software is notoriously vulnerable to messy legacy HTML structures, non-standard coordinate formats, unmodeled international border splines, and silent system fallbacks that fabricate dangerous defaults (such as assuming CAT 10 rescue/firefighting or paved asphalt runways when fields are unpublished).</p><h3>What I Built</h3><p>An end-to-end aeronautical data engineering pipeline and operational geospatial cockpit ingesting official Belgium &amp; Luxembourg eAIP snapshots from skeyes (AIRAC AMDT 010/2026). The deterministic Python extraction engine converts WGS84 coordinates via spherical rhumb geometry, handles 130 airspace sectors (generating 36-vertex circular polygons while strictly isolating unresolved borders without guessing), logs 137 real diagnostic anomalies with field-level provenance, and runs an 84-test automated verification suite. Data is served via a typed Node.js/Express REST API and rendered in a decluttered React + TypeScript cockpit featuring CartoDB Positron neutral basemaps, single-airway highlighting, and zero fake aviation fallbacks.</p>`},
+  {id:2,name:"RHEA",tag:"Active",
+   tagline:"Rare and High-risk disease Early warning and Analysis system",
+   summary:"Multi-agent AI framework for post-diagnosis intelligence in rare rheumatological diseases — MAS early warning, longitudinal monitoring, patient-centered explainability.",
+   tech:["FastAPI","Temporal Fusion Transformer","Mistral 7B","TimescaleDB","Conformal Prediction"],demo:"#",repo:null,
+   detail:`<h3>The Problem</h3><p>AI can diagnose common diseases well. For rare diseases like AOSD (1 in 100,000), the gap is everything that happens after diagnosis: no monitoring framework, no early warning for Macrophage Activation Syndrome (MAS) — a complication that destroys organs within days. Its biomarker signature appears before the clinical crisis. That window exists. Most patients never have access to the specialist who can read it.</p><h3>What I'm Building</h3><p>A seven-agent post-diagnosis intelligence system: Lab Trajectory Agent models longitudinal biomarkers, MAS Drift Detection Agent identifies the pre-crisis signature using a Temporal Fusion Transformer, Explainability Agent synthesizes outputs into patient/GP/specialist views, and an Uncertainty Quantification Agent makes every confidence gap visible. Fully local, zero API dependencies. Built from direct clinical experience — this is the system that would have mattered during my own AOSD and MAS hospitalization.</p>`},
   {id:5,name:"Aegis-9",tag:"Completed",
    tagline:"Any-hazard civic orchestrator — multi-agent disaster response with XAI governance",
    summary:"7-agent IBM watsonx Orchestrate system that triages infrastructure incidents, explains decisions via XAI, requires human approval for high-impact actions, and executes coordinated response with a full audit trail.",
@@ -609,7 +320,8 @@ const EXPERIENCE=[
 • <strong>Healthcare:</strong> <a href="https://www.freeflowphysiotherapy.com/" target="_blank" style="color:var(--gold);text-decoration:underline">FreeFlow Physiotherapy</a> — Clinic website with modern appointment routing &amp; patient interface.<br/>
 • <strong>E-Commerce:</strong> <a href="https://fitkartshop.com/" target="_blank" style="color:var(--gold);text-decoration:underline">FitKart Shop</a> — Full e-commerce store for fitness supplements &amp; wellness products.<br/>
 • <strong>Client Portfolios:</strong> <a href="https://dharanimuppana15.github.io/" target="_blank" style="color:var(--gold);text-decoration:underline">Dharani Muppana</a> — Showcase portfolio for business analysts.<br/>
-• <strong>Production ML Deployments:</strong> <a href="https://faraazz05.github.io/churn-forensics/" target="_blank" style="color:var(--gold);text-decoration:underline">Customer Health Forensics</a> (XAI churn platform) and <a href="https://faraazz05.github.io/shakespeare-text-generator/" target="_blank" style="color:var(--gold);text-decoration:underline">Shakespeare Text Generator</a> (LSTM + Transformer).<br/>
+• <strong>Aviation Systems:</strong> <a href="https://faraazz05.github.io/copilops-aip/" target="_blank" style="color:var(--gold);text-decoration:underline">CopilOPS AIP</a> — Aeronautical data platform &amp; flight operations geospatial cockpit.<br/>
+• <strong>Production ML Deployments:</strong> Customer Health Forensics <span style="color:#eab308;font-size:.82rem;font-family:'JetBrains Mono',monospace">[⚠ Unavailable: Update in progress]</span> (XAI churn platform) and <a href="https://faraazz05.github.io/shakespeare-text-generator/" target="_blank" style="color:var(--gold);text-decoration:underline">Shakespeare Text Generator</a> (LSTM + Transformer).<br/>
 • <strong>Personal Portfolio:</strong> <a href="https://faraazz05.github.io/" target="_blank" style="color:var(--gold);text-decoration:underline">Faraazz05.github.io</a> — Interactive AI research &amp; engineering portfolio.<br/>
 • <em>Pipeline:</em> Currently building web platforms for a corporate law firm and a restaurant.<br/><br/>
 <strong style="color:var(--gold)">Business Automations &amp; AI Pipelines:</strong><br/>
@@ -1056,10 +768,14 @@ function renderProjects(){
   const list=PROJECTS.slice(0,4);
   grid.innerHTML=list.map((p,i)=>{
     const isBig=(i===0||i===3);
-    const demoLink=p.demo&&p.demo!=='#'?`<a href="${p.demo}" target="_blank" class="plink gold" onclick="event.stopPropagation()">&#9655; Demo</a>`:`<span class="plink" style="opacity:.35;cursor:default">&#9655; Demo Soon</span>`;
+    const demoLink=p.demoUnavailable
+      ? `<span class="plink warn" style="cursor:default" title="Update in progress" onclick="event.stopPropagation()">&#9888; Unavailable: Update in progress</span>`
+      : (p.demo&&p.demo!=='#'
+        ? `<a href="${p.demo}" target="_blank" class="plink gold" onclick="event.stopPropagation()">&#9655; Demo</a>`
+        : `<span class="plink" style="opacity:.35;cursor:default">&#9655; Demo Soon</span>`);
     const repoLink=p.repo?`<a href="${p.repo}" target="_blank" class="plink" onclick="event.stopPropagation()">&#9405; Repo</a>`:`<span class="plink" style="opacity:.35;cursor:default">&#9405; Private</span>`;
-    return `<div class="proj-card reveal d${(i%3)+1}${isBig?' big':''}" data-num="0${p.id}" onclick="openModal('proj-${p.id}')">
-      <div class="proj-num">${String(p.id).padStart(2,'0')} &middot; <span style="color:var(--teal)">${p.tag}</span></div>
+    return `<div class="proj-card reveal d${(i%3)+1}${isBig?' big':''}" data-num="${String(p.id).padStart(2,'0')}" onclick="openModal('proj-${p.id}')">
+      <div class="proj-num">${String(p.id).padStart(2,'0')} &middot; <span style="color:var(--teal)">${p.tag}</span>${p.demoUnavailable?' &middot; <span style="color:#eab308;font-size:.66rem">&#9888; Update in progress</span>':''}</div>
       <div class="proj-name">${p.name}</div>
       <div class="proj-sum">${p.summary}</div>
       <div class="proj-stack">${p.tech.slice(0,isBig?5:3).map(t=>`<span class="stack-tag">${t}</span>`).join('')}</div>
@@ -1159,11 +875,15 @@ function openModal(type){
   } else if(type==='all-projects'){
     c.innerHTML=`<h2>All Projects</h2><p class="m-meta">Complete catalogue</p>`+
       PROJECTS.map(p=>{
-        const dBtn=p.demo&&p.demo!=='#'?`<a href="${p.demo}" target="_blank" class="btn-gold" style="font-size:.82rem;padding:8px 18px">&#9655; Demo</a>`:`<span class="btn-outline" style="font-size:.82rem;padding:8px 18px;opacity:.4;cursor:default">&#9655; Demo Soon</span>`;
+        const dBtn=p.demoUnavailable
+          ? `<span class="btn-outline warn" style="font-size:.82rem;padding:8px 18px;cursor:default">&#9888; Unavailable: Update in progress</span>`
+          : (p.demo&&p.demo!=='#'
+            ? `<a href="${p.demo}" target="_blank" class="btn-gold" style="font-size:.82rem;padding:8px 18px">&#9655; Demo</a>`
+            : `<span class="btn-outline" style="font-size:.82rem;padding:8px 18px;opacity:.4;cursor:default">&#9655; Demo Soon</span>`);
         const rBtn=p.repo?`<a href="${p.repo}" target="_blank" class="btn-outline" style="font-size:.82rem;padding:8px 18px">&#9405; Repo</a>`:`<span class="btn-outline" style="font-size:.82rem;padding:8px 18px;opacity:.4;cursor:default">&#9405; Private</span>`;
         return `<hr class="m-hr"/>
         <div style="display:flex;justify-content:space-between;align-items:start;gap:12px">
-          <div><div class="m-meta" style="margin-bottom:4px">${p.tag}</div><h3 style="color:var(--txt);margin-top:0">${p.name}</h3></div>
+          <div><div class="m-meta" style="margin-bottom:4px">${p.tag}${p.demoUnavailable?' &middot; <span style="color:#eab308">&#9888; Update in progress</span>':''}</div><h3 style="color:var(--txt);margin-top:0">${p.name}</h3></div>
         </div>
         <p>${p.tagline}</p>
         <div class="m-tags">${p.tech.map(t=>`<span class="stack-tag">${t}</span>`).join('')}</div>
@@ -1172,9 +892,13 @@ function openModal(type){
   } else if(type.startsWith('proj-')){
     const id=parseInt(type.split('-')[1]);
     const p=PROJECTS.find(x=>x.id===id);
-    const dBtn=p.demo&&p.demo!=='#'?`<a href="${p.demo}" target="_blank" class="btn-gold">&#9655; Live Demo</a>`:`<span class="btn-outline" style="opacity:.4;cursor:default">&#9655; Demo Soon</span>`;
+    const dBtn=p.demoUnavailable
+      ? `<span class="btn-outline warn" style="cursor:default">&#9888; Demo Unavailable (Update in progress)</span>`
+      : (p.demo&&p.demo!=='#'
+        ? `<a href="${p.demo}" target="_blank" class="btn-gold">&#9655; Live Demo</a>`
+        : `<span class="btn-outline" style="opacity:.4;cursor:default">&#9655; Demo Soon</span>`);
     const rBtn=p.repo?`<a href="${p.repo}" target="_blank" class="btn-outline">&#9405; Repository</a>`:`<span class="btn-outline" style="opacity:.4;cursor:default">&#9405; Private Repo</span>`;
-    c.innerHTML=`<div class="m-meta">${p.tagline} &middot; ${p.tag}</div><h2>${p.name}</h2>
+    c.innerHTML=`<div class="m-meta">${p.tagline} &middot; ${p.tag}${p.demoUnavailable?' &middot; <span style="color:#eab308">&#9888; Update in progress</span>':''}</div><h2>${p.name}</h2>
       <div class="m-tags">${p.tech.map(t=>`<span class="stack-tag">${t}</span>`).join('')}</div>
       <hr class="m-hr"/>${p.detail}
       <div class="m-actions">${dBtn}${rBtn}</div>`;
@@ -1216,17 +940,21 @@ function closeModal(){document.getElementById('modal-bg').classList.remove('open
 function closeBg(e){if(e.target===document.getElementById('modal-bg'))closeModal()}
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal()});
 
-/* ══════════ CURSOR ════════════════════════════ */
+/* ══════════ CURSOR (Desktop Fine Pointer Only) ═ */
 const dot=document.getElementById('c-dot'),ring=document.getElementById('c-ring');
-let mx=0,my=0,rx=0,ry=0;
-document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY});
-(function anim(){
-  rx+=(mx-rx)*.14;ry+=(my-ry)*.14;
-  dot.style.transform=`translate(${mx-3.5}px,${my-3.5}px)`;
-  ring.style.transform=`translate(${rx-17}px,${ry-17}px)`;
-  requestAnimationFrame(anim);
-})();
+const isFinePointer = window.matchMedia('(pointer: fine)').matches;
+if(isFinePointer && dot && ring){
+  let mx=-100,my=-100,rx=-100,ry=-100;
+  document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY});
+  (function anim(){
+    rx+=(mx-rx)*.14;ry+=(my-ry)*.14;
+    dot.style.transform=`translate(${mx-3.5}px,${my-3.5}px)`;
+    ring.style.transform=`translate(${rx-17}px,${ry-17}px)`;
+    requestAnimationFrame(anim);
+  })();
+}
 function hookHover(){
+  if(!isFinePointer) return;
   document.querySelectorAll('a,button,[onclick],.proj-card,.research-card,.timeline-item,.blog-card,.about-photo-wrap,.write-card').forEach(el=>{
     el.addEventListener('mouseenter',()=>document.body.classList.add('hovering'));
     el.addEventListener('mouseleave',()=>document.body.classList.remove('hovering'));
@@ -1238,6 +966,7 @@ function hookHover(){
   const cv=document.getElementById('hero-canvas'),ctx=cv.getContext('2d');
   let W,H,nodes=[],cmx=window.innerWidth/2,cmy=window.innerHeight/2;
   document.addEventListener('mousemove',e=>{cmx=e.clientX;cmy=e.clientY});
+  document.addEventListener('touchmove',e=>{if(e.touches&&e.touches[0]){cmx=e.touches[0].clientX;cmy=e.touches[0].clientY}},{passive:true});
   function resize(){W=cv.width=window.innerWidth;H=cv.height=document.getElementById('hero').offsetHeight;init()}
   function init(){nodes=[];const n=Math.floor(W*H/12000);for(let i=0;i<n;i++)nodes.push({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.22,vy:(Math.random()-.5)*.22,r:Math.random()*1.6+.4,gold:Math.random()>.55})}
   function draw(){
