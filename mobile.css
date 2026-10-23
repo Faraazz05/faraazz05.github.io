@@ -257,6 +257,31 @@
     padding: 11px;
   }
 
+  /* ── MOCKUPS SHOWCASE STRIP (Mobile) ─────────────────────────────────── */
+  .mockups-header {
+    margin-top: 44px;
+    padding-top: 28px;
+  }
+  .mockups-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+  .mockup-card {
+    padding: 20px 18px;
+  }
+  .mockup-name {
+    font-size: 1.15rem;
+  }
+  .mockup-desc {
+    font-size: 0.82rem;
+  }
+  .mockup-links .btn-gold,
+  .mockup-links .btn-outline {
+    width: 100%;
+    justify-content: center;
+    padding: 9px 14px;
+  }
+
   /* ── WRITINGS ────────────────────────────────────────────────────────── */
   .writings-header {
     margin-bottom: 26px;

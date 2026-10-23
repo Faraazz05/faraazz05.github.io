@@ -127,6 +127,19 @@
     font-size: 0.75rem;
   }
 
+  /* ── MOCKUPS SHOWCASE STRIP (Tablet) ─────────────────────────────────── */
+  .mockups-header {
+    margin-top: 54px;
+    padding-top: 36px;
+  }
+  .mockups-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+  .mockup-card {
+    padding: 22px;
+  }
+
   /* ── WRITINGS (2-Column Bento on Tablet) ─────────────────────────────── */
   .writings-bento {
     grid-template-columns: 1fr 1fr;

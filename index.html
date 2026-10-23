@@ -136,6 +136,14 @@
         </div>
       </div>
     </div>
+
+    <!-- Commercial Mockups & Design Systems Strip -->
+    <div class="mockups-header reveal d2">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:0.75rem;color:var(--gold);letter-spacing:0.16em;margin-bottom:8px">// COMMERCIAL DESIGN SYSTEMS &amp; CLIENT MOCKUPS</div>
+      <h3 style="font-family:'Syne',sans-serif;font-size:clamp(1.4rem, 2.8vw, 1.9rem);font-weight:700;color:var(--txt);margin-bottom:10px">Industry Mockups &amp; Production Blueprints</h3>
+      <p style="color:var(--txt2);font-size:0.92rem;max-width:680px;line-height:1.65">Custom responsive design systems and web platforms engineered for distinct business verticals. Built with intentional typography, micro-interactions, and conversion-focused architectures.</p>
+    </div>
+    <div class="mockups-grid" id="mockups-grid"></div>
   </div>
 </section>
 <div class="divider"></div>
@@ -259,6 +267,11 @@ const PROJECTS=[
    summary:"7-agent IBM watsonx Orchestrate system that triages infrastructure incidents, explains decisions via XAI, requires human approval for high-impact actions, and executes coordinated response with a full audit trail.",
    tech:["IBM watsonx","Multi-Agent","XAI","Flask","OpenAPI"],demo:"#",repo:"https://github.com/Faraazz05/Aegis-9",
    detail:`<h3>The Problem</h3><p>Critical infrastructure failures — power grid, water, transport, healthcare — kill people when response is slow or uncoordinated. The Baltimore bridge collapse and Hurricane Beryl outages both showed the same failure: no system that could ingest the incident, explain the options, get human sign-off, and execute coordinated action simultaneously.</p><h3>What I Built</h3><p>Aegis-9 is a 7-agent orchestration system built on IBM watsonx Orchestrate: Sentinel triages and risk-scores the incident, Governor provides XAI rationale and holds an approval gate before any high-impact action, Planner drafts work orders, Scheduler assigns crews, Supply reserves inventory, Auditor compiles a timestamped compliance trail. Alert-to-approved-plan time: 4 minutes 32 seconds. Built for Call for Code SDG-9 hackathon.</p>`},
+  {id:8,name:"Commercial Web & Design Systems",tag:"Client Mockups",
+   tagline:"Bespoke industry web design systems & production mockups for commercial businesses",
+   summary:"Collection of tailored, conversion-focused responsive web applications engineered for distinct business sectors: fine dining restaurant, artisan roastery, corporate law firm, and luxury real estate.",
+   tech:["Modern Web","Tailwind CSS","Responsive Systems","UI/UX Architecture","Vercel"],demo:"https://restaurant-faraazz05.vercel.app/",repo:null,
+   detail:`<h3>Commercial Web Design Systems</h3><p>Engineered bespoke web applications with unique design systems, custom typography hierarchies, and industry-specific conversion flows:</p><ul><li><strong><a href="https://restaurant-faraazz05.vercel.app/" target="_blank" style="color:var(--gold)">Maison Vela</a></strong> — Fine dining &amp; culinary showcase with menu ledgers &amp; reservation flow.</li><li><strong><a href="https://cafe-faraazz05.vercel.app/" target="_blank" style="color:var(--gold)">Artisan Cafe</a></strong> — Specialty coffee roastery with origin tracing &amp; bakery catalog.</li><li><strong><a href="https://law-firm-faraazz05.vercel.app/" target="_blank" style="color:var(--gold)">Chambers &amp; Law Practice</a></strong> — Authoritative legal advisory platform with practice matrices &amp; intake forms.</li><li><strong><a href="https://real-estate-faraazz05.vercel.app/" target="_blank" style="color:var(--gold)">Worth Home Prime Real Estate</a></strong> — Architectural estate viewings &amp; viewing tour scheduling.</li></ul><p><em>Pipeline:</em> Healthcare &amp; Physiotherapy clinics, B2B SaaS startups, and Import/Export platforms publishing soon.</p>`},
   {id:6,name:"Explainable Hybrid Text Gen",tag:"Completed",
    tagline:"RNN + Transformer with Integrated Gradients XAI — full-stack, containerised",
    summary:"Text generation system where explainability is first-class: LSTM trained from scratch on Shakespeare + DistilGPT2, with custom Integrated Gradients showing why each token was generated.",
@@ -316,16 +329,21 @@ const RESEARCH={
 
 const EXPERIENCE=[
   {role:"Freelance AI & Full-Stack Engineer",company:"Self-Employed · Client Solutions",period:"Jul 2026 — Present",
-   summary:"Delivered 6+ production web applications and custom business automation pipelines across healthcare, e-commerce, and ML.",
+   summary:"Delivered 6+ production deployments, 4 live commercial business mockups (Restaurant, Cafe, Law Firm, Real Estate), and AI automation pipelines.",
    detail:`End-to-end engineering of production web platforms, ML applications, and automated business workflows for international clients.<br/><br/>
-<strong style="color:var(--gold)">Selected Production Web Deployments (6 Live):</strong><br/>
+<strong style="color:var(--gold)">Commercial Business Website Blueprints &amp; Mockups (Live):</strong><br/>
+• <strong>Fine Dining Restaurant:</strong> <a href="https://restaurant-faraazz05.vercel.app/" target="_blank" style="color:var(--gold);text-decoration:underline">Maison Vela</a> — Luxury culinary showcase with tasting menu ledgers &amp; private dining booking flow.<br/>
+• <strong>Specialty Roastery &amp; Cafe:</strong> <a href="https://cafe-faraazz05.vercel.app/" target="_blank" style="color:var(--gold);text-decoration:underline">Artisan Cafe</a> — Warm terracotta palette, single-origin bean origin tracing &amp; seasonal bakery catalog.<br/>
+• <strong>Boutique Law Firm:</strong> <a href="https://law-firm-faraazz05.vercel.app/" target="_blank" style="color:var(--gold);text-decoration:underline">Chambers &amp; Law Practice</a> — Authoritative editorial aesthetic, practice area matrices &amp; intake forms.<br/>
+• <strong>Luxury Real Estate:</strong> <a href="https://real-estate-faraazz05.vercel.app/" target="_blank" style="color:var(--gold);text-decoration:underline">Worth Home Prime Real Estate</a> — Deep emerald &amp; champagne gold architectural estate tours &amp; viewing scheduler.<br/>
+• <em>Upcoming Industry Pipeline:</em> Medical doctor portfolio &amp; physiotherapy clinics, B2B SaaS startup platforms, and global import/export trading portals.<br/><br/>
+<strong style="color:var(--gold)">Selected Production Web Deployments:</strong><br/>
 • <strong>Healthcare:</strong> <a href="https://www.freeflowphysiotherapy.com/" target="_blank" style="color:var(--gold);text-decoration:underline">FreeFlow Physiotherapy</a> — Clinic website with modern appointment routing &amp; patient interface.<br/>
 • <strong>E-Commerce:</strong> <a href="https://fitkartshop.com/" target="_blank" style="color:var(--gold);text-decoration:underline">FitKart Shop</a> — Full e-commerce store for fitness supplements &amp; wellness products.<br/>
 • <strong>Client Portfolios:</strong> <a href="https://dharanimuppana15.github.io/" target="_blank" style="color:var(--gold);text-decoration:underline">Dharani Muppana</a> — Showcase portfolio for business analysts.<br/>
 • <strong>Aviation Systems:</strong> <a href="https://faraazz05.github.io/copilops-aip/" target="_blank" style="color:var(--gold);text-decoration:underline">CopilOPS AIP</a> — Aeronautical data platform &amp; flight operations geospatial cockpit.<br/>
 • <strong>Production ML Deployments:</strong> Customer Health Forensics <span style="color:#eab308;font-size:.82rem;font-family:'JetBrains Mono',monospace">[⚠ Unavailable: Update in progress]</span> (XAI churn platform) and <a href="https://faraazz05.github.io/shakespeare-text-generator/" target="_blank" style="color:var(--gold);text-decoration:underline">Shakespeare Text Generator</a> (LSTM + Transformer).<br/>
-• <strong>Personal Portfolio:</strong> <a href="https://faraazz05.github.io/" target="_blank" style="color:var(--gold);text-decoration:underline">Faraazz05.github.io</a> — Interactive AI research &amp; engineering portfolio.<br/>
-• <em>Pipeline:</em> Currently building web platforms for a corporate law firm and a restaurant.<br/><br/>
+• <strong>Personal Portfolio:</strong> <a href="https://faraazz05.github.io/" target="_blank" style="color:var(--gold);text-decoration:underline">Faraazz05.github.io</a> — Interactive AI research &amp; engineering portfolio.<br/><br/>
 <strong style="color:var(--gold)">Business Automations &amp; AI Pipelines:</strong><br/>
 • <strong>Omnichannel Communication Center:</strong> Automated bulk messaging and document dispatch system via WhatsApp and email.<br/>
 • <strong>AI Content Generation:</strong> Automated workflow generating Instagram captions and marketing visuals.<br/>
@@ -412,6 +430,56 @@ const FEATURED_SKILLS=[
   {s:"Python",t:"sp-teal"},{s:"Explainable AI",t:"sp-gold"},{s:"FastAPI",t:"sp-dim"},
   {s:"RAG",t:"sp-teal"},{s:"SHAP / LIME",t:"sp-gold"},{s:"Kafka",t:"sp-dim"},
   {s:"Docker",t:"sp-teal"},{s:"PostgreSQL",t:"sp-dim"},{s:"LLMs",t:"sp-gold"}
+];
+
+// ── COMMERCIAL BUSINESS MOCKUPS ──────────────
+const BUSINESS_MOCKUPS=[
+  {
+    id:"rest",
+    cat:"Fine Dining & Gastronomy",
+    name:"Maison Vela — Fine Dining Restaurant",
+    desc:"Luxury culinary showcase featuring seasonal tasting menus, cellar wine archive, chef notes, and private dining reservation booking flow.",
+    stack:["Modern Web","Reservation Flow","Menu Architecture","Vercel"],
+    demo:"https://restaurant-faraazz05.vercel.app/",
+    badge:"Live Mockup"
+  },
+  {
+    id:"cafe",
+    cat:"Specialty Coffee & Bakery",
+    name:"Artisan Cafe & Specialty Roastery",
+    desc:"Warm earth-toned hospitality interface with single-origin bean origin tracing, roast profiles, seasonal bakery showcase, and table booking.",
+    stack:["Warm Minimalist","Roast Directory","Micro-Interactions","Vercel"],
+    demo:"https://cafe-faraazz05.vercel.app/",
+    badge:"Live Mockup"
+  },
+  {
+    id:"law",
+    cat:"Legal & Corporate Advisory",
+    name:"Chambers & Boutique Law Practice",
+    desc:"Authoritative, classical editorial aesthetic for legal counsel. Includes appellate practice matrices, partner profiles, and confidential case intake.",
+    stack:["Corporate Typography","Legal UX","Client Intake","Vercel"],
+    demo:"https://law-firm-faraazz05.vercel.app/",
+    badge:"Live Mockup"
+  },
+  {
+    id:"estate",
+    cat:"High-End Property & Architecture",
+    name:"Worth Home — Luxury Real Estate",
+    desc:"Editorial real estate portal with deep emerald and champagne accents, architectural estate viewings, floorplan metrics, and private tour booking.",
+    stack:["Editorial Layout","Property Specs","Tour Scheduler","Vercel"],
+    demo:"https://real-estate-faraazz05.vercel.app/",
+    badge:"Live Mockup"
+  },
+  {
+    id:"pipeline",
+    cat:"In Active Design & Staging",
+    name:"Next-Gen Industry Pipeline",
+    desc:"Bespoke production web blueprints currently in design & development: Doctor Portfolio & Physiotherapy Clinics, B2B SaaS Startups, and Global Import/Export platforms.",
+    stack:["Doctor & Clinic","Physiotherapy","B2B Startup","Import / Export"],
+    demo:null,
+    upcoming:true,
+    badge:"Publishing Soon"
+  }
 ];
 
 // ── WRITINGS DATA ──────────────────────────────
@@ -817,6 +885,26 @@ function renderSkillCloud(){
   observeReveal();
 }
 
+function renderMockups(){
+  const grid=document.getElementById('mockups-grid');
+  if(!grid)return;
+  grid.innerHTML=BUSINESS_MOCKUPS.map((m,i)=>{
+    const isUp=m.upcoming;
+    const action=isUp
+      ? `<span class="mockup-pill"><span class="status-dot" style="background:var(--gold);box-shadow:0 0 6px var(--gold)"></span>${m.badge}</span>`
+      : `<a href="${m.demo}" target="_blank" class="btn-gold" style="font-size:.76rem;padding:7px 16px">&#9655; Live Preview</a>
+         <span class="mockup-pill"><span class="status-dot"></span>${m.badge}</span>`;
+    return `<div class="mockup-card reveal d${(i%3)+1}${isUp?' upcoming':''}">
+      <div class="mockup-cat">${m.cat}</div>
+      <div class="mockup-name">${m.name}</div>
+      <div class="mockup-desc">${m.desc}</div>
+      <div class="mockup-stack">${m.stack.map(s=>`<span class="stack-tag">${s}</span>`).join('')}</div>
+      <div class="mockup-links">${action}</div>
+    </div>`;
+  }).join('');
+  observeReveal();
+}
+
 // Writings: card 0 = big, card 3 = big (novel)
 function renderWritings(){
   const grid=document.getElementById('writings-grid');
@@ -1016,6 +1104,7 @@ document.addEventListener('DOMContentLoaded',()=>{
   renderResearch();
   renderTimeline();
   renderSkillCloud();
+  renderMockups();
   renderWritings();
   fetchBlogs();
   observeReveal();
