@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <!-- Background Gradient (Deep Cosmos) -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#091527"/>
+      <stop offset="100%" stop-color="#030912"/>
+    </linearGradient>
+
+    <!-- Egyptian Gold Gradient -->
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FCEBA6"/>
+      <stop offset="35%" stop-color="#E2C56E"/>
+      <stop offset="70%" stop-color="#C8A84B"/>
+      <stop offset="100%" stop-color="#9B7A27"/>
+    </linearGradient>
+
+    <!-- Celestial Teal Glow Accent -->
+    <radialGradient id="tealGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#00BFA8" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#00BFA8" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Gold Shadow & Aura Filter -->
+    <filter id="ankhAura" x="-25%" y="-25%" width="150%" height="150%">
+      <feDropShadow dx="0" dy="0" stdDeviation="1.8" flood-color="#C8A84B" flood-opacity="0.45"/>
+    </filter>
+  </defs>
+
+  <!-- Base Rounded Tile -->
+  <rect width="64" height="64" rx="14" fill="url(#bgGrad)"/>
+  <rect width="64" height="64" rx="14" fill="none" stroke="#C8A84B" stroke-opacity="0.28" stroke-width="1.2"/>
+
+  <!-- Subtle Teal Energy Aura -->
+  <circle cx="32" cy="32" r="27" fill="url(#tealGlow)"/>
+  <circle cx="32" cy="32" r="27" fill="none" stroke="#00BFA8" stroke-opacity="0.12" stroke-width="0.8"/>
+
+  <!-- Ancient Egyptian ANKH (Sign of Life & Eternity) -->
+  <g filter="url(#ankhAura)" stroke="url(#goldGrad)" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <!-- Top Teardrop Loop -->
+    <path d="M 32 30 C 24 30, 20.5 22.5, 20.5 17 C 20.5 10.6, 25.6 6, 32 6 C 38.4 6, 43.5 10.6, 43.5 17 C 43.5 22.5, 40 30, 32 30 Z"/>
+    <!-- Horizontal Crossbar -->
+    <line x1="16" y1="31" x2="48" y2="31"/>
+    <!-- Vertical Stem -->
+    <line x1="32" y1="31" x2="32" y2="56"/>
+  </g>
+
+  <!-- Central Knot Highlight -->
+  <circle cx="32" cy="31" r="2.2" fill="#FCEBA6"/>
+</svg>
